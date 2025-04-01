@@ -1,0 +1,32 @@
+@use 'colors.scss';
+
+.top-header {
+    &_height {
+        min-height: 60px;
+    }
+}
+
+.main-navbar {
+    .dropdown-menu {
+        border-radius: 0px;
+        border: 0px;
+        border-top: 3px solid colors.$secondary-color;
+        margin-top: 17px;
+        padding: 0px;
+    }
+
+    .dropdown-item {
+        font-size: 14px;
+        padding: 0.75em 1.5em;
+    }
+
+    .menu-item {
+        height: 44px;
+    }
+
+    .nav-item.dropdown {
+        padding: 0 7px;
+    }
+
+
+}
