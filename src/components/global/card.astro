@@ -7,23 +7,23 @@ interface Props {
     title: string;
     body: string;
     color?: string;
-    button: {
+    classes?: string;
+    button?: {
       text: string;
       link: string;
     };
   };
 }
 
-const { icon, title, body, color = "bg-white" } = Astro.props.config;
-const { text, link } = Astro.props.config.button;
+const { icon, title, body, color = "bg-white", classes, button } = Astro.props.config;
 ---
 
-<div class={`card ${color}`}>
-  <div class="card-body p-5">
+<div class={`card ${color} ${classes}`}>
+  <div class="card-body p-5 text-center">
     <img src={`/assets/images/${icon}`} alt="CloudBlu" width="90" />
 
     <p class="text-primary title text-large pt-4">{title}</p>
     <p class="text-lead py-3">{body}</p>
-    <Button title={text} link={link} />
+    {button ? <Button title={button.text} link={button.link} /> : null}
   </div>
 </div>
