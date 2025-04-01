@@ -1,5 +1,6 @@
 ---
 import Card from "../global/card.astro";
+import Title from "../global/title.astro";
 
 const CardConfig = [
   {
@@ -46,10 +47,8 @@ const CardConfig = [
 ---
 
 <section id="solutions" class="py-5">
-  <div class="container text-center py-3">
-    <h3 class="text-secondary text-large title text-bold">Explora</h3>
-    <h2 class="text-primary text-extra-large title py-2">Soluciones</h2>
-
+  <div class="container text-center">
+    <Title title="Explora" subtitle="Soluciones" />
     <div class="row py-3">
       {
         CardConfig.map((config) => (
