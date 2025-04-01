@@ -1,0 +1,59 @@
+---
+import Card from "../global/card.astro";
+
+const CardConfig = [
+  {
+    icon: "services-homepage-icon.svg",
+    title: "Servicios Profesionales",
+    body: "Obtenga un equipo de consultores e integradores dedicados para ayudar a implementar nuevas tecnologías, aplicaciones comerciales y políticas. Maximice sus activos existentes y las brechas comerciales de puente.",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "cloud-solutions-homepage-icon.svg",
+    title: "CloudBlu",
+    body: "Reduzca los costos y aumente la flexibilidad con los modelos de implementación en la nube que incluyen servicios privados en la nube, servicios públicos en la nube y soluciones híbridas.",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "managed-services-homepage-icon.svg",
+    title: "Servicios Administrados",
+    body: "Alace las operaciones y ahorre el presupuesto de TI con servicios administrados de TI y AV con soluciones, incluido el personal, que se pueden personalizar para satisfacer las necesidades de su organización.",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "mdr-1.svg",
+    title: "SecureBlu",
+    body: "Mejore su postura de seguridad y minimice el riesgo con una gama completa de servicios de seguridad de asesoramiento y administración. Aproveche una plataforma XDR de vanguardia para capacidades avanzadas de detección y respuesta.",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+];
+---
+
+<div id="services" class="bg-light py-5">
+  <div class="container text-center py-3">
+    <span class="text-secondary text-large title text-bold">Tu proveedor de soluciones tecnológicas</span>
+    <h2 class="text-primary text-extra-large title py-3">Servicios</h2>
+
+    <div class="row py-3">
+      {
+        CardConfig.map((config) => (
+          <div class="col-6 mb-3">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

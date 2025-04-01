@@ -1,3 +1,7 @@
+---
+import Button from "../global/button.astro";
+---
+
 <section id="footer" class="footer bg-light">
   <div class="container border-bottom py-5">
     <div class="row">
@@ -29,10 +33,10 @@
       </div>
     </div>
   </div>
-  <div class="container border-bottom py-5">
+  <div class="container border-bottom py-4">
     <div class="row">
       <div class="col">
-        <h4 class="text-primary title-4 mb-4">About Us</h4>
+        <h4 class="text-primary title-4 mb-4">Sobre Nosotros</h4>
         <p class="mb-5 text-dark text-lead">New Era Technology helps more than 20,000 customers worldwide adapt to a rapidly changing digital world.</p>
         <img src="assets/images/neweratechnology_logo.svg" width="200" />
       </div>
@@ -49,22 +53,26 @@
       </div>
       <div class="col">
         <h4 class="text-primary title-4 mb-4">En Contacto</h4>
-        <p class="mb-5 text-dark text-lead">Obtenga noticias de la industria, ideas comerciales y la información que necesita entregada directamente a su bandeja de entrada.</p>
-        <button class="btn btn-primary btn-lg text-uppercase text-small text-lead">Subscríbete</button>
+        <p class="mb-3 text-dark text-lead">Obtenga noticias de la industria, ideas comerciales y la información que necesita entregada directamente a su bandeja de entrada.</p>
+        <Button title="Subscríbete" link="#" />
       </div>
       <div class="col">
         <h4 class="text-primary title-4 mb-4">Contáctanos</h4>
         <p class="text-primary">877-696-7720</p>
-        <button class="btn btn-primary btn-lg text-uppercase text-small text-lead">Busca la ubicación</button>
+        <Button title="Busca la ubicacion" link="#" />
 
         <ul class="list-decoration-none d-flex d-row gap-2 mt-3">
           <li>
-            <a href="https://www.facebook.com/NewEraTechUS/" title="Follow on Facebook" target="_blank">
-              <i class="fa-brands fa-square-facebook icon-size-md text-primary"></i>
+            <a href="https://www.facebook.com/NewEraTechUS/" class="btn-icon-primary" title="Follow on Facebook" target="_blank">
+              <i class="fa-brands fa-square-facebook icon-size-md"></i>
             </a>
           </li>
-          <li><i class="fa-brands fa-square-x-twitter icon-size-md text-primary"></i></li>
-          <li><i class="fa-brands fa-linkedin icon-size-md text-primary"></i></li>
+          <li>
+            <a href="https://twitter.com/NewEraTech_US" class="btn-icon-primary" target="_blank"> <i class="fa-brands fa-square-x-twitter icon-size-md"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/new-era-technology-us" class="btn-icon-primary" target="_blank"> <i class="fa-brands fa-linkedin icon-size-md"></i></a>
+          </li>
         </ul>
       </div>
     </div>

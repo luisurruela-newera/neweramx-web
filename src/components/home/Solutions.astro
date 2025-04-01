@@ -1,0 +1,63 @@
+---
+import Card from "../global/card.astro";
+
+const CardConfig = [
+  {
+    icon: "collaboration-communications-solutions-homepage-icon.svg",
+    title: "Servicios Profesionales",
+    body: "Funcione mejor en persona y en distancias con la mejor colaboración en su clase y soluciones de comunicaciones unificadas. Inspire a los visitantes con soluciones AV que crean experiencias completamente inmersivas.",
+    color: "bg-light",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "data-networking-homepage-icon.svg",
+    title: "Redes de datos",
+    body: "Conecte a las personas, la información y las ubicaciones con una infraestructura de red confiable que satisfaga sus necesidades comerciales y aplique sus políticas comerciales.",
+    color: "bg-light",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "security-life-safety-homepage-icon.svg",
+    title: "Seguridad y seguridad de la vida",
+    body: "Monitorear y controlar el acceso de los usuarios a su campus y garantizar la seguridad de sus visitantes dentro y fuera de sus instalaciones con estrategias integrales de seguridad y seguridad de la vida.",
+    color: "bg-light",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+  {
+    icon: "digital-transformation-3@4x.png",
+    title: "Transformación digital",
+    body: " La transformación digital utiliza la tecnología para reinventar cómo funcionan las empresas, desde la estrategia hasta las operaciones, las conexiones del cliente. New Era ofrece soluciones holísticas de transformación digital que posicionan su negocio para lo que viene después.",
+    color: "bg-light",
+    button: {
+      text: "Learn More",
+      link: "#",
+    },
+  },
+];
+---
+
+<section id="solutions" class="py-5">
+  <div class="container text-center py-3">
+    <h3 class="text-secondary text-large title text-bold">Explora</h3>
+    <h2 class="text-primary text-extra-large title py-2">Soluciones</h2>
+
+    <div class="row py-3">
+      {
+        CardConfig.map((config) => (
+          <div class="col-6 mb-3">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
