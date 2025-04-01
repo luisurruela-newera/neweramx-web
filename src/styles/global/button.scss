@@ -8,6 +8,7 @@
     margin-left: 1em !important;
     padding: .5em 1.5em .5em 1.5em !important;
     text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn-outline-secondary:hover {
@@ -22,6 +23,7 @@
     border: none;
     background-color: colors.$primary-color;
     padding: .5em 1.5em .5em 1.5em !important;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
@@ -35,4 +37,8 @@
 
 .btn-icon-primary:hover {
     color: colors.$secondary-color;
+}
+
+.btn-primary-no-hover:hover {
+    background-color: colors.$primary-color !important;
 }

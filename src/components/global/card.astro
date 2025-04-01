@@ -1,0 +1,29 @@
+---
+import Button from "./button.astro";
+
+interface Props {
+  config: {
+    icon: string;
+    title: string;
+    body: string;
+    color?: string;
+    button: {
+      text: string;
+      link: string;
+    };
+  };
+}
+
+const { icon, title, body, color = "bg-white" } = Astro.props.config;
+const { text, link } = Astro.props.config.button;
+---
+
+<div class={`card ${color}`}>
+  <div class="card-body p-5">
+    <img src={`/assets/images/${icon}`} alt="CloudBlu" width="90" />
+
+    <p class="text-primary title text-large pt-4">{title}</p>
+    <p class="text-lead py-3">{body}</p>
+    <Button title={text} link={link} />
+  </div>
+</div>
