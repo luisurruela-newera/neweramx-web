@@ -1,3 +1,25 @@
+@use 'colors.scss';
+
 .bg-light {
-    background-color: #f7f7f8 !important;
+    background-color: colors.$light-color !important;
+}
+
+.bg-secondary {
+    background-color: colors.$secondary-color !important;
+}
+
+.bg-primary {
+    background-color: colors.$primary-color !important;
+}
+
+.bg-dark {
+    background-color: colors.$dark-color !important;
+}
+
+.bg-muted {
+    background-color: colors.$muted-color !important;
+}
+
+.bg-white {
+    background-color: colors.$white-color !important;
 }

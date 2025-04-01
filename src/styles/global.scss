@@ -7,6 +7,7 @@
 @use "./global/typography.scss";
 @use "./global/navbar.scss";
 @use "./global/icon.scss";
+@use "./global/card.scss";
 
 html,
 body {
@@ -24,4 +25,14 @@ a {
 
 a:hover {
   opacity: 80% !important;
+}
+
+h2 {
+  font-family: 'Museo300', Helvetica, sans-serif;
+  font-size: 22px;
+}
+
+h3 {
+  font-family: 'Museo300', Helvetica, sans-serif;
+  font-size: 30px;
 }
