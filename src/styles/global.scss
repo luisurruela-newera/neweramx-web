@@ -1,0 +1,27 @@
+@use "./global/colors.scss";
+@use "./global/fonts.scss";
+
+@use "./global/background.scss";
+@use "./global/dropdown.scss";
+@use "./global/button.scss";
+@use "./global/typography.scss";
+@use "./global/navbar.scss";
+@use "./global/icon.scss";
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, "Segoe UI Light", Arial, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 80% !important;
+}

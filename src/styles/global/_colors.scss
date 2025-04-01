@@ -1,0 +1,20 @@
+$primary-color: #002c6a;
+$secondary-color: #4ac7e9;
+$dark-color: #333333;
+$muted-color: #a5a5a5;
+
+.text-light-blue {
+    color: $secondary-color !important;
+}
+
+.text-primary {
+    color: $primary-color !important;
+}
+
+.text-dark {
+    color: $dark-color !important;
+}
+
+.text-muted {
+    color: $muted-color !important;
+}
