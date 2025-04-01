@@ -28,3 +28,11 @@
     border: none;
     background-color: colors.$secondary-color;
 }
+
+.btn-icon-primary {
+    color: colors.$primary-color;
+}
+
+.btn-icon-primary:hover {
+    color: colors.$secondary-color;
+}

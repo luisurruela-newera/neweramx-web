@@ -2,8 +2,10 @@ $primary-color: #002c6a;
 $secondary-color: #4ac7e9;
 $dark-color: #333333;
 $muted-color: #a5a5a5;
+$light-color: #f7f7f8;
+$white-color: #ffffff;
 
-.text-light-blue {
+.text-secondary {
     color: $secondary-color !important;
 }
 
@@ -17,4 +19,12 @@ $muted-color: #a5a5a5;
 
 .text-muted {
     color: $muted-color !important;
+}
+
+.text-light {
+    color: $light-color !important;
+}
+
+.text-white {
+    color: $white-color !important;
 }

@@ -2,6 +2,18 @@
     font-size: 13px;
 }
 
+.text-large {
+    font-size: 22px;
+}
+
+.text-extra-large {
+    font-size: 30px;
+}
+
+.text-bold {
+    font-weight: 700 !important;
+}
+
 .text-decoration-none {
     text-decoration: none !important;
 }
@@ -14,6 +26,10 @@
 .text-lead {
     font-weight: 300 !important;
     line-height: 24px;
+}
+
+.title {
+    font-family: 'Museo300', Helvetica, sans-serif;
 }
 
 .title-4 {
