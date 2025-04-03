@@ -4,5 +4,17 @@
     border-radius: 0px;
     border: none;
     border-bottom: 5px solid colors.$secondary-color;
-    min-height: 450px;
+}
+
+.btn-transparent {
+    border: 1px solid colors.$white-color;
+    background-color: rgba(colors.$primary-color, 0.5) !important;
+    color: colors.$white-color !important;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.btn-transparent:hover {
+    border: 1px solid colors.$white-color;
+    background-color: rgba(colors.$primary-color, 1) !important;
 }

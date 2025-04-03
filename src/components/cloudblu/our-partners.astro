@@ -1,0 +1,38 @@
+---
+import Slider from "../global/slider.astro";
+
+const sliderConfig = {
+  slidesPerView: 3,
+  background: "bg-white",
+  items: [
+    { image: "cisco_gold_partner_logo.png" },
+    { image: "Poly-Gold-Partner.png" },
+    { image: "Extreme.svg" },
+    { image: "samsung.svg" },
+    { image: "Aruba_Networks_logo.png" },
+    { image: "axis-communications-19391a.svg" },
+    { image: "christie-a.svg" },
+    { image: "Fortinet-Logo.svg" },
+    { image: "genetec-seeklogo.svg" },
+    { image: "crestron-logo.svg" },
+    { image: "zoom.png" },
+    { image: "avigilon-logo-1.svg" },
+    { image: "Partners-Logos_Avaya-Diamond.png" },
+    { image: "harman-international-logo.svg" },
+    { image: "Microsoft-Solutions-Partner-Logo.svg" },
+    { image: "milestone-logo.png" },
+    { image: "Logo_Legrand_SA.svg" },
+    { image: "LenelS2-logo-a.svg" },
+    { image: "Logitech_logo.svg" },
+    { image: "paloalto.png" },
+    { image: "Shure_Logo.png" },
+  ],
+};
+---
+
+<section id="our-partners" class="our-partners py-5">
+  <div class="container py-3 text-center">
+    <h2 class="text-secondary title text-extra-large">Nuestros Socios</h2>
+    <Slider config={sliderConfig} />
+  </div>
+</section>

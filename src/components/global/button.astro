@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   link: string;
+  class?: "btn-primary" | "btn-secondary" | "btn-transparent";
 }
 
-const { title, link } = Astro.props;
+const { title, link, class: className } = Astro.props; // Renombrar class a className para evitar conflictos
 ---
 
-<a href={link} class="btn btn-primary btn-lg text-uppercase text-small text-lead">{title}</a>
+<a href={link} class={`btn ${className ? className : "btn-primary"} btn-lg text-uppercase text-small text-lead`}>{title}</a>

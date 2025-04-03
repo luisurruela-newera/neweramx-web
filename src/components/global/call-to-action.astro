@@ -1,0 +1,27 @@
+---
+import Button from "./button.astro";
+---
+
+<section class="call-to-action">
+  <div class="background-image"></div>
+  <div class="d-flex align-items-center">
+    <div class="container text-center">
+      <h3 class="text-white title text-large">Habla con un experto</h3>
+      <h6 class="text-white">Discuta sus necesidades comerciales directamente con uno de nuestro equipo de expertos.</h6>
+      <div class="py-4">
+        <Button title="Solicitar Consulta" class="btn-transparent" link="https://www.neweratech.com/us/contact-us/" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .call-to-action {
+    background: #041b39 url("/assets/images/meet-with-an-expert-bg-1.jpg") fixed center center no-repeat;
+    background-size: auto;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
