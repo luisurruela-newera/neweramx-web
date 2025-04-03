@@ -1,14 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Title from "../components/AboutUs/Title.astro";
-import Video from "../components/AboutUs/Video.astro";
-import Locations from "../components/AboutUs/Locations.astro";
-import Leadership from "../components/AboutUs/Leadership.astro";
-import Careers from "../components/AboutUs/Careers.astro";
-import Partnerships from "../components/AboutUs/Partnerships.astro";
-import Policies from "../components/AboutUs/Policies.astro";
-import Memberships from "../components/AboutUs/Memberships.astro";
-import "../styles/aboutus.scss";
+import About from "../components/about-us/About.astro";
+import Locations from "../components/about-us/Locations.astro";
+import Leadership from "../components/about-us/Leadership.astro";
+import Careers from "../components/about-us/Careers.astro";
+import Partnerships from "../components/about-us/Partnerships.astro";
+import Policies from "../components/about-us/Policies.astro";
+import Memberships from "../components/about-us/Memberships.astro";
+import Cover from "../components/about-us/Cover.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,17 +15,13 @@ import "../styles/aboutus.scss";
 
 <Layout>
   <main>
-      <article id="aboutus">
-        <Title />
-        <Video />
-        <Locations />
-        <Leadership />
-        <Careers />
-        <Partnerships />
-        <Policies />
-        <Memberships />
-      </article>
+    <Cover />
+    <About />
+    <Locations />
+    <Leadership />
+    <Careers />
+    <Partnerships />
+    <Policies />
+    <Memberships />
   </main>
-  
 </Layout>
-

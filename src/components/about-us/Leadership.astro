@@ -1,0 +1,97 @@
+---
+import Button from "@components/global/button.astro";
+import Card from "@components/global/card.astro";
+
+const configCard = {
+  image: "Kevin.png",
+  title: "Kevin Keleghan",
+  body: "Chief Executive Officer",
+  classes: "border-0",
+};
+
+const profileCards = [
+  {
+    image: "Untitled-design-45.png",
+    title: "Punit Dewan",
+    body: "Chief Corporate Officer",
+    classes: "border-0",
+  },
+  {
+    image: "Untitled-design-40.png",
+    title: "Mike Harmin",
+    body: "Chief Sales Officer",
+    classes: "border-0",
+  },
+  {
+    image: "Patrick.png",
+    title: "Patrick O'Hara",
+    body: "Chief Performance Officer",
+    classes: "border-0",
+  },
+  {
+    image: "Kevin-Scott.png",
+    title: "Kevin Scott",
+    body: "Chief Information Officer",
+    classes: "border-0",
+  },
+  {
+    image: "Angela.png",
+    title: "Angela Johnson",
+    body: "Chief Human Resources Officer",
+    classes: "border-0",
+  },
+  {
+    image: "Untitled-design-39.png",
+    title: "Jaie Solis",
+    body: "President, Enterprise Solutions Group",
+    classes: "border-0",
+  },
+  {
+    image: "Untitled-design-41.png",
+    title: "Sean Doherty",
+    body: "President, Technology Solution Group",
+    classes: "border-0",
+  },
+  {
+    image: "Nick-Grogan_MSG-President_2024_EDIT.jpg",
+    title: "Nick Grogan",
+    body: "President, APAC Midmarket Solutions Group",
+    classes: "border-0",
+  },
+  {
+    image: "tim-galloway.png",
+    title: "Tim Galloway",
+    body: "President, US Midmarket Solutions Group & Shared Services",
+    classes: "border-0",
+  },
+];
+---
+
+<section id="leadership" class="bg-light py-5">
+  <div class="container py-3 text-center">
+    <h2 class="text-primary title text-extra-large mb-2">New Era Technology Leadership</h2>
+    <div class="mt-4">
+      <a class="btn btn-primary text-lead text-uppercase px-5 pt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample">Conoce al equipo</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="collapse" id="collapseExample">
+      <div class="row">
+        <div class="col-8 d-flex align-items-center mb-5 px-5">
+          <h3 class="text-primary">El equipo de liderazgo de New Era es un grupo dinámico de expertos de la industria comprometidos a fomentar la innovación y la excelencia en toda la organización.</h3>
+        </div>
+        <div class="col-4 text-center pb-5 px-5">
+          <Card config={configCard} />
+        </div>
+        {
+          profileCards.map((card) => (
+            <div class="col-4 card-group mb-5 px-5">
+              <Card config={card} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

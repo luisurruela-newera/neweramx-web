@@ -18,6 +18,21 @@
     opacity: 70% !important;
 }
 
+.btn-secondary {
+    border-radius: 5px;
+    border: none;
+    background-color: colors.$secondary-color;
+    color: #fff;
+    padding: .5em 1.5em .5em 1.5em !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background-color: colors.$secondary-color;
+    color: colors.$primary-color;
+    opacity: 100% !important;
+}
+
 .btn-primary {
     border-radius: 5px;
     border: none;

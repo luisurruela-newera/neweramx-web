@@ -1,0 +1,5 @@
+@use 'colors.scss';
+
+.border-secondary {
+    border-color: colors.$secondary-color !important;
+}

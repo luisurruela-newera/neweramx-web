@@ -6,4 +6,11 @@ export default defineConfig({
   image: {
     domains: ["assets/images/*.svg"],
   },
+  vite: {
+    resolve: {
+      alias: {
+        "@components": "src/components",
+      },
+    },
+  },
 });
