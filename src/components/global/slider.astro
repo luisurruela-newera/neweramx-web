@@ -15,7 +15,7 @@ interface Props {
 }
 
 interface ISlider {
-  image: string;
+  image?: string;
   title?: string;
   description?: string;
 }
@@ -30,7 +30,7 @@ const sliderHeight = config.height || 420;
       config.items.map((slide: ISlider) => (
         <div class={`swiper-slide ${config.background ? config.background : "bg-primary"}`}>
           <div class="slide-content">
-            <img src={`/assets/images/${slide.image}`} alt={slide.title} />
+            {slide.image ? <img src={`/assets/images/${slide.image}`} alt={slide.title} /> : null}
             {slide.title ? <h2>{slide.title}</h2> : null}
             {slide.title ? <p>{slide.description}</p> : null}
           </div>
@@ -38,9 +38,9 @@ const sliderHeight = config.height || 420;
       ))
     }
   </div>
-  <div class={`swiper-pagination ${config.background ? "light" : ""}`}></div>
-  <div class={`swiper-button-prev ${config.background ? "light" : ""}`}></div>
-  <div class={`swiper-button-next ${config.background ? "light" : ""}`}></div>
+  <div class={`swiper-pagination ${config.background ? "light" : "dark"}`}></div>
+  <div class={`swiper-button-prev ${config.background ? "light" : "dark"}`}></div>
+  <div class={`swiper-button-next ${config.background ? "light" : "dark"}`}></div>
 </div>
 
 <script define:vars={{ slidesPerView: config.slidesPerView }} type="module">
@@ -125,9 +125,12 @@ const sliderHeight = config.height || 420;
     }
   }
 
-  .swiper-button-prev {
-    left: 15px;
-    transform: translateY(-50%) translateX(-100%);
+  .swiper-button-prev.dark {
+    background-color: transparent;
+  }
+
+  .swiper-button-next.dark {
+    background-color: transparent;
   }
 
   .swiper-button-next {
@@ -182,5 +185,13 @@ const sliderHeight = config.height || 420;
   :global(.swiper-pagination-bullet-active) {
     background-color: rgba($secondary-color, 1) !important;
     opacity: 1 !important;
+  }
+
+  :global(.dark .swiper-pagination-bullet) {
+    background-color: rgba($white-color, 0.2) !important;
+  }
+
+  :global(.dark .swiper-pagination-bullet-active) {
+    background-color: rgba($secondary-color, 1) !important;
   }
 </style>
