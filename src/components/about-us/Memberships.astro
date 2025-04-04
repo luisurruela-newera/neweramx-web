@@ -1,3 +1,40 @@
+---
+import Slider from "@components/global/slider.astro";
+
+const sliderConfig = {
+  background: "bg-white",
+  slidesPerView: 3,
+  width: "40%",
+  height: 300,
+  items: [
+    {
+      image: "ASHE.png",
+    },
+    {
+      image: "APEX-Logo.jpg",
+    },
+    {
+      image: "ETA.png",
+    },
+    {
+      image: "himss-logo.png",
+    },
+    {
+      image: "ISHE2013Logo.jpg",
+    },
+    {
+      image: "NSCA.jpg",
+    },
+    {
+      image: "NJAC.png",
+    },
+    {
+      image: "NJASA.png",
+    },
+  ],
+};
+---
+
 <section id="memberships" class="py-5">
   <div class="container py-3 text-center">
     <h2 class="text-primary mb-3">Memberships & Certifications</h2>
@@ -5,5 +42,6 @@
       New ERA ha mantenido mucho su compromiso de proporcionar excelencia y experiencia en la industria a nuestros clientes. Tenemos membresías profesionales en muchas organizaciones líderes en la industria, y
       participamos activamente en la educación continua e iniciativas que fortalecen nuestra posición como líderes de opinión en las industrias a las que servimos.
     </p>
+    <Slider config={sliderConfig} />
   </div>
 </section>
