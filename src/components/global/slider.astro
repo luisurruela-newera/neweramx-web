@@ -2,15 +2,14 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../../styles/global/_colors.scss";
 
 interface Props {
   config: {
     background?: string;
     slidesPerView: number;
     height?: number;
-    items: ISlider[];
     width?: string;
+    items: ISlider[];
   };
 }
 
@@ -60,14 +59,14 @@ const sliderHeight = config.height || 420;
         prevEl: ".swiper-button-prev",
       },
       slidesPerView: slidesPerView,
-      slidesPerGroup: slidesPerView,
       spaceBetween: 30,
+      slidesPerGroup: slidesPerView,
     });
   });
 </script>
 
 <style lang="scss">
-  @import "../../styles/global/_colors.scss";
+  @use "../../styles/global/_config.scss" as *;
 
   .swiper-container {
     width: 100%;
@@ -133,6 +132,11 @@ const sliderHeight = config.height || 420;
     background-color: transparent;
   }
 
+  .swiper-button-prev {
+    left: 15px;
+    transform: translateY(-50%) translateX(-100%);
+  }
+
   .swiper-button-next {
     right: 15px;
     transform: translateY(-50%) translateX(100%);
@@ -170,19 +174,6 @@ const sliderHeight = config.height || 420;
   }
 
   .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: rgba($secondary-color, 1) !important;
-    opacity: 1 !important;
-  }
-
-  /* Override Swiper default styles */
-  :global(.swiper-pagination-bullet) {
-    width: 15px;
-    height: 15px;
-    background-color: rgba($dark-color, 0.1) !important;
-    opacity: 1 !important;
-  }
-
-  :global(.swiper-pagination-bullet-active) {
     background-color: rgba($secondary-color, 1) !important;
     opacity: 1 !important;
   }
