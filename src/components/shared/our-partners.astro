@@ -2,9 +2,10 @@
 import Slider from "../global/slider.astro";
 
 const sliderConfig = {
-  slidesPerView: 3,
+  slidesPerView: 4,
   background: "bg-white",
   height: 280,
+  width: "80%",
   items: [
     { image: "cisco_gold_partner_logo.png" },
     { image: "Poly-Gold-Partner.png" },
@@ -34,6 +35,8 @@ const sliderConfig = {
 <section id="our-partners" class="our-partners py-5">
   <div class="container py-0 text-center">
     <h2 class="text-secondary title text-extra-large">Nuestros Socios</h2>
-    <Slider config={sliderConfig} />
+    <div class="d-flex justify-content-center">
+      <Slider config={sliderConfig} />
+    </div>
   </div>
 </section>

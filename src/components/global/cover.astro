@@ -1,0 +1,32 @@
+---
+interface CoverProps {
+  config: {
+    image: string;
+    background: string;
+  };
+}
+
+const { config } = Astro.props;
+const { image, background } = config;
+---
+
+<section id="cover">
+  <article class="cover">
+    <div class="container d-flex align-items-center">
+      <img src={image} alt="CloudBlu" width="285" />
+      <div class="content" style={background}></div>
+    </div>
+  </article>
+</section>
+
+<style>
+  .cover {
+    background: radial-gradient(circle at center, #0f364c 20%, #031322 100%) !important;
+  }
+
+  .content {
+    height: 530px;
+    margin-right: 100px;
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import Card from "@components/global/card.astro";
+import Title from "@components/global/title.astro";
+
+const CardConfig = [
+  {
+    icon: "av-icon.svg",
+    title: "Audio visual",
+    body: "Confíe en los servicios del Centro de Operaciones de Red de Video de Video (VNOC) de la nueva era de la nueva era para administrar y monitorear de forma remota sus sistemas AV y prevenir fallas o interrupciones del sistema durante las reuniones importantes. El soporte siempre está a solo un teléfono o una videollamada de distancia. El programa de servicio y mantenimiento de la tecnología de la nueva era está diseñado para garantizar la longevidad de su sistema AV y resolver rápidamente los problemas operativos.",
+    classes: "border-0",
+  },
+  {
+    icon: "it-icon.svg",
+    title: "TI",
+    body: "Mejore la eficiencia y el rendimiento de su infraestructura de tecnología de red con una de varias opciones de servicio disponibles. Nuestro equipo trabajará con usted para determinar la amplitud del servicio y el nivel de apoyo que necesita. New ERA proporciona un monitoreo continuo de la infraestructura de la red de datos de misión crítica de nuestro Centro de Operaciones de Red (NOC), que cuenta las 24/7 y está equipada con las tecnologías más sofisticadas de la industria.",
+    classes: "border-0",
+  },
+  {
+    icon: "uc-icon.svg",
+    title: "Comunicaciones unificadas",
+    body: "Nuestro servicio de superposición de mantenimiento proporciona cobertura holística para garantizar que sus sistemas UC permanezcan en funcionamiento. Este servicio está diseñado para complementar la cobertura del fabricante y maximizar el tiempo de actividad a través de los servicios de soporte de monitorización de eventos, alarmantes y garantizados en el sitio del reconocido equipo de servicio de New Era.",
+    classes: "border-0",
+  },
+  {
+    icon: "security-icon.svg",
+    title: "Seguridad de la red",
+    body: "Asegure y gestiona una multitud de dispositivos, reduce los costos operativos y simplifica las complejidades asociadas con las soluciones de seguridad de red de la nueva era. Con una profunda comprensión técnica de las prácticas de seguridad y los requisitos de cumplimiento, ofrecemos soluciones personalizadas para satisfacer las necesidades específicas de su empresa.",
+    classes: "border-0",
+  },
+  {
+    icon: "workforce-staff-augmentation.svg",
+    title: "Soporte en el sitio",
+    body: "Extienda su equipo de tecnología interna y cubra las brechas de habilidades a corto o largo plazo con soporte en el sitio. Los servicios de soporte en el sitio de New ERA proporcionan una estrategia rentable que resulta en una escalabilidad más rápida para su negocio, sin comprometer sus altos estándares de calidad y confiabilidad. Podemos apoyar sus iniciativas de crecimiento con conjuntos de habilidades especializadas sobre una base de proyecto o administrando las operaciones diarias.",
+    classes: "border-0",
+  },
+  {
+    icon: "physical-security-1.png",
+    title: "Seguridad física",
+    body: "Reconocemos la importancia de mantener seguros a su personal, clientes y propiedades. New Era reúne una variedad diversa de soluciones de seguridad de última generación para garantizar la seguridad de su entorno. Tomamos un enfoque holístico al revisar las posibles amenazas para determinar las mejores soluciones de seguridad de la vida para su negocio.",
+    classes: "border-0",
+  },
+];
+---
+
+<section id="explore" class="py-5 bg-light">
+  <div class="container py-3 text-center">
+    <Title title="Explora" subtitle="Lograr resultados comerciales con la nueva era gestionaria" />
+    <div class="row">
+      {
+        CardConfig.map((config) => (
+          <div class="col-4 mb-3 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

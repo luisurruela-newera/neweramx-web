@@ -1,23 +1,10 @@
-<section id="cover">
-  <article class="cover">
-    <div class="container d-flex align-items-center">
-      <img src="/assets/images/CloudBlu_NewEra.svg" alt="CloudBlu" width="285" />
-      <div class="content"></div>
-    </div>
-  </article>
-</section>
+---
+import CoverComponent from "@components/global/cover.astro";
 
-<style>
-  .cover {
-    background: radial-gradient(circle at center, #0f364c 20%, #031322 100%) !important;
-  }
+const coverConfig = {
+  image: "/assets/images/CloudBlu_NewEra.svg",
+  background: 'background: url("/assets/images/cloud-solutions-banner-image-crop.png") top right no-repeat; background-size: contain; background-position-y: 50px;',
+};
+---
 
-  .content {
-    background: url("/assets/images/cloud-solutions-banner-image-crop.png") top right no-repeat;
-    background-size: contain;
-    background-position-y: 50px;
-    height: 530px;
-    margin-right: 100px;
-    width: 100%;
-  }
-</style>
+<CoverComponent config={coverConfig} />

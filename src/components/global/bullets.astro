@@ -1,0 +1,56 @@
+---
+interface Props {
+  config: {
+    gradient: string;
+    background: string;
+    height: string;
+    bullets: bulletElement[];
+  };
+}
+
+interface bulletElement {
+  body: string;
+}
+
+const { config } = Astro.props;
+const { gradient, background, height, bullets } = config;
+---
+
+<section class="bullets-container" style={height}>
+  <div class="background-image" style={background}></div>
+  <div class="gradient-overlay d-flex align-items-center" style={gradient}>
+    <div class="container">
+      <ul class="text-white text-lead list-decoration-none w-50 p-0 m-0">
+        {
+          bullets.map((bullet) => (
+            <li class="d-flex d-row justify-content-start mb-4">
+              <i class="fa fa-check-circle me-3 mt-1" />
+              {bullet.body}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bullets-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-size: auto;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

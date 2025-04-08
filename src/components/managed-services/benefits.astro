@@ -1,0 +1,17 @@
+---
+import Bullets from "@components/global/bullets.astro";
+
+const bulletsConfig = {
+  gradient: "background: linear-gradient(to right, rgba(0, 44, 106, 1) 55%, rgba(0, 44, 106, 25%) 75%, rgba(0, 44, 106, 0) 100%);",
+  background: 'background: url("/assets/images/ManagedServicesMDF-1.jpg") center right no-repeat;',
+  height: "height: 380px;",
+  bullets: [
+    { body: "Gestión completa y monitoreo de todo o parte de su TI, AV, comunicaciones unificadas e infraestructura de seguridad física con nuestro centro de operaciones de red 24-7" },
+    { body: "Alertas personalizadas activadas por incidentes" },
+    { body: "Informes personalizados y acceso completo a datos históricos en tiempo real y en tiempo real" },
+    { body: "Información del rendimiento de la red con acceso completo a nuestra solución de monitoreo de red de última generación" },
+  ],
+};
+---
+
+<Bullets config={bulletsConfig} />

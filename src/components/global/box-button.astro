@@ -1,0 +1,30 @@
+---
+interface Props {
+  config: {
+    icon?: string;
+    image?: string;
+    title: string;
+    classes?: string;
+    link: string;
+  };
+}
+
+const { icon, image, title, classes, link } = Astro.props.config;
+---
+
+<a href={link} class="w-100 h-100 card-group">
+  <div class={`${classes}`}>
+    <div class="p-5 text-center">
+      {icon ? <img src={`/assets/images/${icon}`} alt={title} width="90" /> : null}
+      {image ? <img src={`/assets/images/${image}`} alt={title} class="img-fluid image" /> : null}
+      <p class="text-primary title text-large pt-4">{title}</p>
+    </div>
+  </div>
+</a>
+
+<style>
+  .image {
+    height: 150px;
+    object-fit: contain;
+  }
+</style>

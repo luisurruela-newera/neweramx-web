@@ -1,0 +1,45 @@
+---
+import BoxButton from "../global/box-button.astro";
+
+const cardConfig = [
+  {
+    icon: "cloud-solutions-homepage-icon.svg",
+    title: "CloudBlu",
+    classes: "border-0 bg-white w-100",
+    link: "/cloudblu",
+  },
+  {
+    icon: "collaboration-communications-solutions-homepage-icon-1.svg",
+    title: "Colaboración y UC",
+    classes: "border-0 bg-white w-100",
+    link: "#",
+  },
+  {
+    icon: "data-networking-homepage-icon-1.svg",
+    title: "Red de Datos",
+    classes: "border-0 bg-white w-100",
+    link: "#",
+  },
+  {
+    icon: "security-life-safety-homepage-icon-1.svg",
+    title: "Seguridad y Vida Segura",
+    classes: "border-0 bg-white w-100",
+    link: "#",
+  },
+];
+---
+
+<section id="extraSolutions" class="bg-light py-5">
+  <div class="container text-center py-3">
+    <h3 class="text-primarym mb-4">Soluciones Complementarios</h3>
+    <div class="row py-4">
+      {
+        cardConfig.map((config) => (
+          <div class="col-3 mb-3 card-group">
+            <BoxButton config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
