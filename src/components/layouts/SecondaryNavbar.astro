@@ -1,11 +1,38 @@
+---
+const links = [
+  {
+    text: "Transformación Digital",
+    href: "#",
+  },
+  {
+    text: "Soluciones de Cyberseguridad",
+    href: "#",
+  },
+  {
+    text: "Inteligencia Artificial",
+    href: "#",
+  },
+  {
+    text: "Espacios de Trabajo Moderno",
+    href: "#",
+  },
+  {
+    text: "Modernización de Redes e Infraestructura",
+    href: "#",
+  },
+];
+---
+
 <div id="secondary-navbar" class="bg-secondary secondary-navbar d-flex align-items-center">
   <div class="container">
     <ul class="d-flex d-row text-white list-decoration-none gap-4">
-      <li class="secondary-navbar__item"><a href="">Transformación Digital</a></li>
-      <li class="secondary-navbar__item"><a href="">Soluciones de Cyberseguridad</a></li>
-      <li class="secondary-navbar__item"><a href="">Inteligencia Artificial</a></li>
-      <li class="secondary-navbar__item"><a href="">Espacios de Trabajo Moderno</a></li>
-      <li class="secondary-navbar__item"><a href="">Modernización de Redes e Infraestructura</a></li>
+      {
+        links.map((link) => (
+          <li class="secondary-navbar__item">
+            <a href={link.href}>{link.text}</a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>

@@ -21,10 +21,11 @@ interface ISlider {
 
 const { config } = Astro.props;
 const sliderHeight = config.height || 420;
+const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class="swiper-container" style={`height: ${sliderHeight}px;`}>
-  <div class="swiper-wrapper" style={`max-width: ${config.width}`}>
+<div class="swiper-container" style={`height: ${sliderHeight}px; max-width: ${config.width}`} id={sliderId}>
+  <div class="swiper-wrapper">
     {
       config.items.map((slide: ISlider) => (
         <div class={`swiper-slide ${config.background ? config.background : "bg-primary"}`}>
@@ -42,21 +43,21 @@ const sliderHeight = config.height || 420;
   <div class={`swiper-button-next ${config.background ? "light" : "dark"}`}></div>
 </div>
 
-<script define:vars={{ slidesPerView: config.slidesPerView }} type="module">
+<script define:vars={{ slidesPerView: config.slidesPerView, sliderId }} type="module">
   import Swiper from "/node_modules/swiper/swiper-bundle.mjs";
   import { Navigation, Pagination } from "/node_modules/swiper/modules/index.mjs";
 
   document.addEventListener("DOMContentLoaded", () => {
-    new Swiper(".swiper-container", {
+    new Swiper(`#${sliderId}`, {
       modules: [Navigation, Pagination],
       loop: true,
       pagination: {
-        el: ".swiper-pagination",
+        el: `#${sliderId} .swiper-pagination`,
         clickable: true,
       },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: `#${sliderId} .swiper-button-next`,
+        prevEl: `#${sliderId} .swiper-button-prev`,
       },
       slidesPerView: slidesPerView,
       spaceBetween: 30,

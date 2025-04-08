@@ -1,11 +1,29 @@
+---
+import Title from "@components/global/title.astro";
+
+const stats = [
+  {
+    icon: "/assets/images/stat-icon-1.svg",
+    title: "Más de 20,000 clientes",
+  },
+  {
+    icon: "/assets/images/stat-icon-2.svg",
+    title: "80+ Oficinas en el mundo",
+  },
+  {
+    icon: "/assets/images/stat-icon-3.svg",
+    title: "Más de 4,500 Empleados",
+  },
+];
+---
+
 <section id="stats" class="bg-white">
   <div class="container p-5 my-5 text-center">
     <p class="pulse-animation py-5 text-primary">De lo <span class="text-bold">físico</span> a lo <span class="text-bold">digital</span>, ofrecemos tecnología<br />de extremo a extremo a escala.</p>
   </div>
 
   <div class="container text-center">
-    <h2 class="text-secondary title-4 pb-1">Estádisticas</h2>
-    <h3 class="text-primary pb-3">New Era Technology</h3>
+    <Title title="Estádisticas" subtitle="New Era Technology" />
     <p class="text-lead">
       La nueva tecnología de ERA es su proveedor de soluciones tecnológicas. New ERA tiene un extenso equipo de ingenieros, diseñadores, instaladores, técnicos y profesionales de ventas, todos los cuales proporcionan
       consultas colaborativas prácticas respaldadas por una profunda capacitación y certificación de la industria. Desde el concepto y la implementación hasta la capacitación y el servicio, trabajamos en asociación con
@@ -13,18 +31,14 @@
     </p>
 
     <div class="row py-5">
-      <div class="col text-center">
-        <img src="/assets/images/stat-icon-1.svg" alt="Más de 20,000 clientes" width="150" />
-        <h3 class="text-primary title-4 py-4">Más de 20,000 clients</h3>
-      </div>
-      <div class="col text-center">
-        <img src="/assets/images/stat-icon-2.svg" alt="Más de 20,000 clientes" width="150" />
-        <h3 class="text-primary title-4 py-4">80+ Oficinas en el mundo</h3>
-      </div>
-      <div class="col text-center">
-        <img src="/assets/images/stat-icon-3.svg" alt="Más de 20,000 clientes" width="150" />
-        <h3 class="text-primary title-4 py-4">Más de 4,500 Empleados</h3>
-      </div>
+      {
+        stats.map((stat) => (
+          <div class="col text-center">
+            <img src={`${stat.icon}`} alt={stat.title} width="150" />
+            <h3 class="text-primary title-4 py-4">{stat.title}</h3>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

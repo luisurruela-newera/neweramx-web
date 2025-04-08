@@ -4,34 +4,9 @@ import Slider from "@components/global/slider.astro";
 const sliderConfig = {
   background: "bg-white",
   slidesPerView: 3,
-  width: "40%",
+  width: "80%",
   height: 300,
-  items: [
-    {
-      image: "ASHE.png",
-    },
-    {
-      image: "APEX-Logo.jpg",
-    },
-    {
-      image: "ETA.png",
-    },
-    {
-      image: "himss-logo.png",
-    },
-    {
-      image: "ISHE2013Logo.jpg",
-    },
-    {
-      image: "NSCA.jpg",
-    },
-    {
-      image: "NJAC.png",
-    },
-    {
-      image: "NJASA.png",
-    },
-  ],
+  items: [{ image: "ASHE.png" }, { image: "APEX-Logo.jpg" }, { image: "ETA.png" }, { image: "himss-logo.png" }, { image: "ISHE2013Logo.jpg" }, { image: "NSCA.jpg" }, { image: "NJAC.png" }, { image: "NJASA.png" }],
 };
 ---
 
@@ -42,6 +17,9 @@ const sliderConfig = {
       New ERA ha mantenido mucho su compromiso de proporcionar excelencia y experiencia en la industria a nuestros clientes. Tenemos membresías profesionales en muchas organizaciones líderes en la industria, y
       participamos activamente en la educación continua e iniciativas que fortalecen nuestra posición como líderes de opinión en las industrias a las que servimos.
     </p>
-    <Slider config={sliderConfig} />
+
+    <div class="d-flex justify-content-center">
+      <Slider config={sliderConfig} />
+    </div>
   </div>
 </section>

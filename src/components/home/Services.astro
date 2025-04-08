@@ -1,4 +1,5 @@
 ---
+import Title from "@components/global/title.astro";
 import Cover from "../about-us/Cover.astro";
 import Card from "../global/card.astro";
 
@@ -44,7 +45,7 @@ const CardConfig = [
 
 <div id="services" class="bg-light py-5">
   <div class="container text-center">
-    <Cover title="Tu proveedor de soluciones tecnológicas" subtitle="Servicios" />
+    <Title title="Tu proveedor de soluciones tecnológicas" subtitle="Servicios" />
     <div class="row py-3">
       {
         CardConfig.map((config) => (
