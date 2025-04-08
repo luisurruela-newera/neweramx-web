@@ -1,20 +1,25 @@
 ---
-interface CoverProps {
+interface Props {
   config: {
-    image: string;
+    icon?: string;
+    image?: string;
+    title?: string;
     background: string;
   };
 }
 
 const { config } = Astro.props;
-const { image, background } = config;
+const { icon, image, background, title } = config;
 ---
 
 <section id="cover">
   <article class="cover">
-    <div class="container d-flex align-items-center">
-      <img src={image} alt="CloudBlu" width="285" />
-      <div class="content" style={background}></div>
+    <div class="container">
+      <div class="content d-flex align-items-center px-3" style={background}>
+        {icon && <img src={icon} alt="New Era Technology" width="90" class="me-2" />}
+        {image && <img src={image} alt="New Era Technology" width="285" />}
+        {title && <h1 class="text-white text-super-large">{title}</h1>}
+      </div>
     </div>
   </article>
 </section>

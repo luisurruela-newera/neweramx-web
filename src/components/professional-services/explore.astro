@@ -1,0 +1,64 @@
+---
+import Card from "@components/global/card.astro";
+import Title from "@components/global/title.astro";
+
+const CardConfig = [
+  {
+    icon: "consulting-icon.svg",
+    title: "Consultante",
+    body: "Transforme su organización con los servicios de consultoría de New Era. Aprovechando nuestra profunda experiencia, trabajamos con usted para desarrollar estrategias para mejorar la infraestructura técnica y las eficiencias operativas con un enfoque de tecnología-agnóstico y múltiples proveedores. El resultado es la implementación acelerada e integración de proyectos y valor entregados en toda su organización, desde ejecutivos de C-suite hasta ingenieros en la línea del frente.",
+    classes: "border-0",
+  },
+  {
+    icon: "design-deployment-integration-icon.svg",
+    title: "Diseño, implementación e integración",
+    body: "Reduzca sus riesgos de implementación y acelere la adopción de nuevas tecnologías con los servicios de diseño, implementación e integración de diseño profesional de la nueva era. Nuestro enfoque arquitectónico aplica las mejores prácticas probadas, las herramientas más efectivas y las metodologías sólidas reunidas a partir de años de entrega con éxito proyectos complejos.",
+    classes: "border-0",
+  },
+  {
+    icon: "lifecycle-maintainance.svg",
+    title: "Mantenimiento del ciclo de vida",
+    body: "Las ofertas del ciclo de vida de New ERA incluyen una variedad de productos de mantenimiento de fabricantes y socios diseñados para proteger su inversión, obtener el valor de un producto/solución, garantizar que se cumplan los requisitos de cumplimiento y reconocer los beneficios de costos de las renovaciones. Nuestros servicios ofrecen acceso directo las 24 horas, los 7 días de la semana, para soporte técnico, actualizaciones de software, reemplazo de hardware el mismo día, servicios de despacho, monitoreo remoto y solución de problemas proactivos.",
+    classes: "border-0",
+  },
+  {
+    icon: "programmability-automation-icon.svg",
+    title: "Programabilidad y automatización",
+    body: "Los servicios de programabilidad y automatización de la nueva era introducen un nuevo paradigma en la forma en que configuramos, operamos y monitoreamos las redes. Al aprovechar los principios de diseño, como el abierto, basado en estándares y extensibilidad, la nueva era puede ayudar a su organización a mejorar la entrega de servicios (velocidad, calidad, costo), desplegarse a escala y volverse verdaderamente ágil.",
+    classes: "border-0",
+  },
+  {
+    icon: "project-management-icon.svg",
+    title: "Gestión de proyectos",
+    body: "El equipo de gestión de proyectos de New ERA trabaja en estrecha colaboración con usted para planificar y administrar proyectos y programas de principio a fin. Nuestro enfoque formal pero personalizado para sus requisitos es desarrollado y entregado por profesionales certificados que tienen una gestión profunda de proyectos y experiencia en TI, así como años de experiencia utilizando tanto la cascada tradicional como las metodologías ágiles de gestión de proyectos.",
+    classes: "border-0",
+  },
+  {
+    icon: "technology-assessments-icon.svg",
+    title: "Evaluaciones tecnológicas",
+    body: " Tome decisiones tecnológicas estratégicas e informadas con las evaluaciones tecnológicas de la nueva ERA. Nuestro enfoque cualitativo y cuantitativo desarrolla una profundidad de conocimiento y análisis a medida que lo ayuda a lograr los resultados de su negocio. Las evaluaciones de la nueva era incluyen la identificación de deficiencias conocidas y desconocidas, el apoyo de las actividades de M&A y una revisión exhaustiva de su infraestructura de seguridad.",
+    classes: "border-0",
+  },
+  {
+    icon: "staff-augmentation-1.svg",
+    title: "Aumento de la fuerza laboral y el personal",
+    body: " Confidentemente, satisfaga sus necesidades de personal con la fuerza laboral de New Era y los servicios de aumento del personal. Aprovechamos nuestra vasta red de profesionales de tecnología talentosos para encontrar la mejor opción para sus requisitos. Nuestro proceso de evaluación exhaustivo, guiado por nuestro equipo líder en la industria de profesionales de recursos humanos y expertos en ingeniería, asegura que cualquier persona que le recomendemos sea altamente calificado y totalmente examinado.",
+    classes: "border-0",
+  },
+];
+---
+
+<section id="explore" class="py-5 bg-light">
+  <div class="container py-3 text-center">
+    <Title title="Explora" subtitle="Lograr resultados comerciales con los servicios profesionales de New Era." />
+    <div class="row">
+      {
+        CardConfig.map((config) => (
+          <div class="col-4 mb-3 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

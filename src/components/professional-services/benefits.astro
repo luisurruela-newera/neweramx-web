@@ -1,0 +1,17 @@
+---
+import Bullets from "@components/global/bullets.astro";
+
+const bulletsConfig = {
+  gradient: "background: linear-gradient(to right, rgba(0, 44, 106, 1) 55%, rgba(0, 44, 106, 25%) 75%, rgba(0, 44, 106, 0) 100%);",
+  background: 'background: url("/assets/images/iStock-863497498-1000px-1.jpg") center right no-repeat;',
+  height: "height: 400px;",
+  bullets: [
+    { body: "Enfoque consultivo que considera el historial, las necesidades y la infraestructura de su organización" },
+    { body: "Estrategias para mejorar la infraestructura técnica y las eficiencias operativas para reducir los costos" },
+    { body: "Despliegue e integración acelerados para obtener ganancias e impulsar la eficiencia operativa" },
+    { body: "Colaboración entre equipos para garantizar la entrega e integración de proyectos fáciles y oportunos" },
+  ],
+};
+---
+
+<Bullets config={bulletsConfig} />
