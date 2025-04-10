@@ -1,0 +1,38 @@
+---
+import Button from "./button.astro";
+interface Props {
+  title: string;
+  subtitle: string;
+  body: string;
+  buttonTitle: string;
+  buttonLink: string;
+  subjectColumnClass: string;
+  subjects: { title: string }[];
+}
+
+const { title, subtitle, body, buttonTitle, buttonLink, subjects, subjectColumnClass }: Props = Astro.props;
+---
+
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h4 class="text-primary">{subtitle}</h4>
+        <h2 class="text-primary">{title}</h2>
+        <p class="text-small lead">{body}</p>
+        <Button title={buttonTitle} link={buttonLink} />
+      </div>
+      <div class="col-8 d-flex align-items-center px-5">
+        <div class="row">
+          {
+            subjects.map((subject) => (
+              <div class={`${subjectColumnClass} card-group mb-3`}>
+                <h4 class="text-primary">{subject.title}</h4>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

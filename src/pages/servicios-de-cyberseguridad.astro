@@ -1,22 +1,26 @@
 ---
-import Benefits from "@components/professional-services/benefits.astro";
-import CallToAction from "@components/shared/call-to-action.astro";
-import Cover from "@components/professional-services/cover.astro";
-import Explore from "@components/professional-services/explore.astro";
-import Layout from "../layouts/Layout.astro";
-import OurPartners from "@components/shared/our-partners.astro";
-import Partner from "@components/shared/partner.astro";
-import ProfessionalServicesComponent from "@components/professional-services/professional-services.astro";
-import Solutions from "@components/managed-services/solutions.astro";
+import Cover from "@components/cyber-security/cover.astro";
+import Layout from "src/layouts/Layout.astro";
+import SecondNavbar from "@components/cyber-security/second-navbar.astro";
+import CyberSecurity from "@components/cyber-security/cyber-security.astro";
+import Testimonials from "@components/cyber-security/testimonials.astro";
+import Posture from "@components/cyber-security/posture.astro";
+import BestPractices from "@components/cyber-security/best-practices.astro";
+import Implementations from "@components/cyber-security/implementations.astro";
+import Safeguard from "@components/cyber-security/safeguard.astro";
+import DetectionAndResponse from "@components/cyber-security/detection-and-response.astro";
+import WhyPartner from "@components/cyber-security/why-partner.astro";
 ---
 
 <Layout>
   <Cover />
-  <ProfessionalServicesComponent />
-  <Benefits />
-  <Explore />
-  <Partner />
-  <Solutions />
-  <CallToAction />
-  <OurPartners />
+  <SecondNavbar />
+  <CyberSecurity />
+  <Testimonials />
+  <Posture />
+  <BestPractices />
+  <Implementations />
+  <Safeguard />
+  <DetectionAndResponse />
+  <WhyPartner />
 </Layout>

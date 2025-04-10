@@ -1,0 +1,30 @@
+---
+const links = [
+  {
+    text: "Descripción General",
+    href: "#",
+  },
+  {
+    text: "Servicios Destacados",
+    href: "#",
+  },
+  {
+    text: "Recursos",
+    href: "#",
+  },
+];
+---
+
+<div id="secondary-navbar" class="bg-secondary secondary-navbar d-flex align-items-center">
+  <div class="container">
+    <ul class="d-flex d-row text-white list-decoration-none gap-4">
+      {
+        links.map((link) => (
+          <li class="secondary-navbar__item">
+            <a href={link.href}>{link.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
