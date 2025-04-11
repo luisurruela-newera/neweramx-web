@@ -1,0 +1,16 @@
+---
+import Bullets from "@components/global/bullets.astro";
+
+const bulletsConfig = {
+  gradient: "background: linear-gradient(to right, rgba(0, 44, 106, 1) 55%, rgba(0, 44, 106, 25%) 75%, rgba(0, 44, 106, 0) 100%);",
+  background: 'background: url("/assets/images/Security-bullets-1000px.jpg") center right no-repeat;',
+  height: "height: 360px;",
+  bullets: [
+    { body: "Nuestro equipo interno de expertos tiene una amplia experiencia en el desarrollo, implementación y gestión de programas de seguridad" },
+    { body: "Cree un sistema de seguridad unificado con una única interfaz de usuario para gestionar sus soluciones de seguridad" },
+    { body: "Construya una red sólida para garantizar una conexión confiable y segura para acomodar un sistema de seguridad sólido" },
+  ],
+};
+---
+
+<Bullets config={bulletsConfig} />
