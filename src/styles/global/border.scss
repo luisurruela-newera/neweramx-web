@@ -3,3 +3,13 @@
 .border-secondary {
     border-color: colors.$secondary-color !important;
 }
+
+.rounded-right-5 {
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+.rounded-left-5 {
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}

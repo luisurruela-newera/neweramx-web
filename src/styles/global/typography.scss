@@ -2,6 +2,14 @@
     font-size: 13px;
 }
 
+.text-normal {
+    font-size: 16px;
+}
+
+.text-medium {
+    font-size: 20px;
+}
+
 .text-large {
     font-size: 22px;
 }
@@ -34,6 +42,12 @@
 .text-lead {
     font-weight: 300 !important;
     line-height: 24px;
+}
+
+.secondary-title {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .title {

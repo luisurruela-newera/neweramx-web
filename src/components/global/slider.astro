@@ -17,6 +17,13 @@ interface ISlider {
   image?: string;
   title?: string;
   description?: string;
+  background?: string;
+  overlayBackground?: string;
+  button?: {
+    url: string;
+    text: string;
+    classes: string;
+  };
 }
 
 const { config } = Astro.props;
@@ -28,11 +35,26 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
   <div class="swiper-wrapper">
     {
       config.items.map((slide: ISlider) => (
-        <div class={`swiper-slide ${config.background ? config.background : "bg-primary"}`}>
-          <div class="slide-content">
-            {slide.image ? <img src={`/assets/images/${slide.image}`} alt={slide.title} /> : null}
-            {slide.title ? <h2>{slide.title}</h2> : null}
-            {slide.title ? <p>{slide.description}</p> : null}
+        <div
+          class={`swiper-slide ${config.background ? config.background : "bg-primary"}`}
+          style={`background: url(${slide.background}) center center no-repeat; background-size: cover;`}
+        >
+          <div class="overlay" style={`background: ${slide.overlayBackground}`} />
+          <div class="container content-container">
+            <div class="col-8 me-auto">
+              {slide.image ? <img src={`/assets/images/${slide.image}`} alt={slide.title} /> : null}
+              <div class="p-4 text-white">
+                <div class="p-1 border-start border-4 ps-5 border-secondary mb-4">
+                  {slide.title ? <h2 class="text-bold text-super-large">{slide.title}</h2> : null}
+                </div>
+                {slide.title ? <p>{slide.description}</p> : null}
+                {slide.button ? (
+                  <a href={slide.button.url} class={`btn ${slide.button.classes}`}>
+                    {slide.button.text}
+                  </a>
+                ) : null}
+              </div>
+            </div>
           </div>
         </div>
       ))
@@ -88,21 +110,27 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
     align-items: center;
     justify-content: center;
     position: relative;
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($primary-color, 0.5);
+      z-index: 1;
+    }
+
+    .content-container {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .slide-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: $white-color;
   }
 
   .swiper-button-prev,

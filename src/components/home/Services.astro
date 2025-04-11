@@ -5,48 +5,32 @@ import Card from "../global/card.astro";
 
 const CardConfig = [
   {
-    icon: "services-homepage-icon.svg",
-    title: "Servicios Profesionales",
-    body: "Obtenga un equipo de consultores e integradores dedicados para ayudar a implementar nuevas tecnologías, aplicaciones comerciales y políticas. Maximice sus activos existentes y las brechas comerciales de puente.",
-    button: {
-      text: "Learn More",
-      link: "#",
-    },
-  },
-  {
-    icon: "cloud-solutions-homepage-icon.svg",
-    title: "CloudBlu",
-    body: "Reduzca los costos y aumente la flexibilidad con los modelos de implementación en la nube que incluyen servicios privados en la nube, servicios públicos en la nube y soluciones híbridas.",
-    button: {
-      text: "Learn More",
-      link: "#",
-    },
-  },
-  {
     icon: "managed-services-homepage-icon.svg",
-    title: "Servicios Administrados",
-    body: "Alace las operaciones y ahorre el presupuesto de TI con servicios administrados de TI y AV con soluciones, incluido el personal, que se pueden personalizar para satisfacer las necesidades de su organización.",
+    title: "Servicios administrados",
+    body: "La gestión de su infraestructura técnica puede ser un desafío, especialmente con un modelo de personal delgado de TI. La falta de gestión de infraestructura eficiente y ágil puede alterar las operaciones comerciales, la productividad y el valor de la marca.",
+    color: "bg-light",
     button: {
-      text: "Learn More",
+      text: "Saber más",
       link: "#",
     },
   },
   {
-    icon: "mdr-1.svg",
-    title: "SecureBlu",
-    body: "Mejore su postura de seguridad y minimice el riesgo con una gama completa de servicios de seguridad de asesoramiento y administración. Aproveche una plataforma XDR de vanguardia para capacidades avanzadas de detección y respuesta.",
+    icon: "09_mergers-acquisitions.png",
+    title: "Seguro de calidad",
+    body: "Nuestros servicios integrales de garantía de calidad aseguran que obtenga el valor óptimo de su inversión tecnológica, con un paradigma de prueba que proporciona una solución sin defectos, segura, robusta y confiable.",
+    color: "bg-light",
     button: {
-      text: "Learn More",
+      text: "Saber más",
       link: "#",
     },
   },
 ];
 ---
 
-<div id="services" class="bg-light py-5">
+<div id="services" class="py-5">
   <div class="container text-center">
-    <Title title="Tu proveedor de soluciones tecnológicas" subtitle="Servicios" />
-    <div class="row py-3">
+    <Title title="Explora" subtitle="NuestrosServicios" />
+    <div class="row py-3 mt-3">
       {
         CardConfig.map((config) => (
           <div class="col-6 mb-3 card-group">

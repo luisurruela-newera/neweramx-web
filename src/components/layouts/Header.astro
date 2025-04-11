@@ -43,7 +43,7 @@ const pathname = Astro.url.pathname;
             <ul class="navbar-nav ms-auto">
               <li class="nav-item dropdown">
                 <a
-                  class={`nav-link dropdown-toggle text-primary ${["/cloudblu", "/servicios-administrados", "/servicios-profesionales", "/servicios-de-cyberseguridad"].includes(pathname) ? "active" : ""}`}
+                  class={`nav-link dropdown-toggle text-primary ${["/servicios-administrados"].includes(pathname) ? "active" : ""}`}
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -53,32 +53,15 @@ const pathname = Astro.url.pathname;
                   Servicios</a
                 >
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="/cloudblu">CloudBlu</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/servicios-administrados" ? "active" : ""}`} href="/servicios-administrados">ManageBlu</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/servicios-profesionales" ? "active" : ""}`} href="/servicios-profesionales">Servicios Profesionales</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/servicios-de-cyberseguridad" ? "active" : ""}`} href="/servicios-de-cyberseguridad">Servicios de Cyberseguridad</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/servicios-administrados" ? "active" : ""}`} href="/servicios-administrados">Servicios Administrados</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/quality-assurance" ? "active" : ""}`} href="/quality-assurance">Seguro de Calidad</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Soluciones</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Colaboración y Comunicación Unificada</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Red de Datos</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Transformación Digital</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Seguridad física y protección de vida</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Inteligencia Artificial</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Industrias</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Empresa Global</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Banca y Finanzas</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Edificios Inteligentes e IoT</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Médica</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Educación</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Gobierno</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Comercio</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/microsoft" ? "active" : ""}`} href="#">Microsoft</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/cloud" ? "active" : ""}`} href="#">Cloud</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -99,9 +82,6 @@ const pathname = Astro.url.pathname;
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Blog </a></li>
                   <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Casos de Estudio</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Noticias</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Informes de Soluciones</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Videos</a></li>
                 </ul>
               </li>
               <li class="nav-item">

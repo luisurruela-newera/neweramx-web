@@ -4,55 +4,45 @@ import Title from "../global/title.astro";
 
 const CardConfig = [
   {
-    icon: "collaboration-communications-solutions-homepage-icon.svg",
+    icon: "microsoft.png",
     title: "Servicios Profesionales",
-    body: "Funcione mejor en persona y en distancias con la mejor colaboración en su clase y soluciones de comunicaciones unificadas. Inspire a los visitantes con soluciones AV que crean experiencias completamente inmersivas.",
-    color: "bg-light",
+    body: " Somos un socio de soluciones con certificación de Microsoft con una amplia experiencia en el panorama de Microsoft Technology. Desde análisis o automatización o nube hasta servicios administrados, nuestra experiencia le permite mantenerse a la vanguardia con un camino acelerado hacia la transformación digital.",
+    color: "",
     button: {
-      text: "Learn More",
+      text: "Saber más",
       link: "#",
     },
   },
   {
-    icon: "data-networking-homepage-icon.svg",
+    icon: "sap-about-icon.png",
     title: "Redes de datos",
-    body: "Conecte a las personas, la información y las ubicaciones con una infraestructura de red confiable que satisfaga sus necesidades comerciales y aplique sus políticas comerciales.",
-    color: "bg-light",
+    body: " New Era Technology, un socio de SAP Solutions, ofrece soluciones SAP personalizadas que incluyen implementación, actualizaciones, mejoras de características, integraciones y servicios administrados por aplicaciones en la vasta gama de la suite SAP.",
+    color: "",
     button: {
-      text: "Learn More",
+      text: "Saber más",
       link: "#",
     },
   },
   {
-    icon: "security-life-safety-homepage-icon.svg",
+    icon: "cloud-finops-cost-optimization.png",
     title: "Seguridad y seguridad de la vida",
-    body: "Monitorear y controlar el acceso de los usuarios a su campus y garantizar la seguridad de sus visitantes dentro y fuera de sus instalaciones con estrategias integrales de seguridad y seguridad de la vida.",
-    color: "bg-light",
+    body: " El negocio emergente necesita una plataforma segura y confiable, que los modelos de almacenamiento heredado de leve local no pueden cumplir de manera eficiente. Para mantenerse a la vanguardia en la carrera competitiva, un cambio a la nube es más esencialidad que una elección.",
+    color: "",
     button: {
-      text: "Learn More",
-      link: "#",
-    },
-  },
-  {
-    icon: "digital-transformation-3@4x.png",
-    title: "Transformación digital",
-    body: " La transformación digital utiliza la tecnología para reinventar cómo funcionan las empresas, desde la estrategia hasta las operaciones, las conexiones del cliente. New Era ofrece soluciones holísticas de transformación digital que posicionan su negocio para lo que viene después.",
-    color: "bg-light",
-    button: {
-      text: "Learn More",
+      text: "Saber más",
       link: "#",
     },
   },
 ];
 ---
 
-<section id="solutions" class="py-5">
+<section id="solutions" class="py-5 bg-light">
   <div class="container text-center">
     <Title title="Explora" subtitle="Soluciones" />
-    <div class="row py-3">
+    <div class="row">
       {
         CardConfig.map((config) => (
-          <div class="col-6 mb-3 card-group">
+          <div class="col-4 mb-3 card-group p-5">
             <Card config={config} />
           </div>
         ))
