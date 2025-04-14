@@ -1,24 +1,31 @@
 ---
+import Button from "./button.astro";
+
 interface Props {
   config: {
     icon?: string;
     image?: string;
     title?: string;
-    background: string;
+    background?: string;
+    button?: {
+      title: string;
+      link: string;
+    };
   };
 }
 
 const { config } = Astro.props;
-const { icon, image, background, title } = config;
+const { icon, image, background, title, button } = config;
 ---
 
 <section id="cover">
-  <article class="cover">
-    <div class="container">
-      <div class="content d-flex align-items-center px-3" style={background}>
-        {icon && <img src={icon} alt="New Era Technology" width="90" class="me-2" />}
-        {image && <img src={image} alt="New Era Technology" width="285" />}
-        {title && <h1 class="text-white text-super-large">{title}</h1>}
+  <article class={`${background ? background : "cover"}`} style={`background: ${background}`}>
+    <div class="container content d-flex align-items-center px-3">
+      <div class="mb-4">
+        {icon && <img src={icon} alt={title} width="90" class="me-2" />}
+        {image && <img src={image} alt={title} width="285" />}
+        {title && <h1 class="text-white text-super-large border-start border-5 border-secondary ps-3 mb-4">{title}</h1>}
+        {button && <Button title={button.title} link={button.link} class="btn-secondary" />}
       </div>
     </div>
   </article>
@@ -30,7 +37,7 @@ const { icon, image, background, title } = config;
   }
 
   .content {
-    height: 530px;
+    height: 380px;
     margin-right: 100px;
     width: 100%;
   }
