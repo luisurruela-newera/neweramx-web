@@ -14,7 +14,7 @@ const soluciones = [
     body: "Los flujos DDPA se denominan flujos en la nube y tienen conectores incorporados para cerca de 380+ aplicaciones, junto con la provisión para crear conectores personalizados. Aquí, los datos y la funcionalidad se configuran conectándose a una aplicación externa como SharePoint.",
     classes: "currentCard",
   },
-]
+];
 
 const flujos = [
   {
@@ -34,8 +34,8 @@ const flujos = [
     title: "Flujo instantáneo",
     body: "Los flujos instantáneos se activan mediante una acción específica, como presionar un botón, y realizan la tarea configurada. Un elemento común por ejemplo, enviará una notificación a su equipo con solo hacer clic en un botón.",
     classes: "currentCard",
-  }, 
-]
+  },
+];
 
 const flujos2 = [
   {
@@ -49,60 +49,55 @@ const flujos2 = [
     title: "Flujos de Procesos de Negocio",
     body: "Un flujo de proceso de negocio es un diagrama de flujo que proporciona una representación gráfica de cómo funciona un proceso de negocio y los pasos y las acciones requeridas. Un ejemplo será un programa de formación para la incorporación de un nuevo empleado.",
     classes: "currentCard",
-  }
-]
+  },
+];
 ---
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="et_pb_module et_pb_text et_pb_text_2 text on-dark et_pb_text_align_left et_pb_bg_layout_light">
-          <div class="et_pb_text_inner">
-            <h2 style="text-align: center">Soluciones Power Automate de New Era</h2>
-            <p style="text-align: center">
-              Una secuencia de automatización se define como un "flujo" en Power Automate. Nuestras soluciones cubren todo el espectro de
-              capacidades de automatización La suite tiene, lo que le brinda la ventaja de automatizar una amplia gama de tareas para sus
-              requisitos negocio. Power Automate tiene dos tipos de automatización, como se muestra a continuación
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row py-4">
+
+<section class="bg-light p-0 py-md-5">
+  <div class="container p-0 py-md-3">
+    <div class="col-md-8 mx-auto text-center">
+      <h2 class="text-primary mb-4">Soluciones Power Automate de New Era</h2>
+      <p>
+        Una secuencia de automatización se define como un "flujo" en Power Automate. Nuestras soluciones cubren todo el espectro de
+        capacidades de automatización La suite tiene, lo que le brinda la ventaja de automatizar una amplia gama de tareas para sus
+        requisitos negocio. Power Automate tiene dos tipos de automatización, como se muestra a continuación
+      </p>
+
+      <div class="row py-4">
         {
           soluciones.map((config) => (
-            <div class="col-4 mb-4 card-group">
+            <div class="col-md-6 mb-4 card-group">
               <Card config={config} />
             </div>
           ))
         }
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="et_pb_module et_pb_text et_pb_text_3 et_pb_text_align_left et_pb_bg_layout_light">
-          <div class="et_pb_text_inner">
-            <h3 style="text-align: center">Estos son los diferentes flujos que desarrollamos mediante automatización personalizada con Power Automate:</h3>
-          </div>
-        </div>
       </div>
+
+      <h3 class="mt-4 mb-5 text-primary">
+        Estos son los diferentes flujos que desarrollamos mediante automatización personalizada con Power Automate:
+      </h3>
     </div>
-    <div class="row py-4">
-        {
-          flujos.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+
+    <div class="row py-1">
+      {
+        flujos.map((config) => (
+          <div class="col-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
-    <div class="row py-4">
+
+    <div class="col-8 mx-auto">
+      <div class="row">
         {
           flujos2.map((config) => (
-            <div class="col-4 mb-4 card-group">
+            <div class="col-6 mb-4 card-group">
               <Card config={config} />
             </div>
           ))
         }
+      </div>
     </div>
   </div>
 </section>
