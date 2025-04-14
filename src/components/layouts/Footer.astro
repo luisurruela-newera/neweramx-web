@@ -3,16 +3,17 @@ import Button from "../global/button.astro";
 ---
 
 <section id="footer" class="footer bg-light">
-  <div class="container border-bottom py-5">
+  <div class="container border-bottom py-3 py-md-5">
     <div class="row">
-      <div class="col">
-        <h4 class="text-primary title-4 mb-4">Sobre Nosotros</h4>
+      <div class="col-md-4 text-center text-md-start">
+        <img src="/assets/images/neweratechnology_logo.svg" width="220" class="d-md-none" />
+        <h4 class="text-primary title-4 mb-4 mt-5 mt-md-0">Sobre Nosotros</h4>
         <p class="mb-5 text-dark text-lead">
           New Era Technology helps more than 20,000 customers worldwide adapt to a rapidly changing digital world.
         </p>
-        <img src="/assets/images/neweratechnology_logo.svg" width="200" />
+        <img src="/assets/images/neweratechnology_logo.svg" width="200" class="d-none d-md-block" />
       </div>
-      <div class="col">
+      <div class="col-md-4 text-center text-md-start">
         <h4 class="text-primary title-4 mb-4">Enlaces Rápidos</h4>
         <ul class="text-primary list-decoration-none">
           <li class="mb-2">Sobre nosotros</li>
@@ -23,19 +24,19 @@ import Button from "../global/button.astro";
           <li class="mb-2">Explora la Era Digital</li>
         </ul>
       </div>
-      <div class="col">
-        <h4 class="text-primary title-4 mb-4">En Contacto</h4>
+      <div class="col-md-4 text-center text-md-start">
+        <h4 class="text-primary title-4 mb-4 mt-5 mt-md-0">En Contacto</h4>
         <p class="mb-3 text-dark text-lead">
           Obtenga noticias de la industria, ideas comerciales y la información que necesita entregada directamente a su bandeja de entrada.
         </p>
         <Button title="Subscríbete" link="#" />
       </div>
-      <div class="col">
-        <h4 class="text-primary title-4 mb-4">Contáctanos</h4>
+      <div class="col-md-4 text-center text-md-start">
+        <h4 class="text-primary title-4 mb-4 mt-5 mt-md-0">Contáctanos</h4>
         <p class="text-primary">877-696-7720</p>
         <Button title="Busca la ubicacion" link="#" />
 
-        <ul class="list-decoration-none d-flex d-row gap-2 mt-3">
+        <ul class="list-decoration-none d-flex d-row gap-2 mt-3 justify-content-center justify-content-md-start">
           <li>
             <a href="https://www.facebook.com/NewEraTechUS/" class="btn-icon-primary" title="Follow on Facebook" target="_blank">
               <i class="fa-brands fa-square-facebook icon-size-md"></i>
