@@ -178,8 +178,10 @@ const isExactRoute = (route: string): boolean => {
                       >Sobre nosotros
                     </a>
                   </li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="#">Ubicación</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="#">Socios</a></li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="/ubicacion">Ubicación</a>
+                  </li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="/socios">Socios</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -194,15 +196,16 @@ const isExactRoute = (route: string): boolean => {
                   Recursos
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li>
+                  <!-- <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li> -->
                   <li>
-                    <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="#">Casos de Estudio</a
+                    <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio"
+                      >Casos de Estudio</a
                     >
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-primary">Contáctanos</a>
+                <a href="/contacto" class="nav-link text-primary">Contáctanos</a>
               </li>
             </ul>
           </div>
