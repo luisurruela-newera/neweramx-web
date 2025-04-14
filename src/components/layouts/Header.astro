@@ -1,5 +1,13 @@
 ---
 const pathname = Astro.url.pathname;
+
+const isActiveRoute = (section: string): boolean => {
+  return pathname.startsWith(`/${section}`);
+};
+
+const isExactRoute = (route: string): boolean => {
+  return pathname === route;
+};
 ---
 
 <section id="header">
@@ -30,7 +38,7 @@ const pathname = Astro.url.pathname;
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <img src="assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="210" />
+            <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="210" />
           </a>
           <button
             class="navbar-toggler"
@@ -47,7 +55,7 @@ const pathname = Astro.url.pathname;
             <ul class="navbar-nav ms-auto">
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle text-primary"
+                  class={`nav-link dropdown-toggle text-primary ${isActiveRoute("soluciones") ? "active" : ""}`}
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -58,30 +66,78 @@ const pathname = Astro.url.pathname;
                 >
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li class="dropdown-item dropdown">
-                    <a class={`nav-link dropdown-toggle text-primary`} href="#" id="microsoftSubmenu" role="button" aria-expanded="false">
+                    <a
+                      class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/microsoft") ? "active" : ""}`}
+                      href="#"
+                      id="microsoftSubmenu"
+                      role="button"
+                      aria-expanded="false"
+                    >
                       Microsoft
                     </a>
-                    <ul class="dropdown-menu dropdown-submenu" aria-labelledby="microsoftSubmenu">
+                    <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="microsoftSubmenu">
                       <li>
                         <a
-                          class={`dropdown-item text-primary ${pathname === "/microsoft/opcion1" ? "active" : ""}`}
-                          href="/microsoft/opcion1">Opción Microsoft 1</a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/sharepoint") ? "active" : ""}`}
+                          href="/soluciones/microsoft/sharepoint">SharePoint</a
                         >
                       </li>
                       <li>
                         <a
-                          class={`dropdown-item text-primary ${pathname === "/microsoft/opcion2" ? "active" : ""}`}
-                          href="/microsoft/opcion2">Opción Microsoft 2</a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-automate") ? "active" : ""}`}
+                          href="/soluciones/microsoft/power-automate">Power Automate</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-bi") ? "active" : ""}`}
+                          href="/soluciones/microsoft/power-bi">Power BI</a
                         >
                       </li>
                     </ul>
                   </li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloud" ? "active" : ""}`} href="#">Cloud</a></li>
+                  <li class="dropdown-item dropdown">
+                    <a
+                      class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/cloud") ? "active" : ""}`}
+                      href="#"
+                      id="cloudmenu"
+                      role="button"
+                      aria-expanded="false"
+                    >
+                      Cloud
+                    </a>
+                    <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="cloudmenu">
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-devops") ? "active" : ""}`}
+                          href="/soluciones/cloud/azure-devops">Azure DevOps</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-vmware") ? "active" : ""}`}
+                          href="/soluciones/cloud/azure-vmware">Soluciones deAzure VMware</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/ofertas-azure") ? "active" : ""}`}
+                          href="/soluciones/cloud/ofertas-azure">Ofertas de Azure</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      class={`dropdown-item text-primary ${isExactRoute("/soluciones/inteligencia-artificial") ? "active" : ""}`}
+                      href="/soluciones/inteligencia-artificial">Inteligencia Artificial</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class={`nav-link dropdown-toggle text-primary ${["/servicios-administrados"].includes(pathname) ? "active" : ""}`}
+                  class={`nav-link dropdown-toggle text-primary ${isActiveRoute("servicios") ? "active" : ""}`}
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -93,13 +149,14 @@ const pathname = Astro.url.pathname;
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li>
                     <a
-                      class={`dropdown-item text-primary ${pathname === "/servicios-administrados" ? "active" : ""}`}
-                      href="/servicios-administrados">Servicios Administrados</a
+                      class={`dropdown-item text-primary ${isExactRoute("/servicios/servicios-administrados") ? "active" : ""}`}
+                      href="/servicios/servicios-administrados">Servicios Administrados</a
                     >
                   </li>
                   <li>
-                    <a class={`dropdown-item text-primary ${pathname === "/quality-assurance" ? "active" : ""}`} href="/quality-assurance"
-                      >Seguro de Calidad</a
+                    <a
+                      class={`dropdown-item text-primary ${isExactRoute("/servicios/quality-assurance") ? "active" : ""}`}
+                      href="/servicios/quality-assurance">Seguro de Calidad</a
                     >
                   </li>
                 </ul>
@@ -205,6 +262,61 @@ const pathname = Astro.url.pathname;
           }
         }
       });
+
+      // Cerrar todos los submenús excepto el actual
+      document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
+        if (submenu.parentElement !== except) {
+          submenu.classList.remove("show");
+          const toggle = submenu.parentElement?.querySelector(".dropdown-toggle");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    };
+
+    // Función para manejar submenús
+    const handleSubmenu = (submenuParent: Element) => {
+      const toggle = submenuParent.querySelector(".dropdown-toggle");
+      const submenu = submenuParent.querySelector(".dropdown-submenu");
+
+      if (!toggle || !submenu) return;
+
+      submenuParent.addEventListener("mouseenter", () => {
+        clearTimeout(timeoutId);
+        // Cerrar otros submenús del mismo nivel
+        const siblingSubmenus = submenuParent.parentElement?.querySelectorAll(".dropdown-submenu");
+        siblingSubmenus?.forEach((sibling) => {
+          if (sibling !== submenu) {
+            sibling.classList.remove("show");
+            const siblingToggle = sibling.parentElement?.querySelector(".dropdown-toggle");
+            if (siblingToggle) {
+              siblingToggle.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+
+        submenu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      submenuParent.addEventListener("mouseleave", () => {
+        timeoutId = setTimeout(() => {
+          submenu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      });
+
+      submenu.addEventListener("mouseenter", () => {
+        clearTimeout(timeoutId);
+      });
+
+      submenu.addEventListener("mouseleave", () => {
+        timeoutId = setTimeout(() => {
+          submenu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      });
     };
 
     dropdowns.forEach((dropdown) => {
@@ -246,40 +358,11 @@ const pathname = Astro.url.pathname;
           if (!dropdownToggle) return;
           hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
         });
+
+        // Manejar todos los submenús dentro de este dropdown
+        const submenuParents = dropdownMenu.querySelectorAll(".dropdown-item.dropdown");
+        submenuParents.forEach(handleSubmenu);
       }
     });
-
-    // Manejo específico para el submenú de Microsoft
-    const microsoftItem = document.querySelector("#microsoftSubmenu");
-    if (microsoftItem?.parentElement) {
-      const parent = microsoftItem.parentElement;
-      const submenu = microsoftItem.nextElementSibling as HTMLElement | null;
-
-      if (submenu) {
-        parent.addEventListener("mouseenter", () => {
-          clearTimeout(timeoutId);
-          submenu.classList.add("show");
-          microsoftItem.setAttribute("aria-expanded", "true");
-        });
-
-        parent.addEventListener("mouseleave", () => {
-          timeoutId = setTimeout(() => {
-            submenu.classList.remove("show");
-            microsoftItem.setAttribute("aria-expanded", "false");
-          }, 200);
-        });
-
-        submenu.addEventListener("mouseenter", () => {
-          clearTimeout(timeoutId);
-        });
-
-        submenu.addEventListener("mouseleave", () => {
-          timeoutId = setTimeout(() => {
-            submenu.classList.remove("show");
-            microsoftItem.setAttribute("aria-expanded", "false");
-          }, 200);
-        });
-      }
-    }
   });
 </script>
