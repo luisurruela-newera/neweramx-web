@@ -1,7 +1,22 @@
 ---
-import Layout from "src/layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
+import Title from "@components/sharepoint/title.astro";
+import Description from "@components/sharepoint/description.astro";
+import Services from "@components/sharepoint/services.astro";
+import Benefits from "@components/sharepoint/benefits.astro";
+import SubmitForm from "@components/shared/submit-form.astro";
+import Working from "@components/sharepoint/working.astro";
 ---
 
 <Layout>
-  <h1>Share Point</h1>
+  <main>
+    <Title />
+    <Description />
+    <Services />
+    <Working />
+    <Benefits />
+    <SubmitForm
+      title="Si está buscando SharePoint en México, póngase en contacto con nosotros y nuestros expertos estarán encantados de ayudarle."
+    />
+  </main>
 </Layout>
