@@ -19,7 +19,10 @@ const { icon, image, background, title, button } = config;
 ---
 
 <section id="cover">
-  <article class={`${background ? background : "cover"}`} style={`background: ${background}`}>
+  <article
+    class={`${background ? background : "cover"}`}
+    style={`background: ${background}; background-size: cover !important; background-position: center center !important;`}
+  >
     <div class="container content d-flex align-items-center px-3">
       <div class="mb-4">
         {icon && <img src={icon} alt={title} width="90" class="me-2" />}
