@@ -1,0 +1,63 @@
+---
+import Card from "../global/card.astro";
+
+const cardConfig = [
+  {
+    icon: "sharepoint-migration-services.png",
+    title: "SharePoint Migration Services",
+    body: "Ya sea una actualización de versión o una migración de una aplicación de terceros a SharePoint, nuestra vasta experiencia garantiza una migración sin problemas. Nos aseguramos de que aproveche todos los beneficios de la plataforma SharePoint.",
+    classes: "currentCard",
+  },
+  {
+    icon: "sharepoint-development-services.png",
+    title: "SharePoint Development Services",
+    body: "Ofrecemos servicios personalizados de desarrollo de SharePoint, como formularios para la recopilación y el procesamiento de datos, flujos de trabajo automatizados para sus procesos operativos, como flujos de trabajo de aprobación, funcionalidades de búsqueda personalizadas y mucho más. Nuestro SharePoint Los servicios de desarrollo, como las intranets modernas, están respaldados por las mejores prácticas de nuestra vasta experiencia en la suite y garantizar una movilidad completa y una interfaz de usuario/experiencia de usuario moderna",
+    classes: "currentCard",
+  },
+  {
+    icon: "sharepoint-integration-services.png",
+    title: "SharePoint Integration Services",
+    body: "New Era ofrece servicios de integración de SharePoint con aplicaciones ERP y CRM como SAP, PeopleSoft y otras Aplicaciones de terceros. La integración con Power BI incluye paneles de control y sistemas de informes dentro de la suite. También Desarrolle extranets personalizadas que permitan una fácil comunicación con proveedores, socios y clientes.",
+    classes: "currentCard",
+  },
+];
+const cardConfig2 = [
+  {
+    icon: "sharepoint-content-management-services.png",
+    title: "SharePoint Content Management Services",
+    body: "Nuestras soluciones de gestión de documentos y contenido empresarial son sólidas, seguras y de fácil acceso con Extensiones de búsqueda desarrolladas a medida. Garantizamos una mayor colaboración, precisión e integridad con un gran enfoque en Seguridad y gobernanza según las normas de su negocio.",
+    classes: "currentCard",
+  },
+  {
+    icon: "sharepoint-support-services.png",
+    title: "SharePoint Support Services",
+    body: "New Era ofrece servicios de soporte integrales en modelos flexibles, como equipos de soporte externos, presenciales e híbridos. Ya sea que se trate de una mejora de nuevas funciones, resolución de problemas o mantenimiento, nuestros equipos de soporte funcionan como una extensión natural de su personal interno. Nuestros servicios lo ayudan a obtener soporte experto para su entorno de SharePoint con un TCO reducido en comparación con a la contratación de recursos regulares.",
+    classes: "currentCard",
+  }
+];
+---
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+        <h2 class="text-center">Servicios de SharePoint de New Era Technology</h2>
+    </div>
+    <div class="row py-4">
+        {
+          cardConfig.map((config) => (
+            <div class="col-4 mb-4 card-group">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+    <div class="row py-1">
+        {
+          cardConfig2.map((config) => (
+            <div class="col-4 mb-4 card-group center">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+  </div>
+</section>
