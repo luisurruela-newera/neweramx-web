@@ -3,7 +3,6 @@ const pathname = Astro.url.pathname;
 ---
 
 <section id="header">
-  <!-- Top Navbar -->
   <div class="bg-light top-header_height d-flex align-items-center">
     <div class="container d-flex justify-content-end align-items-center gap-3 text-small">
       <div class="divisor">
@@ -26,9 +25,6 @@ const pathname = Astro.url.pathname;
       </div>
     </div>
   </div>
-  <!-- Top Navbar -->
-
-  <!-- Main Navbar -->
   <div id="main-navbar" class="header-height main-navbar">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -36,11 +32,53 @@ const pathname = Astro.url.pathname;
           <a class="navbar-brand" href="/">
             <img src="assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="210" />
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-primary"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Soluciones</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li class="dropdown-item dropdown">
+                    <a class={`nav-link dropdown-toggle text-primary`} href="#" id="microsoftSubmenu" role="button" aria-expanded="false">
+                      Microsoft
+                    </a>
+                    <ul class="dropdown-menu dropdown-submenu" aria-labelledby="microsoftSubmenu">
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${pathname === "/microsoft/opcion1" ? "active" : ""}`}
+                          href="/microsoft/opcion1">Opción Microsoft 1</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class={`dropdown-item text-primary ${pathname === "/microsoft/opcion2" ? "active" : ""}`}
+                          href="/microsoft/opcion2">Opción Microsoft 2</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/cloud" ? "active" : ""}`} href="#">Cloud</a></li>
+                </ul>
+              </li>
               <li class="nav-item dropdown">
                 <a
                   class={`nav-link dropdown-toggle text-primary ${["/servicios-administrados"].includes(pathname) ? "active" : ""}`}
@@ -53,35 +91,70 @@ const pathname = Astro.url.pathname;
                   Servicios</a
                 >
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/servicios-administrados" ? "active" : ""}`} href="/servicios-administrados">Servicios Administrados</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/quality-assurance" ? "active" : ""}`} href="/quality-assurance">Seguro de Calidad</a></li>
+                  <li>
+                    <a
+                      class={`dropdown-item text-primary ${pathname === "/servicios-administrados" ? "active" : ""}`}
+                      href="/servicios-administrados">Servicios Administrados</a
+                    >
+                  </li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/quality-assurance" ? "active" : ""}`} href="/quality-assurance"
+                      >Seguro de Calidad</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Soluciones</a>
+                <a
+                  class="nav-link dropdown-toggle text-primary"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Nuestra Empresa
+                </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/microsoft" ? "active" : ""}`} href="#">Microsoft</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloud" ? "active" : ""}`} href="#">Cloud</a></li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros"
+                      >Sobre nosotros
+                    </a>
+                  </li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/nuestro-trabajo" ? "active" : ""}`} href="/nuestro-trabajo"
+                      >Nuestro trabajo
+                    </a>
+                  </li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/carreras" ? "active" : ""}`} href="/carreras">Carreras</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/eventos" ? "active" : ""}`} href="#">Eventos</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="#">Socios</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/contratos" ? "active" : ""}`} href="#">Contratos</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="#">Ubicación</a></li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/atencion-clientes" ? "active" : ""}`} href="#"
+                      >Atención a Clientes</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Nuestra Empresa </a>
+                <a
+                  class="nav-link dropdown-toggle text-primary"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Recursos
+                </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="/sobre-nosotros">Sobre nosotros </a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Nuestro trabajo </a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Carreras</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Eventos</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Socios</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Contratos</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Ubicación</a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Atención a Clientes</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Recursos </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Blog </a></li>
-                  <li><a class={`dropdown-item text-primary ${pathname === "/cloudblu" ? "active" : ""}`} href="#">Casos de Estudio</a></li>
+                  <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li>
+                  <li>
+                    <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="#">Casos de Estudio</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -93,7 +166,6 @@ const pathname = Astro.url.pathname;
       </nav>
     </div>
   </div>
-  <!-- Main Navbar -->
 </section>
 
 <style>
@@ -101,6 +173,113 @@ const pathname = Astro.url.pathname;
     border-right: 1px solid #ddd;
     padding-right: 1.5em;
   }
+
+  .dropdown-submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  .dropdown-item.dropdown {
+    position: relative;
+  }
+
+  .dropdown-item.dropdown:hover > .dropdown-submenu {
+    display: block;
+  }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+    let timeoutId: number;
+
+    const closeAllMenus = (except?: HTMLElement) => {
+      dropdowns.forEach((item) => {
+        if (item !== except) {
+          const menu = item.querySelector(".dropdown-menu");
+          const toggle = item.querySelector(".dropdown-toggle");
+          if (menu && toggle) {
+            menu.classList.remove("show");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    };
+
+    dropdowns.forEach((dropdown) => {
+      const showMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+        clearTimeout(timeoutId);
+        closeAllMenus(dropdown as HTMLElement);
+        menu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      };
+
+      const hideMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+        timeoutId = setTimeout(() => {
+          menu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      };
+
+      dropdown.addEventListener("mouseenter", (e) => {
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+        if (!dropdownMenu || !dropdownToggle) return;
+        showMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+      });
+
+      dropdown.addEventListener("mouseleave", (e) => {
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+        if (!dropdownMenu || !dropdownToggle) return;
+        hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+      });
+
+      const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+      if (dropdownMenu) {
+        dropdownMenu.addEventListener("mouseenter", () => {
+          clearTimeout(timeoutId);
+        });
+        dropdownMenu.addEventListener("mouseleave", () => {
+          const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+          if (!dropdownToggle) return;
+          hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+        });
+      }
+    });
+
+    // Manejo específico para el submenú de Microsoft
+    const microsoftItem = document.querySelector("#microsoftSubmenu");
+    if (microsoftItem?.parentElement) {
+      const parent = microsoftItem.parentElement;
+      const submenu = microsoftItem.nextElementSibling as HTMLElement | null;
+
+      if (submenu) {
+        parent.addEventListener("mouseenter", () => {
+          clearTimeout(timeoutId);
+          submenu.classList.add("show");
+          microsoftItem.setAttribute("aria-expanded", "true");
+        });
+
+        parent.addEventListener("mouseleave", () => {
+          timeoutId = setTimeout(() => {
+            submenu.classList.remove("show");
+            microsoftItem.setAttribute("aria-expanded", "false");
+          }, 200);
+        });
+
+        submenu.addEventListener("mouseenter", () => {
+          clearTimeout(timeoutId);
+        });
+
+        submenu.addEventListener("mouseleave", () => {
+          timeoutId = setTimeout(() => {
+            submenu.classList.remove("show");
+            microsoftItem.setAttribute("aria-expanded", "false");
+          }, 200);
+        });
+      }
+    }
+  });
+</script>

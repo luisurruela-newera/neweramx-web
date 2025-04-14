@@ -36,18 +36,21 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
     {
       config.items.map((slide: ISlider) => (
         <div
-          class={`swiper-slide ${config.background ? config.background : "bg-primary"}`}
+          class={`swiper-slide ${config.background ? config.background : "bg-white"}`}
           style={`background: url(${slide.background}) center center no-repeat; background-size: cover;`}
         >
           <div class="overlay" style={`background: ${slide.overlayBackground}`} />
           <div class="container content-container">
-            <div class="col-8 me-auto">
+            <div class="col-8 me-auto d-flex align-items-center">
               {slide.image ? <img src={`/assets/images/${slide.image}`} alt={slide.title} /> : null}
               <div class="p-4 text-white">
-                <div class="p-1 border-start border-4 ps-5 border-secondary mb-4">
-                  {slide.title ? <h2 class="text-bold text-super-large">{slide.title}</h2> : null}
-                </div>
-                {slide.title ? <p>{slide.description}</p> : null}
+                {slide.title ? (
+                  <div class="p-1 border-start border-4 ps-5 border-secondary mb-4">
+                    {slide.title ? <h2 class="text-bold text-super-large">{slide.title}</h2> : null}
+                  </div>
+                  <p>{slide.description}</p>
+                ) : null}
+                
                 {slide.button ? (
                   <a href={slide.button.url} class={`btn ${slide.button.classes}`}>
                     {slide.button.text}
@@ -149,7 +152,7 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: $white-color;
+      background-color: transparent;
     }
   }
 
