@@ -1,0 +1,8 @@
+@use "./colors.scss";
+
+.hover-secondary {
+    &:hover {
+        background-color: colors.$light-blue-color !important;
+        border-color: colors.$light-blue-color !important;
+    }
+}

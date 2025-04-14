@@ -1,0 +1,86 @@
+---
+import Button from "@components/global/button.astro";
+---
+
+<section id="contact" class="bg-light py-5">
+  <div class="container p-3">
+    <div class="col-8 mx-auto bg-white p-5 rounded-1">
+      <h3 class="text-center text-primary text-large mb-4">
+        Si está buscando Power Automate en México, póngase en contacto con nosotros y nuestros expertos estarán encantados de ayudarle.
+      </h3>
+
+      <form>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="name" class="text-small text-dark"
+              >Nombre
+              <span class="text-danger">(Requerido)</span></label
+            >
+            <input type="text" name="name" id="name" class="form-control rounded-0 mb-2" />
+          </div>
+
+          <div class="form-group col-6">
+            <label for="apellido" class="text-small text-dark">Apellido</label>
+            <input type="text" name="apellido" id="apellido" class="form-control rounded-0 mb-2" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="email" class="text-small text-dark">Correo <span class="text-danger">(Requerido)</span></label>
+            <input type="email" name="email" id="email" class="form-control rounded-0 mb-2" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="phone" class="text-small text-dark">Teléfono <span class="text-danger">(Requerido)</span></label>
+            <div class="input-group mb-2">
+              <select class="form-select rounded-0" style="max-width: 200px;" name="country_code" id="country_code">
+                <option value="+52">México (+52)</option>
+                <option value="+54">Argentina (+54)</option>
+                <option value="+56">Chile (+56)</option>
+                <option value="+57">Colombia (+57)</option>
+                <option value="+51">Perú (+51)</option>
+                <option value="+58">Venezuela (+58)</option>
+                <option value="+34">España (+34)</option>
+                <option value="+1">Estados Unidos/Canadá (+1)</option>
+                <option value="+55">Brasil (+55)</option>
+                <option value="+502">Guatemala (+502)</option>
+                <option value="+503">El Salvador (+503)</option>
+                <option value="+504">Honduras (+504)</option>
+                <option value="+505">Nicaragua (+505)</option>
+                <option value="+506">Costa Rica (+506)</option>
+                <option value="+507">Panamá (+507)</option>
+                <option value="+593">Ecuador (+593)</option>
+                <option value="+598">Uruguay (+598)</option>
+                <option value="+591">Bolivia (+591)</option>
+                <option value="+595">Paraguay (+595)</option>
+                <option value="+809">República Dominicana (+809)</option>
+              </select>
+              <input type="tel" name="phone" id="phone" class="form-control rounded-0" placeholder="Número de teléfono" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="company" class="text-small text-dark">Empresa <span class="text-danger">(Requerido)</span></label>
+            <input type="text" name="company" id="company" class="form-control rounded-0 mb-2" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="message" class="text-small text-dark">Mensaje <span class="text-danger">(Requerido)</span></label>
+            <textarea name="message" id="message" class="form-control rounded-0 mb-2" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary rounded-0 px-5 py-2">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
