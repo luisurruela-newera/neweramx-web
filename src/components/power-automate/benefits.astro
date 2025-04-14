@@ -1,0 +1,70 @@
+---
+import Card from "../global/card.astro";
+
+const beneficios = [
+  {
+    icon: "enhanced-connectivity.png",
+    title: "Conectividad mejorada",
+    body: "Conectividad sin interrupciones con cientos de aplicaciones y fuentes de datos, con conectores prediseñados y personalizados.",
+    classes: "currentCard",
+  },
+  {
+    icon: "ai-advantage.png",
+    title: "Ventaja de la IA",
+    body: "Perfeccione y reconstruya los procesos operativos para aumentar la eficiencia y la productividad con información basada en IA.",
+    classes: "currentCard",
+  },
+  {
+    icon: "cost-savings-1.png",
+    title: "Ahorro de costos",
+    body: "Los paquetes de suscripción flexibles le permiten eliminar los costos iniciales. La automatización libera recursos manuales y permite mejor utilización de los recursos",
+    classes: "currentCard",
+  },
+]
+
+const beneficios2 = [
+  {
+    icon: "accuracy-and-productivity.png",
+    title: "Precisión y productividad",
+    body: "Los procesos automatizados obtienen una alta puntuación en precisión y aumento de la productividad en comparación con los procesos manuales.",
+    classes: "currentCard",
+  },
+  {
+    icon: "hyperautomation.png",
+    title: "Hiperautomatización",
+    body: "Desarrolle automatización avanzada con bots de autoaprendizaje que analizan constantemente las transacciones y los datos y mejoran su funcionalidades.",
+    classes: "currentCard",
+  }
+]
+---
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="et_pb_module et_pb_text et_pb_text_4 et_pb_text_align_left et_pb_bg_layout_light">
+            <div class="et_pb_text_inner">
+                <h2 style="text-align: center">Ventajas de Power Automate</h2>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-4">
+        {
+          beneficios.map((config) => (
+            <div class="col-4 mb-4 card-group">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+    <div class="row py-4">
+        {
+          beneficios2.map((config) => (
+            <div class="col-4 mb-4 card-group">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+  </div>
+</section>

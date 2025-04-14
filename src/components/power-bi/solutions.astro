@@ -1,0 +1,93 @@
+---
+import Card from "../global/card.astro";
+
+const soluciones = [
+  {
+    icon: "extended-data-visualization.png",
+    title: "Visualización de datos ampliada",
+    body: "Power BI ofrece amplias capacidades de visualización de datos que proporcionan información enriquecedora en paneles interactivos que son fáciles de usar. Los paneles facilitan el trabajo colaborativo y son fáciles de exportar en varios formatos.",
+    classes: "currentCard",
+  },
+  {
+    icon: "data-connectivity.png",
+    title: "Conectividad de datos",
+    body: "La suite cuenta con cerca de 500+ conectores que se conectan a una amplia gama de fuentes de datos y aplicaciones locales y basadas en la nube, como Salesforce y Microsoft Dynamics. Esta conectividad le permite utilizar la fuente de datos existente de su pila tecnológica sin migrar los datos.",
+    classes: "currentCard",
+  },
+  {
+    icon: "big-data-analysis.png",
+    title: "Análisis de Big Data",
+    body: "Power BI se conecta a orígenes de macrodatos y permite un análisis sencillo de datos no estructurados de gran volumen. Este tipo de análisis le ayuda a obtener información de amplios conjuntos de datos operativos y transaccionales y a utilizar la información para una mejor toma de decisiones basada en datos.",
+    classes: "currentCard",
+  },
+  {
+    icon: "granular-data-analysis.png",
+    title: "Análisis de datos granulares",
+    body: "Las amplias capacidades de minería de datos de Power BI le ayudan a descubrir información analítica previamente desconocida en comparación con las plataformas de BI heredadas. La función de análisis predictivo ofrece una proyección futurista basada en las tendencias y patrones de datos actuales, y es vital para la planificación empresarial futura.",
+    classes: "currentCard",
+  },  
+]
+
+const flujos = [
+  {
+    icon: "schedule-flow.png",
+    title: "Flujo programado",
+    body: "Los flujos programados se ejecutan a una hora predefinida con una acción definida a realizar. Por ejemplo, puedes crear un flujo programado que liste todas las aprobaciones en un horario programado.",
+    classes: "currentCard",
+  },
+  {
+    icon: "automated-flow.png",
+    title: "Flujo Automatizado",
+    body: "Un flujo automatizado se ejecuta cuando se cumple una condición específica, como cuando un nuevo correo electrónico proviene de una persona específica. La acción aquí es comunicar el evento a la aplicación a través de un conector.",
+    classes: "currentCard",
+  },
+  {
+    icon: "instant-flow.png",
+    title: "Flujo instantáneo",
+    body: "Los flujos instantáneos se activan mediante una acción específica, como presionar un botón, y realizan la tarea configurada. Un elemento común por ejemplo, enviará una notificación a su equipo con solo hacer clic en un botón.",
+    classes: "currentCard",
+  }, 
+]
+
+
+---
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="et_pb_module et_pb_text et_pb_text_2 text on-dark et_pb_text_align_left et_pb_bg_layout_light">
+          <div class="et_pb_text_inner">
+            <h2 style="text-align: center">Aspectos clave de las soluciones Power BI de New Era</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-4">
+        {
+          soluciones.map((config) => (
+            <div class="col-4 mb-4 card-group">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="et_pb_module et_pb_text et_pb_text_3 et_pb_text_align_left et_pb_bg_layout_light">
+          <div class="et_pb_text_inner">
+            <h3 style="text-align: center">Estos son los diferentes flujos que desarrollamos mediante automatización personalizada con Power Automate:</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-4">
+        {
+          flujos.map((config) => (
+            <div class="col-4 mb-4 card-group">
+              <Card config={config} />
+            </div>
+          ))
+        }
+    </div>
+  </div>
+</section>
