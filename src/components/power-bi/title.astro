@@ -1,35 +1,17 @@
+---
+import Cover from "@components/global/cover.astro";
+
+const coverConfig = {
+  title: "Power BI",
+  background:
+    'linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/power-bi.jpg") !important; ',
+  button: {
+    title: "Agenda una consulta",
+    link: "#contact",
+  },
+};
+---
+
 <section class="cover">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="et_pb_with_border et_pb_module et_pb_text et_pb_text_0 text on-dark et_pb_text_align_left et_pb_bg_layout_light">
-            <div class="cover-title">
-                <h1>Power BI</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_module">
-            <a class="btn bg-secondary text-white text-uppercase" href="#contact">Reserve una consulta</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
-    
-    <style>
-        .cover {
-          background-image: linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/power-bi.jpg") !important;
-          background-position: center right;
-          background-size: auto;
-          background-position: 50%;
-          background-repeat: no-repeat;
-          padding-top: 81px;
-          padding-bottom: 94px;
-          padding-left: 0px;
-          padding-right: 0px;
-          position: relative;
-        }
-      </style>
+  <Cover config={coverConfig} />
+</section>
