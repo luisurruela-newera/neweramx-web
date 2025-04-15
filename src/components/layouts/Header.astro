@@ -1,4 +1,6 @@
 ---
+import Icon from "../global/Icon.astro";
+
 const pathname = Astro.url.pathname;
 
 const isActiveRoute = (section: string): boolean => {
@@ -14,20 +16,20 @@ const isExactRoute = (route: string): boolean => {
   <div class="bg-light top-header_height d-flex align-items-center d-none d-md-flex">
     <div class="container d-flex justify-content-end align-items-center gap-3 text-small">
       <div class="divisor">
-        <a href="" class="text-secondary d-flex gap-2 align-items-center">
-          <i class="fas fa-users"></i>
+        <a href="#" class="text-secondary d-flex gap-2 align-items-center">
+          <Icon name="fas fa-users" />
           <span class="text-primary">Soporte a Clientes</span>
         </a>
       </div>
       <div class="divisor">
         <a href="tel:877-696-7720" class="text-secondary d-flex align-items-center gap-2">
-          <i class="fas fa-phone-alt"></i>
+          <Icon name="fas fa-phone-alt" />
           <span class="text-primary">877-696-7720</span>
         </a>
       </div>
       <div>
         <a href="#" class="btn btn-outline-secondary ml-2 text-small">
-          <i class="fas fa-laptop text-light-blue"></i>
+          <Icon name="fas fa-laptop" className="text-light-blue" />
           NEW ERA ANYWHERE
         </a>
       </div>

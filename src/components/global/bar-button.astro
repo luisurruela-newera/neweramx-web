@@ -10,7 +10,7 @@ const { icon, title, link } = Astro.props;
 
 <a href={link} class="btn btn-primary w-100 text-start btn-primary-no-hover">
   <img src={`/assets/images/${icon}`} width="30" />
-  <span class="text-uppercase text-lead ps-2">{title}</span>
+  <span class="text-uppercase text-lead ps-2 text">{title}</span>
 </a>
 
 <style>
@@ -18,5 +18,11 @@ const { icon, title, link } = Astro.props;
     display: flex;
     align-items: center;
     height: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .text {
+      font-size: 11px;
+    }
   }
 </style>

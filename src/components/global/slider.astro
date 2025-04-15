@@ -2,12 +2,14 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/grid";
 
 interface Props {
   config: {
-    background?: string;
     slidesPerView: number;
+    useGrid?: boolean;
     height?: number;
+    mobileHeight?: number;
     width?: string;
     items: ISlider[];
   };
@@ -15,78 +17,84 @@ interface Props {
 
 interface ISlider {
   image?: string;
-  title?: string;
-  description?: string;
-  background?: string;
-  overlayBackground?: string;
-  button?: {
-    url: string;
-    text: string;
-    classes: string;
-  };
 }
 
 const { config } = Astro.props;
 const sliderHeight = config.height || 420;
+const mobileHeight = config.mobileHeight || 50;
 const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
+const isGridView = config.useGrid || false;
 ---
 
-<div class="swiper-container" style={`height: ${sliderHeight}px; max-width: ${config.width}`} id={sliderId}>
+<div class="swiper" style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px; --slide-width: ${config.width};`} id={sliderId}>
   <div class="swiper-wrapper">
     {
       config.items.map((slide: ISlider) => (
-        <div
-          class={`swiper-slide ${config.background ? config.background : "bg-white"}`}
-          style={`background: url(${slide.background}) center center no-repeat; background-size: cover;`}
-        >
-          <div class="overlay" style={`background: ${slide.overlayBackground}`} />
-          <div class="container content-container">
-            <div class="col-8 me-auto d-flex align-items-center">
-              {slide.image ? <img src={`/assets/images/${slide.image}`} alt={slide.title} /> : null}
-              <div class="p-4 text-white">
-                {slide.title ? (
-                  <div class="p-1 border-start border-4 ps-5 border-secondary mb-4">
-                    {slide.title ? <h2 class="text-bold text-super-large">{slide.title}</h2> : null}
-                  </div>
-                  <p>{slide.description}</p>
-                ) : null}
-                
-                {slide.button ? (
-                  <a href={slide.button.url} class={`btn ${slide.button.classes}`}>
-                    {slide.button.text}
-                  </a>
-                ) : null}
-              </div>
+        <div class="swiper-slide">
+          <div class="content-container p-5 p-md-0">
+            <div class="slide-content d-flex align-items-center justify-content-center gap-2">
+              {slide.image && <img src={`/assets/images/${slide.image}`} class="img-fluid" />}
             </div>
           </div>
         </div>
       ))
     }
   </div>
-  <div class={`swiper-pagination ${config.background ? "light" : "dark"}`}></div>
-  <div class={`swiper-button-prev ${config.background ? "light" : "dark"}`}></div>
-  <div class={`swiper-button-next ${config.background ? "light" : "dark"}`}></div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
 
-<script define:vars={{ slidesPerView: config.slidesPerView, sliderId }} type="module">
+<script>
+  function updateSlideHeights() {
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+      if (slide instanceof HTMLElement) {
+        const height = window.innerWidth <= 767 
+          ? slide.getAttribute('data-mobile-height') 
+          : slide.getAttribute('data-height');
+        slide.style.setProperty('--slide-height', `${height}px`);
+        slide.style.setProperty('--slide-mobile-height', `${slide.getAttribute('data-mobile-height')}px`);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', updateSlideHeights);
+  window.addEventListener('resize', updateSlideHeights);
+</script>
+
+<script define:vars={{ config: config, sliderId, isGridView }} type="module">
   import Swiper from "/node_modules/swiper/swiper-bundle.mjs";
-  import { Navigation, Pagination } from "/node_modules/swiper/modules/index.mjs";
+  import { Navigation, Pagination, Grid } from "/node_modules/swiper/modules/index.mjs";
 
   document.addEventListener("DOMContentLoaded", () => {
+    const modules = [Navigation, Pagination, Grid];
+    
     new Swiper(`#${sliderId}`, {
-      modules: [Navigation, Pagination],
-      loop: true,
+      modules,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      grid: {
+        rows: 4,
+        fill: 'row'
+      },
       pagination: {
-        el: `#${sliderId} .swiper-pagination`,
-        clickable: true,
+        el: '.swiper-pagination',
+        clickable: true
       },
       navigation: {
-        nextEl: `#${sliderId} .swiper-button-next`,
-        prevEl: `#${sliderId} .swiper-button-prev`,
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       },
-      slidesPerView: slidesPerView,
-      spaceBetween: 30,
-      slidesPerGroup: slidesPerView,
+      breakpoints: {
+        768: {
+          slidesPerView: config.slidesPerView,
+          spaceBetween: 30,
+          grid: {
+            rows: 1
+          }
+        }
+      }
     });
   });
 </script>
@@ -94,127 +102,79 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
 <style lang="scss">
   @use "../../styles/global/_config.scss" as *;
 
-  .swiper-container {
+  .swiper {
     width: 100%;
+    max-width: var(--slide-width);
+    height: var(--slide-height);
+    padding: 20px 40px;
     position: relative;
-    overflow: hidden;
+    margin-bottom: 40px;
 
-    &:hover {
-      .swiper-button-prev,
-      .swiper-button-next {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
+    @media (max-width: 767px) {
+      height: calc(var(--mobile-height) * 4);
+      padding: 10px 0;
+    }
+
+    :global(.swiper-pagination) {
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+    }
+
+    :global(.swiper-pagination-bullet) {
+      width: 10px !important;
+      height: 10px !important;
+      background: rgb(0, 0, 0) !important;
+      opacity: 1 !important;
+      margin: 0 4px !important;
+
+      @media (max-width: 767px) {
+        background: rgb(255, 255, 255) !important;
       }
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      background: $secondary-color !important;
+      opacity: 1 !important;
     }
   }
 
   .swiper-slide {
+    height: var(--slide-height);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba($primary-color, 0.5);
-      z-index: 1;
+    @media (max-width: 767px) {
+      height: var(--mobile-height);
     }
 
     .content-container {
-      position: relative;
-      z-index: 2;
-    }
-  }
+      width: 100%;
+      padding: 10px;
 
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+      .slide-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          max-width: 90%;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
   }
 
   .swiper-button-prev,
   .swiper-button-next {
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
     color: $secondary-color;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    z-index: 10;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
 
-    &:hover {
-      background-color: transparent;
+    @media (max-width: 767px) {
+      display: none;
     }
-  }
-
-  .swiper-button-prev.dark {
-    background-color: transparent;
-  }
-
-  .swiper-button-next.dark {
-    background-color: transparent;
-  }
-
-  .swiper-button-prev {
-    left: 15px;
-    transform: translateY(-50%) translateX(-100%);
-  }
-
-  .swiper-button-next {
-    right: 15px;
-    transform: translateY(-50%) translateX(100%);
-  }
-
-  .swiper-button-prev::after {
-    content: "\f104";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    opacity: 100%;
-  }
-
-  .swiper-button-next::after {
-    content: "\f105";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    opacity: 100%;
-  }
-
-  .swiper-container .swiper-pagination {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  .swiper-container .swiper-pagination .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: rgba($dark-color, 0.4) !important;
-    border-radius: 50%;
-    margin: 0 5px;
-    opacity: 1 !important;
-  }
-
-  .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: rgba($secondary-color, 1) !important;
-    opacity: 1 !important;
-  }
-
-  :global(.dark .swiper-pagination-bullet) {
-    background-color: rgba($white-color, 0.2) !important;
-  }
-
-  :global(.dark .swiper-pagination-bullet-active) {
-    background-color: rgba($secondary-color, 1) !important;
   }
 </style>

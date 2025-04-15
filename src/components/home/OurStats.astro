@@ -18,16 +18,16 @@ const stats = [
 ---
 
 <section id="stats" class="bg-white">
-  <div class="container p-5 my-5 text-center">
-    <p class="pulse-animation py-5 text-primary">
+  <div class="container p-md-3 p-md-5 my-5 text-center">
+    <p class="pulse-animation py-3 py-md-5 text-primary">
       De lo <span class="text-bold">físico</span> a lo <span class="text-bold">digital</span>, ofrecemos tecnología<br />de extremo a
       extremo a escala.
     </p>
   </div>
 
-  <div class="container text-center">
+  <div class="container text-center p-3 p-md-0">
     <h2 class="text-primary mb-4">New Era Technology</h2>
-    <p class="text-lead mb-4">
+    <p class="mb-4">
       La tecnología de nueva época ofrece soluciones de transformación digital de extremo final con Microsoft y SAP Technologies. Nuestra
       experiencia de dominio profunda y un equipo altamente calificado y experimentado se aseguran de obtener la mejor ventaja basada en el
       valor al elegirnos como socio tecnológico. La vasta clientela de New ERA incluye las principales empresas y compañías Fortune 500 en
@@ -40,8 +40,8 @@ const stats = [
     <div class="row py-4">
       {
         stats.map((stat) => (
-          <div class="col text-center">
-            <img src={`${stat.icon}`} alt={stat.title} width="150" />
+          <div class="col-md-4 text-center">
+            <img src={`${stat.icon}`} alt={stat.title} width="150" class="stats-icon" />
             <h3 class="text-primary title-4 py-4">{stat.title}</h3>
           </div>
         ))
@@ -64,6 +64,17 @@ const stats = [
     }
     to {
       opacity: 0.7;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pulse-animation {
+      font-size: 28px;
+      line-height: 35px;
+    }
+
+    .stats-icon {
+      width: 100px !important;
     }
   }
 </style>
