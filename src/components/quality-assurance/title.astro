@@ -1,0 +1,17 @@
+---
+import Cover from "@components/global/cover.astro";
+
+const coverConfig = {
+  title: "Aseguramiento de la calidad",
+  background:
+    'linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/quality-assurance.jpg") !important; ',
+  button: {
+    title: "Agenda una consulta",
+    link: "#contact",
+  },
+};
+---
+
+<section class="cover">
+  <Cover config={coverConfig} />
+</section>
