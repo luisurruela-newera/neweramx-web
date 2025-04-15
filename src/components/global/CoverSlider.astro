@@ -1,0 +1,235 @@
+---
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/grid";
+
+interface Props {
+  config: {
+    background?: string;
+    height?: number;
+    mobileHeight?: number;
+    width?: string;
+    items: ISlider[];
+  };
+}
+
+interface ISlider {
+  image?: string;
+  title?: string;
+  description?: string;
+  background?: string;
+  overlayBackground?: string;
+  button?: {
+    url: string;
+    text: string;
+    classes: string;
+  };
+}
+
+const { config } = Astro.props;
+const sliderHeight = config.height || 420;
+const mobileHeight = config.mobileHeight || 50;
+const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div 
+  class="swiper-container" 
+  style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px;`} 
+  id={sliderId}
+>
+  <div class="swiper-wrapper">
+    {
+      config.items.map((slide: ISlider) => (
+        <div
+          class={`swiper-slide ${config.background ? config.background : "bg-white"}`}
+          style={`background: ${slide.background ? `url(${slide.background})` : "transparent"}`}
+        >
+          {slide.overlayBackground && (
+            <div 
+              class="overlay" 
+              style={`--overlay-background: ${slide.overlayBackground}`}
+            />
+          )}
+          <div class="content-container container d-flex align-items-center px-4 px-md-0" style={`height: var(--slide-height); @media (max-width: 767px) { height: var(--mobile-height); }`}>
+            <div class="slide-content">
+              {slide.image && <img src={`/assets/images/${slide.image}`} alt={slide.title} />}
+              {(slide.title || slide.description || slide.button) && (
+                <div class="text-content">
+                  {slide.title && (
+                    <div class="p-1 border-start border-4 ps-2 ps-md-5 border-secondary mb-4">
+                      <h2 class="text-bold text-super-large text-white">{slide.title}</h2>
+                    </div>
+                  )}
+                  {slide.description && <p class="text-white">{slide.description}</p>}
+                  {slide.button && (
+                    <a href={slide.button.url} class={`btn ${slide.button.classes}`}>
+                      {slide.button.text}
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script>
+  function updateSlideHeights() {
+    const slides = document.querySelectorAll(".swiper-slide");
+    slides.forEach((slide) => {
+      if (slide instanceof HTMLElement) {
+        const height = window.innerWidth <= 767 ? slide.getAttribute("data-mobile-height") : slide.getAttribute("data-height");
+        slide.style.setProperty("--slide-height", `${height}px`);
+        slide.style.setProperty("--slide-mobile-height", `${slide.getAttribute("data-mobile-height")}px`);
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", updateSlideHeights);
+  window.addEventListener("resize", updateSlideHeights);
+</script>
+
+<script define:vars={{ config: config, sliderId }} type="module">
+  import Swiper from "/node_modules/swiper/swiper-bundle.mjs";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(`#${sliderId}`, {
+      navigation: {
+        nextEl: `#${sliderId} .swiper-button-next`,
+        prevEl: `#${sliderId} .swiper-button-prev`,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        type: "bullets",
+      },
+      loop: true,
+    });
+  });
+</script>
+
+<style lang="scss">
+  @use "../../styles/global/_config.scss" as *;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 55%;
+    transform: translateY(-55%);
+    color: #fff;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    height: var(--slide-height) !important;
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+      height: var(--mobile-height) !important;
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: auto;
+    }
+
+    .content-container {
+      height: var(--slide-height) !important;
+
+      @media (max-width: 767px) {
+        height: var(--mobile-height) !important;
+      }
+    }
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4) !important;
+    opacity: 1 !important;
+    margin: 0 5px;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background: var(--secondary-color) !important;
+    opacity: 1 !important;
+  }
+
+  .swiper-slide {
+    height: var(--slide-height) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 767px) {
+      height: var(--mobile-height) !important;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: var(--overlay-background);
+      pointer-events: none;
+    }
+
+    .content-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 2;
+      position: relative;
+
+      @media (max-width: 767px) {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+        @media (max-width: 767px) {
+          text-align: center;
+          align-items: center;
+        }
+
+        .text-content {
+          @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            h2, p {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

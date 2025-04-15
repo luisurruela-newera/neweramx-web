@@ -1,9 +1,10 @@
 ---
-import Slider from "@components/global/slider.astro";
+import CoverSlider from '@components/global/CoverSlider.astro';
 
 const sliderConfig = {
   slidesPerView: 1,
   height: 620,
+  mobileHeight: 400,
   items: [
     {
       title: "Acelere su viaje con los paquetes Switch2rise de New Era",
@@ -20,6 +21,7 @@ const sliderConfig = {
       title: "Acelera tu migración Azure con facilidad en México",
       description: "Su socio de confianza para soluciones Azure",
       background: "/assets/images/Azure_bg.jpg",
+      overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
       button: {
         text: "Saber más",
         url: "#",
@@ -30,6 +32,7 @@ const sliderConfig = {
       title: "Estás listo para aceptar el cambio?",
       description: "Descubre como y por qué con nuestro último video",
       background: "/assets/images/2_Microsoft-Technology-Solutions-scaled.jpg",
+      overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
       button: {
         text: "Ver video ahora",
         url: "#",
@@ -52,19 +55,22 @@ const sliderConfig = {
       title: "Prepárate para el futuro",
       description: "Soluciones de tecnología de Microsoft personalizadas para todas las necesidades de tu empresa.",
       background: "/assets/images/final-branding-video-banner.png",
+      overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
     },
     {
       title: "De la Idea a la inovación",
       description: "Acelera tu camino hacia la transformación digital",
       background: "/assets/images/1_Digital-Transformation-scaled.jpg",
+      overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
     },
     {
       title: "Sinergia para tus operaciones comerciales",
       description: "Aprovecha el inmenso potencial de SAP",
       background: "/assets/images/3_SAP-Suite-scaled.jpg",
+      overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
     },
   ],
 };
 ---
 
-<Slider config={sliderConfig} />
+<CoverSlider config={sliderConfig} />

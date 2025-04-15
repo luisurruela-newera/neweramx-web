@@ -1,0 +1,44 @@
+---
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { 
+  faCheckCircle, 
+  faUsers, 
+  faPhoneAlt, 
+  faLaptop,
+  faChevronLeft,
+  faChevronRight 
+} from "@fortawesome/free-solid-svg-icons";
+import { 
+  faSquareFacebook, 
+  faSquareXTwitter, 
+  faLinkedin 
+} from "@fortawesome/free-brands-svg-icons";
+
+// Añadir solo los iconos que necesitamos
+library.add(
+  faCheckCircle,
+  faUsers,
+  faPhoneAlt,
+  faLaptop,
+  faSquareFacebook,
+  faSquareXTwitter,
+  faLinkedin,
+  faChevronLeft,
+  faChevronRight
+);
+
+interface Props {
+  name: string;
+  className?: string;
+}
+
+const { name, className = "" } = Astro.props;
+---
+
+<i class={`${name} ${className}`}></i>
+
+<script>
+  import { dom } from "@fortawesome/fontawesome-svg-core";
+  import "@fortawesome/fontawesome-svg-core/styles.css";
+  dom.watch();
+</script> 
