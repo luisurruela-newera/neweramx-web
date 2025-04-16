@@ -1,6 +1,4 @@
 ---
-import Icon from "./Icon.astro";
-
 interface Props {
   config: {
     gradient: string;
@@ -26,7 +24,7 @@ const { gradient, background, height, bullets } = config;
         {
           bullets.map((bullet) => (
             <li class="d-flex d-row justify-content-start mb-4">
-              <Icon name="fas fa-check-circle" className="me-3 mt-1" />
+              <i class="fa-solid fa-circle-check text-primary" />
               {bullet.body}
             </li>
           ))
