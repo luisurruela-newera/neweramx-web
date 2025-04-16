@@ -1,0 +1,67 @@
+---
+import Card from "../global/card.astro";
+
+const beneficios = [
+  {
+    icon: "end-to-end-testing-services.png",
+    title: "Servicios de pruebas de extremo a extremo",
+    body: "Nuestra amplia gama de tipos de pruebas cubre todos los aspectos de sus requisitos de prueba.",
+    classes: "currentCard",
+  },
+  {
+    icon: "agile-testing-1.png",
+    title: "Alineación con los objetivos empresariales",
+    body: "Nos aseguramos de que nuestros servicios de pruebas y remediación se alineen con sus requisitos operativos y sean eficientes, ágiles y completos.",
+    classes: "currentCard",
+  },
+  {
+    icon: "deep-domain-expertise.png",
+    title: "Profunda experiencia en el dominio",
+    body: "Nuestra vasta experiencia en el aseguramiento de la calidad del software en México nos ha convertido en el socio tecnológico elegido por algunas de las empresas líderes para sus diversas necesidades.",
+    classes: "currentCard",
+  },
+];
+
+const beneficios2 = [
+  {
+    icon: "scalability.png",
+    title: "Escalabilidad",
+    body: "Ofrecemos servicios de prueba que son escalables según sus necesidades tecnológicas actuales y futuras.",
+    classes: "currentCard",
+  },
+  {
+    icon: "security.png",
+    title: "Seguridad",
+    body: "Nuestros servicios de pruebas también se centran en la seguridad de las aplicaciones y las hacen robustas y fiables para evitar cualquier laguna de seguridad.",
+    classes: "currentCard",
+  },
+];
+---
+
+<section class="py-5">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center text-primary">Beneficios de los servicios de aseguramiento de la calidad del software de New Era</h2>
+      </div>
+    </div>
+    <div class="row py-4">
+      {
+        beneficios.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="row py-4">
+      {
+        beneficios2.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
