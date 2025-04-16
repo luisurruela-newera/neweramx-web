@@ -193,6 +193,17 @@ const isExactRoute = (route: string): boolean => {
 </div>
 
 <style>
+  .main-navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
   .divisor {
     border-right: 1px solid #ddd;
     padding-right: 1.5em;
@@ -329,6 +340,21 @@ const isExactRoute = (route: string): boolean => {
         // Manejar todos los submenús dentro de este dropdown
         const submenuParents = dropdownMenu.querySelectorAll(".dropdown-item.dropdown");
         submenuParents.forEach(handleSubmenu);
+      }
+    });
+
+    // Posicionar la navbar
+    const mainNavbar = document.getElementById("main-navbar");
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (mainNavbar) {
+        if (scrollTop >= 60) {
+          mainNavbar.style.position = "fixed";
+        } else {
+          mainNavbar.style.position = "relative";
+        }
       }
     });
   });

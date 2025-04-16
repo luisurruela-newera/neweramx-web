@@ -1,11 +1,13 @@
 ---
+import TopNavbar from "./TopNavbar.astro";
 import MobileNavbar from "./MobileNavbar.astro";
 import Navbar from "./Navbar.astro";
-import TopNavbar from "./TopNavbar.astro";
 ---
 
 <section id="header">
-  <TopNavbar />
+  <div class="top-navbar-wrapper">
+    <TopNavbar />
+  </div>
   <div class="d-block d-md-none">
     <MobileNavbar />
   </div>
@@ -18,5 +20,9 @@ import TopNavbar from "./TopNavbar.astro";
   .divisor {
     border-right: 1px solid #ddd;
     padding-right: 1.5em;
+  }
+
+  #header {
+    position: relative;
   }
 </style>
