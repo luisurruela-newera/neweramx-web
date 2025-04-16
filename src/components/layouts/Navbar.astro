@@ -1,0 +1,361 @@
+---
+const pathname = Astro.url.pathname;
+
+const isActiveRoute = (section: string): boolean => {
+  return pathname.startsWith(`/${section}`);
+};
+
+const isExactRoute = (route: string): boolean => {
+  return pathname === route;
+};
+---
+
+<div id="main-navbar" class="header-height main-navbar">
+  <div class="container-md container-fluid px-0 px-md-3">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid px-1 px-md-3">
+        <a class="navbar-brand" href="/">
+          <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="210" class="d-none d-md-block" />
+          <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="120" class="d-md-none" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a
+                class={`nav-link dropdown-toggle text-primary ${isActiveRoute("soluciones") ? "active" : ""}`}
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Soluciones</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="dropdown-item dropdown d-none d-md-block">
+                  <a
+                    class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/microsoft") ? "active" : ""}`}
+                    href="#"
+                    id="microsoftSubmenu"
+                    role="button"
+                    aria-expanded="false"
+                  >
+                    Microsoft
+                  </a>
+                  <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="microsoftSubmenu">
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/sharepoint") ? "active" : ""}`}
+                        href="/soluciones/microsoft/sharepoint">SharePoint</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-automate") ? "active" : ""}`}
+                        href="/soluciones/microsoft/power-automate">Power Automate</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-bi") ? "active" : ""}`}
+                        href="/soluciones/microsoft/power-bi">Power BI</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown-item dropdown d-none d-md-block">
+                  <a
+                    class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/cloud") ? "active" : ""}`}
+                    href="#"
+                    id="cloudmenu"
+                    role="button"
+                    aria-expanded="false"
+                  >
+                    Cloud
+                  </a>
+                  <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="cloudmenu">
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-devops") ? "active" : ""}`}
+                        href="/soluciones/cloud/azure-devops">Azure DevOps</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-vmware") ? "active" : ""}`}
+                        href="/soluciones/cloud/azure-vmware">Soluciones deAzure VMware</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/ofertas-azure") ? "active" : ""}`}
+                        href="/soluciones/cloud/ofertas-azure">Ofertas de Azure</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    class={`dropdown-item text-primary ${isExactRoute("/soluciones/inteligencia-artificial") ? "active" : ""}`}
+                    href="/soluciones/inteligencia-artificial">Inteligencia Artificial</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class={`nav-link dropdown-toggle text-primary ${isActiveRoute("servicios") ? "active" : ""}`}
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Servicios</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a
+                    class={`dropdown-item text-primary ${isExactRoute("/servicios/servicios-administrados") ? "active" : ""}`}
+                    href="/servicios/servicios-administrados">Servicios Administrados</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class={`dropdown-item text-primary ${isExactRoute("/servicios/quality-assurance") ? "active" : ""}`}
+                    href="/servicios/quality-assurance">Seguro de Calidad</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-primary"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Nuestra Empresa
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros"
+                    >Sobre nosotros
+                  </a>
+                </li>
+                <li>
+                  <a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="/ubicacion">Ubicación</a>
+                </li>
+                <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="/socios">Socios</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-primary"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Recursos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <!-- <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li> -->
+                <li>
+                  <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio"
+                    >Casos de Estudio</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/contacto" class="nav-link text-primary">Contáctanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .main-navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .divisor {
+    border-right: 1px solid #ddd;
+    padding-right: 1.5em;
+  }
+
+  .dropdown-submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  .dropdown-item.dropdown {
+    position: relative;
+  }
+
+  .dropdown-item.dropdown:hover > .dropdown-submenu {
+    display: block;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+    let timeoutId: any;
+
+    const closeAllMenus = (except?: HTMLElement) => {
+      dropdowns.forEach((item) => {
+        if (item !== except) {
+          const menu = item.querySelector(".dropdown-menu");
+          const toggle = item.querySelector(".dropdown-toggle");
+          if (menu && toggle) {
+            menu.classList.remove("show");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+
+      // Cerrar todos los submenús excepto el actual
+      document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
+        if (submenu.parentElement !== except) {
+          submenu.classList.remove("show");
+          const toggle = submenu.parentElement?.querySelector(".dropdown-toggle");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    };
+
+    // Función para manejar submenús
+    const handleSubmenu = (submenuParent: Element) => {
+      const toggle = submenuParent.querySelector(".dropdown-toggle");
+      const submenu = submenuParent.querySelector(".dropdown-submenu");
+
+      if (!toggle || !submenu) return;
+
+      submenuParent.addEventListener("mouseenter", () => {
+        clearTimeout(timeoutId);
+        // Cerrar otros submenús del mismo nivel
+        const siblingSubmenus = submenuParent.parentElement?.querySelectorAll(".dropdown-submenu");
+        siblingSubmenus?.forEach((sibling) => {
+          if (sibling !== submenu) {
+            sibling.classList.remove("show");
+            const siblingToggle = sibling.parentElement?.querySelector(".dropdown-toggle");
+            if (siblingToggle) {
+              siblingToggle.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+
+        submenu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      submenuParent.addEventListener("mouseleave", () => {
+        timeoutId = setTimeout(() => {
+          submenu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      });
+
+      submenu.addEventListener("mouseenter", () => {
+        clearTimeout(timeoutId);
+      });
+
+      submenu.addEventListener("mouseleave", () => {
+        timeoutId = setTimeout(() => {
+          submenu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      });
+    };
+
+    dropdowns.forEach((dropdown) => {
+      const showMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+        clearTimeout(timeoutId);
+        closeAllMenus(dropdown as HTMLElement);
+        menu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      };
+
+      const hideMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+        timeoutId = setTimeout(() => {
+          menu.classList.remove("show");
+          toggle.setAttribute("aria-expanded", "false");
+        }, 200);
+      };
+
+      dropdown.addEventListener("mouseenter", (e) => {
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+        if (!dropdownMenu || !dropdownToggle) return;
+        showMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+      });
+
+      dropdown.addEventListener("mouseleave", (e) => {
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+        if (!dropdownMenu || !dropdownToggle) return;
+        hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+      });
+
+      const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+      if (dropdownMenu) {
+        dropdownMenu.addEventListener("mouseenter", () => {
+          clearTimeout(timeoutId);
+        });
+        dropdownMenu.addEventListener("mouseleave", () => {
+          const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+          if (!dropdownToggle) return;
+          hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+        });
+
+        // Manejar todos los submenús dentro de este dropdown
+        const submenuParents = dropdownMenu.querySelectorAll(".dropdown-item.dropdown");
+        submenuParents.forEach(handleSubmenu);
+      }
+    });
+
+    // Posicionar la navbar
+    const mainNavbar = document.getElementById("main-navbar");
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (mainNavbar) {
+        if (scrollTop >= 60) {
+          mainNavbar.style.position = "fixed";
+        } else {
+          mainNavbar.style.position = "relative";
+        }
+      }
+    });
+  });
+</script>

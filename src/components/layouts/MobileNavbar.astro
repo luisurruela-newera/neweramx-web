@@ -1,0 +1,117 @@
+---
+const pathname = Astro.url.pathname;
+
+const isActiveRoute = (section: string): boolean => {
+  return pathname.startsWith(`/${section}`);
+};
+
+const isExactRoute = (route: string): boolean => {
+  return pathname === route;
+};
+---
+
+<div id="mobile-navbar" class="header-height mobile-navbar">
+  <div class="container-md container-fluid px-0 px-md-3">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid px-1 px-md-3">
+        <a class="navbar-brand" href="/">
+          <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="210" class="d-none d-md-block" />
+          <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="120" class="d-md-none" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Soluciones</li>
+            <li class="py-2 ps-3 pe-2 d-block d-md-none text-extra-small text-dark text-uppercase">Microsoft</li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/sharepoint") ? "active" : ""}`}
+                href="/soluciones/microsoft/sharepoint">SharePoint</a
+              >
+            </li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-automate") ? "active" : ""}`}
+                href="/soluciones/microsoft/power-automate">Power Automate</a
+              >
+            </li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-bi") ? "active" : ""}`}
+                href="/soluciones/microsoft/power-bi">Power BI</a
+              >
+            </li>
+            <li class="py-2 ps-3 pe-2 d-block d-md-none text-extra-small text-dark text-uppercase">Cloud</li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-devops") ? "active" : ""}`}
+                href="/soluciones/cloud/azure-devops">Azure DevOps</a
+              >
+            </li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-vmware") ? "active" : ""}`}
+                href="/soluciones/cloud/azure-vmware">Soluciones deAzure VMware</a
+              >
+            </li>
+            <li class="ps-4">
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/ofertas-azure") ? "active" : ""}`}
+                href="/soluciones/cloud/ofertas-azure">Ofertas de Azure</a
+              >
+            </li>
+            <li>
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/soluciones/inteligencia-artificial") ? "active" : ""}`}
+                href="/soluciones/inteligencia-artificial">Inteligencia Artificial</a
+              >
+            </li>
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Servicios</li>
+            <li>
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/servicios/servicios-administrados") ? "active" : ""}`}
+                href="/servicios/servicios-administrados">Servicios Administrados</a
+              >
+            </li>
+            <li>
+              <a
+                class={`dropdown-item text-primary ${isExactRoute("/servicios/quality-assurance") ? "active" : ""}`}
+                href="/servicios/quality-assurance">Seguro de Calidad</a
+              >
+            </li>
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Nuestra Empresa</li>
+            <li>
+              <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros"
+                >Sobre nosotros
+              </a>
+            </li>
+            <li>
+              <a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="/ubicacion">Ubicación</a>
+            </li>
+            <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="/socios">Socios</a></li>
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Recursos</li>
+            <li>
+              <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio"
+                >Casos de Estudio</a
+              >
+            </li>
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Contáctanos</li>
+            <li>
+              <a href="/contacto" class="dropdown-item text-primary">Contáctanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

@@ -6,6 +6,20 @@
     }
 }
 
+.navbar-toggler {
+    border: none;
+    border-radius: 0px;
+    padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    color: colors.$primary-color !important;
+}
+
 .main-navbar {
     .dropdown-menu {
         border-radius: 0px;
@@ -40,6 +54,13 @@
 
     .nav-item.dropdown {
         padding: 0 7px;
+    }
+
+    @media (max-width: 768px) {
+        .dropdown-item.active {
+            background-color: colors.$white-color !important;
+            color: colors.$secondary-color !important;
+        }
     }
 }
 
