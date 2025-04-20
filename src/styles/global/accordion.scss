@@ -1,0 +1,6 @@
+@use 'colors.scss';
+
+.accordion-button:not(.collapsed) {
+    background-color: #ffffff !important;
+    color: colors.$secondary-color !important;
+}
