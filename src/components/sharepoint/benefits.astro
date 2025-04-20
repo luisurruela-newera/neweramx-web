@@ -33,7 +33,7 @@ const cardConfig2 = [
     title: "Fácil administración",
     body: "SharePoint está diseñado para simplificar el uso y elimina las complejidades del mantenimiento de las aplicaciones. Ofrece Administración centralizada que facilita la gestión de la suite en una única consola.",
     classes: "currentCard",
-  }
+  },
 ];
 ---
 
@@ -47,21 +47,21 @@ const cardConfig2 = [
     <div class="row py-2">
       {
         cardConfig.map((config) => (
-          <div class="col-4 mb-4 card-group">
+          <div class="col-md-4 mb-4 card-group">
             <Card config={config} />
           </div>
         ))
       }
     </div>
     <div class="row py-2">
-        {
-          cardConfig2.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
-      </div>
+      {
+        cardConfig2.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 
