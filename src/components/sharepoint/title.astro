@@ -1,23 +1,16 @@
-<section id="cover" class="cover">
-  <div class="container content d-flex align-items-center px-3">
-    <div class="mb-4">
-      <div class="border-start border-5 border-secondary ps-3 mb-4">
-        <h1 class="text-white text-super-large">Soluciones de SharePoint</h1>
-        <h3 class="text-white">Gestión de documentos simplificada y automatización del flujo de trabajo con SharePoint</h3>
-      </div>
-      <a class="btn bg-secondary text-white text-uppercase" href="#contact">Reserve una consulta</a>
-    </div>
-  </div>
-</section>
+---
+import Cover from "@components/global/cover.astro";
 
-<style>
-  .cover {
-    background: linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/managed-services-banner.jpg") !important; ;
-  }
+const coverConfig = {
+  title: "Soluciones de SharePoint",
+  subtitle: "Gestión de documentos simplificada y automatización del flujo de trabajo con SharePoint",
+  background:
+    'linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/managed-services-banner.jpg") !important',
+  button: {
+    title: "Agenda una consulta",
+    link: "#contact",
+  },
+};
+---
 
-  .content {
-    height: 380px;
-    margin-right: 100px;
-    width: 100%;
-  }
-</style>
+<Cover config={coverConfig} />
