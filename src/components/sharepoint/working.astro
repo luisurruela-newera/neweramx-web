@@ -1,8 +1,12 @@
+---
+import Button from "@components/global/button.astro";
+---
+
 <section class="cover py-5">
   <div class="container py-3">
     <div class="row">
-      <div class="col-md-6 px-3 px-md-0 text-center">
-        <h3 class="text-secondary">Trabajar con el equipo de SharePoint de New Era</h3>
+      <div class="col-md-7 px-3 px-md-0 text-center text-md-start">
+        <h3 class="text-secondary mb-3">Trabajar con el equipo de SharePoint de New Era</h3>
         <p class="text-white">
           En New Era Technology, no nos limitamos a desarrollar soluciones personalizadas, sino que construimos relaciones duraderas con
           nuestros clientes siendo sus socios tecnológicos de confianza. Nuestra vasta experiencia en el desarrollo de soluciones de
@@ -11,7 +15,7 @@
           y adopción del usuario final. Si necesita una solución personalizada de SharePoint para su negocio, póngase en contacto con
           nosotros y nuestros expertos en SharePoint estarán encantados de ayudarle.
         </p>
-        <a class="btn bg-secondary text-white text-uppercase mt-4 mt-md-0" href="#contact">Reserve una consulta</a>
+        <Button title="Agenda una consulta" link="#" class="btn-secondary mt-4 mt-md-3" />
       </div>
     </div>
   </div>
@@ -22,7 +26,7 @@
     background-image: linear-gradient(90deg, #0d2d6a 60%, rgba(41, 196, 169, 0) 80%),
       url("/assets/images/confidential-information-files-stored-cloud-scaled-1.jpg") !important;
     background-position: center right;
-    background-size: auto;
+    background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
     padding-top: 30px;
