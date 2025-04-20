@@ -33,31 +33,32 @@ const cardConfig2 = [
     title: "SharePoint Support Services",
     body: "New Era ofrece servicios de soporte integrales en modelos flexibles, como equipos de soporte externos, presenciales e híbridos. Ya sea que se trate de una mejora de nuevas funciones, resolución de problemas o mantenimiento, nuestros equipos de soporte funcionan como una extensión natural de su personal interno. Nuestros servicios lo ayudan a obtener soporte experto para su entorno de SharePoint con un TCO reducido en comparación con a la contratación de recursos regulares.",
     classes: "currentCard",
-  }
+  },
 ];
 ---
+
 <section class="bg-light py-5">
   <div class="container">
     <div class="row">
-        <h2 class="text-center">Servicios de SharePoint de New Era Technology</h2>
+      <h2 class="text-center">Servicios de SharePoint de New Era Technology</h2>
     </div>
     <div class="row py-4">
-        {
-          cardConfig.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
     <div class="row py-1">
-        {
-          cardConfig2.map((config) => (
-            <div class="col-4 mb-4 card-group center">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        cardConfig2.map((config) => (
+          <div class="col-md-4 mb-4 card-group center">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
