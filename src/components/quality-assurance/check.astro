@@ -1,32 +1,20 @@
-<section class="cover py-5">
-  <div class="container py-3">
-    <div class="row">
-      <div class="col-md-6 text-lead text-white">
-        <p>
-            Abarcando varias plataformas tecnológicas y tipos de soluciones, nuestros servicios de aseguramiento de la calidad del software en México le brindan el impulso para su negocio. 
-            Nuestra vasta experiencia en el dominio de las pruebas se adhiere a los estándares actuales de la industria e incluye la implementación de las mejores prácticas para permitirle tener una solución tecnológica completamente funcional y sin defectos.
-        </p>
-        <p>
-            Ofrecemos una evaluación preliminar de sus metodologías actuales de desarrollo y pruebas, un estudio de viabilidad, una prueba de concepto y una estimación de costos para ayudarlo a comprender mejor nuestro enfoque.
-            Benefíciese de una ventaja impulsada por el costo y el valor con nuestros servicios de pruebas de software.
-        </p>
-        <a class="btn btn-secondary btn-lg text-uppercase text-small text-lead" href="#contact">Agenda una consulta</a>
-      </div>
-      
-      </div>
-    </div>
-  </div>
-</section>
+---
+import BoxWithBackground from "@components/global/Box-with-background.astro";
+import Button from "@components/global/button.astro";
+---
 
-<style>
-    .cover {
-      background-image: linear-gradient(90deg,#0d2d6a 60%,rgba(41,196,169,0) 80%), url("/assets/images/QA.jpeg") !important;
-      background-size: auto;
-      background-position: 50%;
-      background-repeat: no-repeat;
-      padding-top: 30px;
-        padding-right: 0px;
-        padding-bottom: 30px;
-        padding-left: 0px;
-    }
-  </style>
+<BoxWithBackground background="linear-gradient(90deg, #0d2d6a 60%, rgba(41, 196, 169, 0) 80%), url('/assets/images/QA.jpeg') !important">
+  <div class="text-white">
+    <p>
+      Abarcando varias plataformas tecnológicas y tipos de soluciones, nuestros servicios de aseguramiento de la calidad del software en México le brindan el
+      impulso para su negocio. Nuestra vasta experiencia en el dominio de las pruebas se adhiere a los estándares actuales de la industria e incluye la
+      implementación de las mejores prácticas para permitirle tener una solución tecnológica completamente funcional y sin defectos.
+    </p>
+    <p>
+      Ofrecemos una evaluación preliminar de sus metodologías actuales de desarrollo y pruebas, un estudio de viabilidad, una prueba de concepto y una
+      estimación de costos para ayudarlo a comprender mejor nuestro enfoque. Benefíciese de una ventaja impulsada por el costo y el valor con nuestros servicios
+      de pruebas de software.
+    </p>
+  </div>
+  <Button title="Agenda una consulta" link="#" class="btn-secondary" />
+</BoxWithBackground>
