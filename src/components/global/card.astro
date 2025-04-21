@@ -9,6 +9,7 @@ interface Props {
     body: string;
     color?: string;
     classes?: string;
+    link?: string;
     button?: {
       text: string;
       link: string;
@@ -16,19 +17,23 @@ interface Props {
   };
 }
 
-const { icon, image, title, body, color = "bg-white", classes, button } = Astro.props.config;
+const { icon, image, title, body, color = "bg-white", classes, button, link } = Astro.props.config;
+
+const Tag = link ? "a" : "div";
+const linkProps = link ? { href: link } : {};
 ---
 
-<div class={`card ${color} ${classes}`}>
+<Tag {...linkProps} class:list={["card", color, classes, { "card-link": link }]}>
   <div class="card-body p-4 p-md-5 text-center">
     {icon ? <img src={`/assets/images/${icon}`} alt={title} width="90" /> : null}
     {image ? <img src={`/assets/images/${image}`} alt={title} class="img-fluid image" /> : null}
 
     <p class="text-primary title text-large pt-4">{title}</p>
     <p class="text-lead py-3">{body}</p>
-    {button ? <Button title={button.text} link={button.link} /> : null}
+
+    {button && !link ? <Button title={button.text} link={button.link} /> : null}
   </div>
-</div>
+</Tag>
 
 <style>
   .image {
