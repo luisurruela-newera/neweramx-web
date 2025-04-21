@@ -24,8 +24,83 @@ const cardConfig = [
     icon: "HP-partner.png",
     title: "HPE es una empresa global de plataforma como servicio del perte-to-cloud creada para transformar tu negocio.",
   },
-
-  
+  {
+    icon: "samsung.svg",
+    title: "Samsung ofrece tecnologías, productos y diseños innovadores que enriquecen la vida de las personas y contribuyen a la prosperidad mediante la creación de un nuevo futuro.",
+  },
+  {
+    icon: "Christie-blue.jpg",
+    title: "Christie es una empresa global de soluciones visuales, de audio y de colaboración que ofrece soluciones completas para empresas, entretenimiento e industria.",
+  },
+  {
+    icon: "Poly-Gold-Partner.png",
+    title: "Poly es líder en soluciones de video, voz y contenido.",
+  },
+  {
+    icon: "Extreme-Gold-Partner.png",
+    title: "Extreme Networks ofrece soluciones de redes empresariales orientadas al cliente.",
+  },
+  {
+    icon: "Avigilon_logo.png",
+    title: "Avigilon ofrece soluciones de vídeo de alta calidad.",
+  },
+  {
+    icon: "Axis_Communications_logo.png",
+    title: "Axis es líder del sector del vídeo en red. Axis ofrece productos y servicios para videovigilancia y análisis, control de accesos y sistemas de audio.",
+  },
+  {
+    icon: "milestone-logo.png",
+    title: "Milestone ofrece software de gestión de vídeo líder en el sector.",
+  },
+  {
+    icon: "Genetec-Logo.png",
+    title: "Genetec desarrolla software de plataforma abierta, hardware y servicios basados en la nube para la industria de la seguridad física y la seguridad pública.",
+  },
+  {
+    icon: "Harman_International_logo.png",
+    title: "Harman es un líder mundial en tecnología de automóviles conectados, innovaciones de audio de estilo de vida, diseño y análisis, servicios en la nube y soluciones de IoT.",
+  },
+  {
+    icon: "paloalto.png",
+    title: "Palo Alto Networks ofrece soluciones que previenen con éxito a las organizaciones de los ciberataques con un enfoque automatizado.",
+  },
+  {
+    icon: "legrand-logo.png",
+    title: "Legrand ofrece productos y sistemas para instalaciones eléctricas y redes de información.",
+  },
+  {
+    icon: "crestron-logo.png",
+    title: "Crestron es un fabricante líder de sistemas avanzados de control y conmutación audiovisual.",
+  },
+  {
+    icon: "LenelS2-logo.png",
+    title: "Lenel es un proveedor mundial de soluciones de seguridad de plataforma abierta con control de acceso integrado y gestión de vídeo.",
+  },
+  {
+    icon: "Shure_Logo.png",
+    title: "Shure es un fabricante líder de micrófonos para aplicaciones en vivo, giras y estudio.",
+  },
+  {
+    icon: "zoom-logo.png",
+    title: "Zoom es el líder en comunicaciones de vídeo empresarial modernas, con una plataforma en la nube sencilla y fiable.",
+  },
+  {
+    icon: "genesys_goldpartner.png",
+    title: "Genesys es un innovador software de contact center que mejora la experiencia del cliente.",
+  },
+  {
+    icon: "Hanwha_logo.png",
+    title: "Soluciones de seguridad y vigilancia como ninguna otra.",
+  },
+  {
+    icon: "logitech_partner.jpg",
+    title: "Equipe sus espacios de reunión con equipos de colaboración de audio y video superiores.",
+  },
+  {
+    icon: "Veeam_logo.png",
+    title: "Equipe sus espacios de reunión con equipos de colaboración de audio y video superiores.",
+  }, 
+ 
 ];
 ---
 
@@ -36,393 +111,29 @@ const cardConfig = [
         cardConfig.map((config) => (
           <div class="col-md-4 mb-3 card-group">
             <div class="shadow-lg p-1 mb-5 bg-body rounded-5">
-              <div class="partnerscontainer" />
+              <div class="w-auto h-auto" />
                 <div class="card-header">
                     <img
                       decoding="async"
                       src={`/assets/images/${config.icon}`}
                       width="85"
                       alt="LogoName"
-                      class="mt-1"
+                      class="img-fluid"
                     />
                   <p>{config.title}</p>
                 </div>
-                <div class="mt-1">
-                    {config.href ? 
+                {config.href ?
+                <div class="mt-1">                     
                   <button class="btn btn-primary">
                     <a href={config.href} target="_blank" rel="noopener" class="text-white">
                         Comenzar
                     </a>
                   </button>
-                   : null}
-                </div>
+                </div>: null}
             </div>
           </div>
         ))
       }
-
-      <div class="col et_pb_column_6">
-        <div class="et_pb_module et_pb_code et_pb_code_5">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:-5px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/samsung.svg"
-                    width="150px"
-                  /></span
-                >
-                <span
-                  >Samsung delivers innovative technologies, products and design that enrich people’s lives and contribute to social
-                  prosperity by creating a new future.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_7">
-        <div class="et_pb_module et_pb_code et_pb_code_6">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Christie-blue.jpg"
-                    width="200px"
-                  /></span
-                >
-                <span
-                  >Christie is a global visual, audio and collaboration solutions company offering full solutions for business,
-                  entertainment and industry.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_8">
-        <div class="et_pb_module et_pb_code et_pb_code_7">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2022/05/Poly-Gold-Partner.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Poly is a leader in video, voice, and content solutions.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_9">
-        <div class="et_pb_module et_pb_code et_pb_code_8">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Extreme-Gold-Partner.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Extreme Networks delivers customer-driven enterprise networking solutions</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_10">
-        <div class="et_pb_module et_pb_code et_pb_code_9">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Avigilon_logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Avigilon offers high quality video soltuions.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_11">
-        <div class="et_pb_module et_pb_code et_pb_code_10">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:-10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Axis_Communications_logo.png"
-                    width="150px"
-                  /></span
-                >
-                <span
-                  >Axis is an industry leader in network video. Axis offers products and services for video surveillance and analytics,
-                  access control, and audio systems.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_12">
-        <div class="et_pb_module et_pb_code et_pb_code_11">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:5px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Milestone-Logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Milestone offers industry-leading video management software.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_13">
-        <div class="et_pb_module et_pb_code et_pb_code_12">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Genetec-Logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span
-                  >Genetec develops open-platform software, hardware and cloud-based services for the physical security and public safety
-                  industry.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_14">
-        <div class="et_pb_module et_pb_code et_pb_code_13">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:-10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Harman_International_logo.png"
-                    width="150px"
-                  /></span
-                >
-                <span
-                  >Harman is a global leader in connected car technology, lifestyle audio innovations, design and analytics, cloud services
-                  and IoT solutions.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_15">
-        <div class="et_pb_module et_pb_code et_pb_code_14">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:5px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/paloalto.png"
-                    width="200px"
-                  /></span
-                >
-                <span
-                  >Palo Alto Networks offers solutions that successfully prevent organizations against cyberattacks with an automated
-                  approach.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_16">
-        <div class="et_pb_module et_pb_code et_pb_code_15">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/legrand-logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Legrand offers products and systems for electrical installations and information networks.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_17">
-        <div class="et_pb_module et_pb_code et_pb_code_16">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/crestron-logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Crestron is a leading manufacturer of advanced control and audio visual switching systems.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_18">
-        <div class="et_pb_module et_pb_code et_pb_code_17">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:10px;"
-                    src="https://www.neweratech.com/us/wp-content/uploads/sites/5/2023/10/LenelS2-logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span
-                  >Lenel is a worldwide provider of open-platform security solutions with integrated access control and video management.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_19">
-        <div class="et_pb_module et_pb_code et_pb_code_18">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Shure_Logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Shure is a leading manufacturer of microphones for live, touring and studio applications.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_20">
-        <div class="et_pb_module et_pb_code et_pb_code_19">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:-10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/zoom-logo.png"
-                    width="100px"
-                  /></span
-                >
-                <span>Zoom is the leader in modern enterprise video communications, with an easy, reliable cloud platform.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_21">
-        <div class="et_pb_module et_pb_code et_pb_code_20">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/genesys_goldpartner.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Genesys is an innovative contact center software improving the customer experience.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_22">
-        <div class="et_pb_module et_pb_code et_pb_code_21">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    decoding="async"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Hanwha_logo.png"
-                    width="100px"
-                  /></span
-                >
-                <span>Security and Surveillance Solutions Like No Other.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_23">
-        <div class="et_pb_module et_pb_code et_pb_code_22">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:10px;"
-                    src="https://www.neweratech.com/us/wp-content/uploads/sites/5/2024/01/logitech_partner.jpg"
-                    width="100px"
-                  /></span
-                >
-                <span> Outfit your meeting spaces with superior audio and video collaboration equipment.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col et_pb_column_24">
-        <div class="et_pb_module et_pb_code et_pb_code_23">
-          <div class="et_pb_code_inner">
-            <div class="partnerscard">
-              <div class="partnerscontainer"></div><div class="card-header">
-                <span
-                  ><img
-                    style="margin-top:10px;"
-                    src="https://cdn.neweratech.com/us/wp-content/uploads/sites/5/2023/10/Veeam_logo.png"
-                    width="200px"
-                  /></span
-                >
-                <span>Own, control, backup, and recover your data anywhere in the hybrid cloud.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
