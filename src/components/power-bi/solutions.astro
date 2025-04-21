@@ -6,75 +6,74 @@ const soluciones = [
     icon: "extended-data-visualization.png",
     title: "Visualización de datos ampliada",
     body: "Power BI ofrece amplias capacidades de visualización de datos que proporcionan información enriquecedora en paneles interactivos que son fáciles de usar. Los paneles facilitan el trabajo colaborativo y son fáciles de exportar en varios formatos.",
-    classes: "currentCard",
+    classes: "border-0",
   },
   {
     icon: "data-connectivity.png",
     title: "Conectividad de datos",
     body: "La suite cuenta con cerca de 500+ conectores que se conectan a una amplia gama de fuentes de datos y aplicaciones locales y basadas en la nube, como Salesforce y Microsoft Dynamics. Esta conectividad le permite utilizar la fuente de datos existente de su pila tecnológica sin migrar los datos.",
-    classes: "currentCard",
+    classes: "border-0",
   },
   {
     icon: "big-data-analysis.png",
     title: "Análisis de Big Data",
     body: "Power BI se conecta a orígenes de macrodatos y permite un análisis sencillo de datos no estructurados de gran volumen. Este tipo de análisis le ayuda a obtener información de amplios conjuntos de datos operativos y transaccionales y a utilizar la información para una mejor toma de decisiones basada en datos.",
-    classes: "currentCard",
+    classes: "border-0",
   },
   {
     icon: "granular-data-analysis.png",
     title: "Análisis de datos granulares",
     body: "Las amplias capacidades de minería de datos de Power BI le ayudan a descubrir información analítica previamente desconocida en comparación con las plataformas de BI heredadas. La función de análisis predictivo ofrece una proyección futurista basada en las tendencias y patrones de datos actuales, y es vital para la planificación empresarial futura.",
-    classes: "currentCard",
+    classes: "border-0",
   },
   {
     icon: "data-security.png",
     title: "Seguridad de los datos",
     body: "La seguridad de los datos en Power BI se proporciona a través de las funcionalidades nativas de la plataforma de Microsoft y permite mejoras de seguridad y configuración personalizadas. Con Power BI, los datos empresariales cruciales están totalmente protegidos contra el acceso no autenticado. Facilita la implementación de las directivas de gobernanza personalizadas para alinear la aplicación Power BI con los modelos de uso de datos actuales.",
-    classes: "currentCard",
+    classes: "border-0",
   },
   {
     icon: "reporting-capabilities.png",
     title: "Capacidades de generación de informes",
     body: "La suite ofrece modelos de informes completos e interactivos, que se pueden predefinir y configurar según los requisitos de su negocio. El fácil uso compartido en varios formatos permite un acceso simplificado en toda la organización, con capacidades de programación integradas. Power BI Report Builder simplifica la generación de informes en implementaciones locales y facilita a los usuarios navegar fácilmente por sus amplias capacidades de generación de informes, como gráficos, mapas, informes de forma libre, etc.",
-    classes: "currentCard",
-  },  
-]
+    classes: "border-0",
+  },
+];
 
 const soluciones2 = [
   {
     icon: "self-service-analytics.png",
     title: "Análisis de autoservicio y funcionalidades de lenguaje natural en Power BI",
     body: "Power BI ofrece análisis de autoservicio que permite que incluso un usuario novato use la aplicación para requisitos individuales específicos. Esta capacidad ayuda a toda su plantilla a utilizar sus capacidades de BI, haciéndola fácilmente accesible. Además, Power BI permite realizar consultas en el lenguaje natural del usuario, con la interfaz de arrastrar y soltar que simplifica la generación de una consulta con sugerencias automáticas y opciones de configuración.",
-    classes: "currentCard",
-  }
-]
-
-
+    classes: "border-0",
+  },
+];
 ---
+
 <section class="py-5">
   <div class="container py-3">
     <div class="row">
       <div class="col">
-        <h2 class="text-center">Aspectos clave de las soluciones Power BI de New Era</h2>
+        <h2 class="text-center text-primary">Aspectos clave de las soluciones Power BI de New Era</h2>
       </div>
     </div>
     <div class="row py-4">
-        {
-          soluciones.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        soluciones.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
     <div class="row py-4">
-        {
-          soluciones2.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        soluciones2.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
