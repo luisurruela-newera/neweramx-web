@@ -6,38 +6,39 @@ const beneficios = [
     icon: "simplified-bi.png",
     title: "BI simplificado",
     body: "Aproveche la interfaz de arrastrar y soltar de Power BI para crear paneles e informes personalizados con una facilidad de uso perfecta.",
-    classes: "currentCard",
+    classes: "border-secondary-1 hover-secondary",
   },
   {
     icon: "ai-and-ml-capabilities.png",
     title: "Capacidades de IA y ML",
     body: "Las capacidades de IA y ML en Power BI facilitan el análisis de modelos de datos complejos y la obtención de información que hasta ahora eran desconocidas para las herramientas de BI convencionales.",
-    classes: "currentCard",
+    classes: "border-secondary-1 hover-secondary",
   },
   {
     icon: "embedded-dashboards.png",
     title: "Paneles de control integrados",
     body: "Las capacidades nativas de Power BI hacen que sus paneles e informes se integren fácilmente en una amplia gama de aplicaciones.",
-    classes: "currentCard",
+    classes: "border-secondary-1 hover-secondary",
   },
-]
+];
 
 const beneficios2 = [
   {
     icon: "mobility.png",
     title: "Movilidad",
     body: "Se puede acceder a Power BI a través de una amplia gama de dispositivos, como equipos de escritorio, tabletas y móviles, lo que proporciona a los usuarios la flexibilidad necesaria para acceder en cualquier momento y desde cualquier lugar.",
-    classes: "currentCard",
+    classes: "border-secondary-1 hover-secondary",
   },
   {
     icon: "real-time-data-updates-1.png",
     title: "Actualizaciones de datos en tiempo real",
     body: "Con Power BI, puede obtener información en tiempo real con actualizaciones automáticas de datos a intervalos programados, lo que le brinda una visión general instantánea de las operaciones actuales.",
-    classes: "currentCard",
-  }
-]
+    classes: "border-secondary-1 hover-secondary",
+  },
+];
 ---
-<section class="py-5" >
+
+<section class="py-5">
   <div class="container py-3">
     <div class="row">
       <div class="col">
@@ -45,22 +46,22 @@ const beneficios2 = [
       </div>
     </div>
     <div class="row py-4">
-        {
-          beneficios.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        beneficios.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
     <div class="row py-4">
-        {
-          beneficios2.map((config) => (
-            <div class="col-4 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        beneficios2.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
