@@ -1,0 +1,31 @@
+---
+import Button from "@components/global/button.astro";
+interface Props {
+  background?: string;
+}
+
+const { background = "transparent" } = Astro.props;
+---
+
+<section class="cover py-5">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-7 px-3 px-md-0 text-center text-md-start">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style define:vars={{ backgroundStyle: background }}>
+  .cover {
+    background: var(--backgroundStyle);
+    background-size: cover;
+  }
+
+  @media screen and (max-width: 767px) {
+    .cover {
+      background: #0d2d6a !important;
+    }
+  }
+</style>
