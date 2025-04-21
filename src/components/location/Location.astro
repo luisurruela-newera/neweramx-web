@@ -1,0 +1,104 @@
+---
+import { locations } from "./locations.ts";
+---
+
+<div class="py-5">
+  <div class="container pb-5">
+    <div class="accordion" id="locations">
+      <div class="accordion-item border-top-0 border-start-0 border-end-0">
+        <h4 class="accordion-header" id="headingMx">
+          <button
+            class="accordion-button text-large text-primary text-bold"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseMx"
+            aria-expanded="true"
+            aria-controls="collapseMx"
+          >
+            México
+          </button>
+        </h4>
+        <div id="collapseMx" class="accordion-collapse collapse show" aria-labelledby="headingMx">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col-md-3 card-group px-2 py-3">
+                <p>
+                  6075-A, Av. Acueducto Local 3<br />
+                  Puerta de Hierro<br />
+                  45116 Zapopan, Jal<br />
+                  Mexico
+                </p>
+              </div>
+              <div class="col-md-3 card-group px-2 py-3">
+                <p>
+                  Rio Rhin 77 8° Piso<br />
+                  Cuauhtemoc<br />
+                  Ciudad de México<br />
+                  Mexico
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {
+        locations.map((location, index) => (
+          <div class="accordion-item border-top-0 border-start-0 border-end-0">
+            <h4 class="accordion-header" id={`heading${index}`}>
+              <button
+                class="accordion-button collapsed text-large text-primary text-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#collapse${index}`}
+                aria-expanded="false"
+                aria-controls={`collapse${index}`}
+              >
+                {location.zone}
+              </button>
+            </h4>
+            <div id={`collapse${index}`} class="accordion-collapse collapse" aria-labelledby={`heading${index}`}>
+              <div class="accordion-body">
+                {location.countries ? (
+                  location.countries.map((country) => (
+                    <div class="my-4">
+                      <h5 class="text-primary">{country.country}</h5>
+                      <div class="row py-3">
+                        {country.offices.map((office) => (
+                          <div class="col-md-3 card-group px-2 py-3">
+                            <p>
+                              {office.addressLines.map((line, i) => (
+                                <>
+                                  {line}
+                                  {i < office.addressLines.length - 1 && <br />}
+                                </>
+                              ))}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div class="row py-3">
+                    {location.offices.map((office) => (
+                      <div class="col-md-3 card-group px-2 py-3">
+                        <p>
+                          {office.addressLines.map((line, i) => (
+                            <>
+                              {line}
+                              {i < office.addressLines.length - 1 && <br />}
+                            </>
+                          ))}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
