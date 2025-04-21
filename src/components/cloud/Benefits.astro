@@ -1,0 +1,20 @@
+---
+import Card from "@components/global/card.astro";
+import { cardConfig } from "./benefits";
+---
+
+<section id="benefits" class="py-5">
+  <div class="container py-3 text-center">
+    <h2 class="text-primary mb-5">Beneficios de transicionar a la nube</h2>
+
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-4 card-group mb-3">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

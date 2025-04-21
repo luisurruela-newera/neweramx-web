@@ -1,0 +1,20 @@
+---
+import Card from "@components/global/card.astro";
+import { cardConfig } from "./capabilities";
+---
+
+<section id="capabilities" class="py-5 bg-light">
+  <div class="container py-3 text-center">
+    <h2 class="text-primary mb-5">Nuestras Capacidades y Soluciones incluyend:</h2>
+
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-3 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
