@@ -1,0 +1,56 @@
+---
+import Card from "@components/global/card.astro";
+
+const cardConfig = [
+  {
+    icon: "planning-phase.png",
+    title: "Fase de Planeación",
+    body: "Diseñe estrategias ágiles que garanticen una visibilidad completa en varios proyectos. Utilizamos capacidades de seguimiento modernas, como tableros Kanban, paneles personalizados e informes completos para garantizar que su equipo esté bien equipado y actualizado con el ciclo de vida del proyecto. También puede incluir el uso de GitHub y obtener información sobre datos en tiempo real con Microsoft Power BI.",
+    color: "bg-light",
+    classes: "border-0",
+  },
+  {
+    icon: "development-phase.png",
+    title: "Fase de Desarrollo",
+    body: "Azure DevOps permite una codificación más rápida utilizando el paquete Visual Studio. Con Azure Pipelines, obtiene la ventaja de crear, probar e implementar canalizaciones de CI/CD, junto con la integración con GitHub. Esto acelera el tiempo de desarrollo de soluciones, ahorrándole costos y utilización de recursos utilizando las mejores prácticas con DevOps.",
+    color: "bg-light",
+    classes: "border-0",
+  },
+  {
+    icon: "deliver-phase.png",
+    title: "Fase de Entrega",
+    body: "La fase de entrega permite una implementación perfecta en la plataforma Azure, como con el uso de Kubernetes. La solución facilita la creación sencilla de canalizaciones de entrega utilizando Azure Pipelines con el uso de herramientas integradas como Spinnaker y Jenkins. Se beneficiará de un sistema de entrega de múltiples nubes para publicar cambios de software y reducir los riesgos potenciales con las actualizaciones de aplicaciones.",
+    color: "bg-light",
+    classes: "border-0",
+  },
+  {
+    icon: "operate-phase.png",
+    title: "Fase de Operación",
+    body: "Azure DevOps permite actualizaciones automáticas de registros y telemetría mediante Azure Monitor con herramientas incluidas, como Ansible y Chef. Las herramientas integradas para el cumplimiento y la gobernanza simplificada, como Azure Blueprints, garantizan que su aplicación se alinee con sus necesidades comerciales. La seguridad de la aplicación que utiliza Azure Security Center mantiene sus activos seguros, limita la exposición a amenazas externas e identifica y soluciona rápidamente las vulnerabilidades.",
+    color: "bg-light",
+    classes: "border-0",
+  },
+];
+---
+
+<section id="lifecycle" class="py-5">
+  <div class="container py-3 text-center">
+    <div class="col-8 mx-auto pb-4">
+      <h2 class="text-primary mb-3">El ciclo de vida de Azure DevOps: asociarse con usted para alcanzar el éxito</h2>
+      <p>
+        The four phases in Azure DevOps-Plan, Develop, Deliver, and Operate, work in perfect synchrony to optimize the entire application
+        lifecycle with transformative outcomes. Here’s where our custom Azure DevOps solutions will make it happen.
+      </p>
+    </div>
+
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-6 card-group mb-3">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
