@@ -1,16 +1,10 @@
-<section id="title" class="bg-primary cover py-5">
-  <div class="container p-5">
-    <div class="p-1 border-start border-4 ps-5 border-secondary">
-      <h1 class="text-white title text-super-large">Acerca de Nosotros</h1>
-    </div>
-  </div>
-</section>
+---
+import CoverComponent from "@components/global/cover.astro";
 
-<style>
-  .cover {
-    background-image: linear-gradient(180deg, rgba(13, 45, 106, 0.75) 0%, rgba(13, 45, 106, 0.5) 0%), url("/assets/images/about-us-banner-1920-4.jpg") !important;
-    background-size: auto;
-    background-position: 50% 48%;
-    background-repeat: no-repeat;
-  }
-</style>
+const coverConfig = {
+  title: "Acerca de Nosotros",
+  background: 'linear-gradient(180deg, rgba(13, 45, 106, 0.75) 0%, rgba(13, 45, 106, 0.5) 0%), url("/assets/images/about-us-banner-1920-4.jpg") !important',
+};
+---
+
+<CoverComponent config={coverConfig} />
