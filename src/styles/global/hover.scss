@@ -6,3 +6,10 @@
         border-color: colors.$light-blue-color !important;
     }
 }
+
+.hover-light {
+    &:hover {
+        background-color: colors.$light-color !important;
+        border-color: colors.$muted-color !important;
+    }
+}

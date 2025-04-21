@@ -46,7 +46,7 @@ const isExactRoute = (route: string): boolean => {
                 <li class="dropdown-item dropdown d-none d-md-block">
                   <a
                     class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/microsoft") ? "active" : ""}`}
-                    href="#"
+                    href="/soluciones/microsoft"
                     id="microsoftSubmenu"
                     role="button"
                     aria-expanded="false"
@@ -126,9 +126,8 @@ const isExactRoute = (route: string): boolean => {
                   >
                 </li>
                 <li>
-                  <a
-                    class={`dropdown-item text-primary ${isExactRoute("/servicios/quality-assurance") ? "active" : ""}`}
-                    href="/servicios/quality-assurance">Seguro de Calidad</a
+                  <a class={`dropdown-item text-primary ${isExactRoute("/servicios/quality-assurance") ? "active" : ""}`} href="/servicios/quality-assurance"
+                    >Seguro de Calidad</a
                   >
                 </li>
               </ul>
@@ -146,9 +145,7 @@ const isExactRoute = (route: string): boolean => {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                  <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros"
-                    >Sobre nosotros
-                  </a>
+                  <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros">Sobre nosotros </a>
                 </li>
                 <li>
                   <a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="/ubicacion">Ubicación</a>
@@ -170,9 +167,7 @@ const isExactRoute = (route: string): boolean => {
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <!-- <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li> -->
                 <li>
-                  <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio"
-                    >Casos de Estudio</a
-                  >
+                  <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio">Casos de Estudio</a>
                 </li>
               </ul>
             </li>
