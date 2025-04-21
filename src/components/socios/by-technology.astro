@@ -1,0 +1,101 @@
+---
+const partners = [
+  {
+    technology: "Cloud",
+    partners: [
+      "Avaya",
+      "Azure",
+      "AWS",
+      "Cisco",
+      "Citrix",
+      "Ava Security",
+      "Genesys",
+      "Microsoft",
+      "Ruckus Networks",
+      "Webex",
+      "Meraki",
+      "Veeam",
+      "Datto",
+      "BCM One",
+      "3CX",
+      "Zerto",
+    ],
+  },
+  {
+    technology: "Colaboración y comunicaciones unificadas",
+    partners: 
+    [
+        "AudiCodes",
+        "AMX",
+        "Appspace",
+        "Ascom",
+        "AtlasIED",
+        "8×8",
+        "22Miles",
+        "Avaya",
+        "AVST",
+        "Barco",
+        "Biamp Systems",
+        "Blackmagic Design",
+        "Bose",
+        "Calabrio",
+        "Cambridge",
+        "Chief","Christie","Cisco","Citrix","Community","Comprehensive","Crestron","Crown","CueScript","Da-lite","Draper","Dukane","Epiphan","Extron","Harman","HCI","JBL","Kramer Electronics","Leon","Letrosonics","Listen Technologies","Meyer Sound","Microsoft","Middle Atlantic Products","Mindful","Sharp","Nuance","Peerless-AV","Pexip","Poly","QSC","Roland","Samsung","Sapling","Sennheiser","Shure","Tascam","ThreeSixty","Tightrope","Verizon","Vitec","Wolfvision","Zoom",
+    ]
+  },
+  {
+    technology: "Redes de datos",
+    partners: 
+    [
+    "APC","Arista","Aruba","HP Enterprise","Barracuda","Cisco","Citrix","CommScope","Corning","Eaton","Extreme Networks","Fortinet","Gigamon","Legrand / Ortronics","Lenovo","Meraki","Microsoft","NetApp","Palo Alto","Panduit","Pivot 3","VMware","Singlewire","SolarWinds","Tripp Lite","Juniper Networks","VMware","Veeam","Superior Essex","West Penn Wire",
+    ]
+  },
+  {
+    technology: "Seguridad y protección de la vida",
+    partners: 
+    [
+    "2N","Aiphone","Allegion","Altronix","APC","Ava Security","Avigilon","Axis","Bosch","Brivo","CenTrak","Clinton Electronics","Corning","Curbell Medical","Digital Watchdog","DMP","Eagle Eye Networks","Eaton","EST","Exacq","Gallagher","Genetec","Geutebruck","Hanwha","Honeywell","HID","ICT","Identicard","Innotech","Isonas","Layered Solutions","LenelS2","Legrand","March Networks","Microsoft","Milestone","OpenEye","OpenPath","Panduit","Panasonic","Pelco","Pivot3","Qualys","Rapid7","Salient","Solink","Status Solutions","Systems Technologies","Talkaphone","TekTone","Tripp Lite","Vaddio","Verkada","Vicon","Vivotek","West Penn Wire","Redsky Technologies","Secureworks","Crowdstrike","SentinelOne","Vectra",
+    ]
+  }
+  
+];
+---
+
+<section class="py-5">
+  <div class="container pb-5">
+    <div class="row text-center text-secondary">
+      <h2>Socios por tecnología</h2>
+    </div>
+    <div class="accordion" id="partners">
+      {
+        partners.map((partner, index) => (
+          <div class="accordion-item border-top-0 border-start-0 border-end-0">
+            <h4 class="accordion-header" id={`heading${index}`}>
+              <button
+                class="accordion-button collapsed text-large text-primary text-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#collapse${index}`}
+                aria-expanded="false"
+                aria-controls={`collapse${index}`}
+              >
+                {partner.technology}
+              </button>
+            </h4>
+            <div id={`collapse${index}`} class="accordion-collapse collapse" aria-labelledby={`heading${index}`}>
+              <div class="accordion-body">
+                <div class="my-4">
+                  <ul class="row list-unstyled">
+                    {partner.partners.map((partnerName) => (
+                      <li class="col-md-4 my-2">{partnerName}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
