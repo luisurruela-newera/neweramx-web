@@ -6,7 +6,7 @@ interface Props {
     icon?: string;
     image?: string;
     title: string;
-    body: string;
+    body?: string;
     color?: string;
     classes?: string;
     link?: string;
@@ -29,7 +29,7 @@ const linkProps = link ? { href: link } : {};
     {image ? <img src={`/assets/images/${image}`} alt={title} class="img-fluid image" /> : null}
 
     <p class="text-primary title text-large pt-4">{title}</p>
-    <p class="text-lead py-3">{body}</p>
+    {body && <p class="text-lead py-3">{body}</p>}
 
     {button && !link ? <Button title={button.text} link={button.link} /> : null}
   </div>
