@@ -38,16 +38,13 @@ const cardConfig2 = [
 ---
 
 <section id="benefits" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2 class="text-center">Beneficios de SharePoint</h2>
-      </div>
-    </div>
+  <div class="container py-3">
+    <h2 class="text-center text-primary mb-5">Beneficios de SharePoint</h2>
+
     <div class="row py-2">
       {
         cardConfig.map((config) => (
-          <div class="col-md-4 mb-4 card-group">
+          <div class="col-md-4 mb-3 card-group">
             <Card config={config} />
           </div>
         ))
