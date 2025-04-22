@@ -1,0 +1,71 @@
+<section id="whyai" class="py-5">
+  <div class="container py-3 text-center">
+    <h2 class="mb-3 text-primary">Por qué Inteligencia Artificial</h2>
+    <p>Los números hablan por sí solos. ​Encuentre el camino a seguir en su viaje hacia la IA, comience a actuar hoy y no se quede atrás.</p>
+
+    <div class="row mt-5">
+      <div class="col-md-4 mb-3 py-4">
+        <div id="countup-1" data-countup-end="10" class="text-giant text-bold text-primary mb-2 mb-md-4">0%</div><br />
+        <div class="text-small">En promedio, las empresas pueden esperar un aumento de ingresos del 6 % al 10 % al adoptar la IA (Statista, 2023)</div>
+      </div>
+      <div class="col-md-4 mb-3 py-4">
+        <div id="countup-2" data-countup-end="73" class="text-giant text-bold text-primary mb-2 mb-md-4">0%</div><br />
+        <div class="text-small">de las empresas estadounidenses utilizan la IA en algún aspecto de su negocio (PwC, 2023).</div>
+      </div>
+      <div class="col-md-4 mb-3 py-4">
+        <div id="countup-3" data-countup-end="1.5" data-countup-decimals="1" data-countup-suffix="+" class="text-giant text-bold text-primary mb-2 mb-md-4">
+          0+
+        </div><br />
+        <div class="text-small">
+          La IA podría aumentar el crecimiento de la productividad laboral en 1,5 puntos porcentuales durante la próxima década (Statista, 2023)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { CountUp } from "countup.js";
+
+  function initCountUp(targetId: any) {
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) {
+      console.error(`Element with ID ${targetId} not found.`);
+      return null;
+    }
+
+    const endVal = parseFloat(targetElement.getAttribute("data-countup-end") ?? "");
+    const decimals = parseInt(targetElement.getAttribute("data-countup-decimals") || "0", 10);
+    const duration = 2;
+    const suffix = targetElement.getAttribute("data-countup-suffix") || (targetId !== "countup-3" ? "%" : "");
+    const prefix = targetElement.getAttribute("data-countup-prefix") || "";
+
+    const options = {
+      decimalPlaces: decimals,
+      duration: duration,
+      suffix: suffix,
+      prefix: prefix,
+      useEasing: true, // Hace la animación más suave
+      useGrouping: false, // Evita separadores de miles (ej. 1,000)
+      enableScrollSpy: true, // Inicia la animación cuando el elemento es visible (requiere polyfill para IntersectionObserver en navegadores antiguos si es necesario)
+      scrollSpyDelay: 100, // Pequeño retraso después de que sea visible
+      scrollSpyOnce: true, // Ejecuta la animación solo una vez
+    };
+
+    const countUpAnim = new CountUp(targetElement, endVal, options);
+
+    if (!countUpAnim.error) {
+      return countUpAnim;
+    } else {
+      console.error(`CountUp error for ${targetId}:`, countUpAnim.error);
+      targetElement.textContent = `${prefix}${endVal.toFixed(decimals)}${suffix}`;
+      return null;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initCountUp("countup-1");
+    initCountUp("countup-2");
+    initCountUp("countup-3");
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import Button from "@components/global/button.astro";
+import CoverComponent from "@components/global/cover.astro";
+
+const config = {
+  title: "Inteligencia Artificial para tu negocio",
+  subtitle: "Usa la IA generativa para superar los retos de tu negocio",
+  background: "linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url('/assets/images/newsletter-icon-1.png') !important",
+};
+---
+
+<CoverComponent config={config}>
+  <p class="text-white">
+    La IA generativa (Inteligencia Artificial) está preparada para revolucionar la forma en que las empresas operan, crean contenido e interactúan con los
+    clientes. Esta tecnología transformadora aprovecha algoritmos avanzados de aprendizaje automático para generar texto, imágenes, audio y video similares a
+    los humanos basados ​​en patrones aprendidos de vastos conjuntos de datos. A medida que la IA generativa continúa evolucionando a un ritmo rápido, las
+    organizaciones deben adaptarse y aprovechar su potencial para seguir siendo competitivas en el panorama digital. New Era Technology está aquí para guiarlo a
+    través de esta apasionante frontera y ayudarlo a integrar la IA generativa en su estrategia comercial.
+  </p>
+
+  <Button title="Hablemos de IA" link="#" class="btn-secondary" />
+</CoverComponent>
