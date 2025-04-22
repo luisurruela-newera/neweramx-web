@@ -1,0 +1,42 @@
+---
+import Card from "@components/global/card.astro";
+
+const cards = [
+  {
+    icon: "microsoft.png",
+    title: "Microsoft",
+    classes: "border-0 hover-secondary",
+  },
+  {
+    icon: "salesforce.png",
+    title: "Fuerza de Ventas",
+    classes: "border-0 hover-secondary",
+  },
+  {
+    icon: "quality-assurance-interactive-services.png",
+    title: "Aseguramiento de Calidad",
+    classes: "border-0 hover-secondary",
+  },
+];
+---
+
+<section id="new-approach" class="py-5 bg-light">
+  <div class="container py-3 text-center">
+    <h2 class="text-primary mb-4">El enfoque de New Era</h2>
+
+    <p>
+      Nuestro enfoque personalizado para brindar soluciones tecnológicas incluye consultoría estratégica, Servicios de evaluación, abastecimiento, desarrollo,
+      integración, implementación y gestión de aplicaciones para las siguientes áreas:
+    </p>
+
+    <div class="row mt-5">
+      {
+        cards.map((cardConfig) => (
+          <div class="col-md-4 card-group">
+            <Card config={cardConfig} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

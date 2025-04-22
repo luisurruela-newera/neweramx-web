@@ -33,11 +33,7 @@ const mobileHeight = config.mobileHeight || 50;
 const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div 
-  class="swiper-container" 
-  style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px;`} 
-  id={sliderId}
->
+<div class="swiper-container" style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px;`} id={sliderId}>
   <div class="swiper-wrapper">
     {
       config.items.map((slide: ISlider) => (
@@ -45,13 +41,11 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
           class={`swiper-slide ${config.background ? config.background : "bg-white"}`}
           style={`background: ${slide.background ? `url(${slide.background})` : "transparent"}`}
         >
-          {slide.overlayBackground && (
-            <div 
-              class="overlay" 
-              style={`--overlay-background: ${slide.overlayBackground}`}
-            />
-          )}
-          <div class="content-container container d-flex align-items-center px-4 px-md-0" style={`height: var(--slide-height); @media (max-width: 767px) { height: var(--mobile-height); }`}>
+          {slide.overlayBackground && <div class="overlay" style={`--overlay-background: ${slide.overlayBackground}`} />}
+          <div
+            class="content-container container d-flex align-items-center px-4 px-md-0"
+            style={`height: var(--slide-height); @media (max-width: 767px) { height: var(--mobile-height); }`}
+          >
             <div class="slide-content">
               {slide.image && <img src={`/assets/images/${slide.image}`} alt={slide.title} />}
               {(slide.title || slide.description || slide.button) && (
@@ -111,6 +105,9 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
         type: "bullets",
       },
       loop: true,
+      autoplay: true,
+      delay: 3000,
+      disableOnInteraction: true,
     });
   });
 </script>
@@ -210,7 +207,7 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
         display: flex;
         flex-direction: column;
         width: 100%;
-        
+
         @media (max-width: 767px) {
           text-align: center;
           align-items: center;
@@ -224,7 +221,8 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
             justify-content: center;
             text-align: center;
 
-            h2, p {
+            h2,
+            p {
               text-align: center;
             }
           }

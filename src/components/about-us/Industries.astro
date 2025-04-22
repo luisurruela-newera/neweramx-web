@@ -1,0 +1,80 @@
+---
+import Card from "@components/global/card.astro";
+
+const cards = [
+  {
+    icon: "cpg-manufacturing.png",
+    title: "Manufactura",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "wholesale-and-retail.png",
+    title: "Ventas Mayoreo y Menudeo",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "healthcare-and-pharmaceuticals.png",
+    title: "Salud y Farmacéutica",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "automotive-hi-tech.png",
+    title: "Automotriz",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "banking-financial.png",
+    title: "Bancos y Finanzas",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "media-and-entertainment.png",
+    title: "Medios y Entretenimiento",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "oil-and-gas-utility.png",
+    title: "Petróleo y Gas",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+  {
+    icon: "telecom.png",
+    title: "Telecomunicaciones",
+    color: "bg-primary",
+    classes: "border-0",
+  },
+];
+---
+
+<section id="industrias" class="py-5 bg-primary">
+  <div class="container py-3 text-center">
+    <h2 class="text-white mb-5">Las industrias clave incluyen:</h2>
+
+    <div class="row">
+      {
+        cards.map((cardConfig) => (
+          <div class="col-md-3 card-group">
+            <Card config={cardConfig} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-5 text-white text-md-start">
+      New Era garantiza que la información de nuestro sitio web y nuestros productos, soluciones y servicios sean accesibles para todos, incluso para personas
+      con necesidades especiales y discapacidades. Para garantizar el cumplimiento total de las normas vigentes, confirmamos las especificaciones de
+      accesibilidad de la Sección 508 (Estándares de Accesibilidad a Tecnologías de la Información y
+    </p>
+    <p class="text-white text-md-start">
+      Electrónica, 36 CFR § 1194). Para las personas que utilizan tecnología de asistencia y tienen problemas de accesibilidad con nuestro formato web, póngase
+      en contacto con nosotros y estaremos encantados de ayudarle.
+    </p>
+  </div>
+</section>

@@ -5,32 +5,22 @@ import Title from "../global/title.astro";
 const CardConfig = [
   {
     icon: "microsoft.png",
-    title: "Servicios Profesionales",
+    title: "Microsoft",
     body: " Somos un socio de soluciones con certificación de Microsoft con una amplia experiencia en el panorama de Microsoft Technology. Desde análisis o automatización o nube hasta servicios administrados, nuestra experiencia le permite mantenerse a la vanguardia con un camino acelerado hacia la transformación digital.",
     color: "",
     button: {
       text: "Saber más",
-      link: "#",
-    },
-  },
-  {
-    icon: "sap-about-icon.png",
-    title: "Redes de datos",
-    body: " New Era Technology, un socio de SAP Solutions, ofrece soluciones SAP personalizadas que incluyen implementación, actualizaciones, mejoras de características, integraciones y servicios administrados por aplicaciones en la vasta gama de la suite SAP.",
-    color: "",
-    button: {
-      text: "Saber más",
-      link: "#",
+      link: "/soluciones/microsoft",
     },
   },
   {
     icon: "cloud-finops-cost-optimization.png",
-    title: "Seguridad y seguridad de la vida",
+    title: "Cloud",
     body: " El negocio emergente necesita una plataforma segura y confiable, que los modelos de almacenamiento heredado de leve local no pueden cumplir de manera eficiente. Para mantenerse a la vanguardia en la carrera competitiva, un cambio a la nube es más esencialidad que una elección.",
     color: "",
     button: {
       text: "Saber más",
-      link: "#",
+      link: "/soluciones/cloud",
     },
   },
 ];
@@ -42,7 +32,7 @@ const CardConfig = [
     <div class="row mt-4 mt-md-0">
       {
         CardConfig.map((config) => (
-          <div class="col-md-4 card-group p-md-5">
+          <div class="col-md-6 card-group p-md-5">
             <Card config={config} />
           </div>
         ))
