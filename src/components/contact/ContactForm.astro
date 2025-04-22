@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="contact-us" class="py-5">
+  <div class="container py-3">
+    <h2 class="text-secondary mb-3 text-super-large">Contacto</h2>
+    <h3 class="text-primary mb-3">Envíanos un mensaje</h3>
+
+    <p>¿Tiene alguna pregunta sobre una solución? Complete este formulario y un miembro de nuestro equipo se comunicará con usted.</p>
+
+    <p>
+      (Si experimentas algún problema en este formulario, por favor, envía un correo a <a
+        href="mailto:solutions@neweratech.com"
+        class="text-secondary text-bold">solutions@neweratech.com</a
+      >.)
+    </p>
+
+    <div class="row mt-5">
+      <div class="col-md-6 bg-light p-5">
+        <form>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="name" class="text-small text-dark"
+                >Nombre
+                <span class="text-danger">(Requerido)</span></label
+              >
+              <input type="text" name="name" id="name" class="form-control rounded-0 mb-2" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="apellido" class="text-small text-dark">Apellido</label>
+              <input type="text" name="apellido" id="apellido" class="form-control rounded-0 mb-2" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="email" class="text-small text-dark">Correo <span class="text-danger">(Requerido)</span></label>
+              <input type="email" name="email" id="email" class="form-control rounded-0 mb-2" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="phone" class="text-small text-dark">Teléfono <span class="text-danger">(Requerido)</span></label>
+              <div class="input-group mb-2">
+                <input type="tel" name="phone" id="phone" class="form-control rounded-0" placeholder="Número de teléfono" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="company" class="text-small text-dark">Empresa <span class="text-danger">(Requerido)</span></label>
+              <input type="text" name="company" id="company" class="form-control rounded-0 mb-2" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="message" class="text-small text-dark">Mensaje <span class="text-danger">(Requerido)</span></label>
+              <textarea name="message" id="message" class="form-control rounded-0 mb-2" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary rounded-0 px-5 py-2">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 mt-5 mt-md-0">
+        <div class="row">
+          <div class="col-12 px-4">
+            <div class="bg-light p-5 text-center">
+              <Icon name="phone" size={42} class="mb-4 text-secondary" />
+              <h3 class="text-primary mb-3">Consultas generales</h3>
+              <p>Llámanos al teléfono: <a href="#" class="text-bold text-primary">+971 43210808</a>.</p>
+            </div>
+          </div>
+          <div class="col-12 p-4">
+            <div class="bg-light p-5 text-center">
+              <Icon name="users" size={42} class="mb-4 text-secondary" />
+              <h3 class="text-primary mb-3">Soporte</h3>
+              <p>
+                Si es un cliente administrado, visite nuestra <a href="#" class="text-secondary">página de soporte</a> o llamar: <a
+                  href="#"
+                  class="text-bold text-primary">+971 43210808</a
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="bg-light p-5 text-center">
+              <Icon name="location" size={42} class="mb-4 text-secondary" />
+              <h3 class="text-primary mb-3">Encuentranos</h3>
+              <p>
+                Conoce nuestra <a href="#" class="text-secondary">ubicación</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
