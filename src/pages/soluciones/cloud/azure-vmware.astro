@@ -1,7 +1,20 @@
 ---
+import Description from "@components/azure-vmware/Description.astro";
+import AzureSolutions from "@components/azure-vmware/AzureSolutions.astro";
+import AzureWMware from "@components/azure-vmware/AzureWMware.astro";
+import Benefits from "@components/azure-vmware/Benefits.astro";
+import Contact from "@components/azure-vmware/Contact.astro";
+import UseCases from "@components/azure-vmware/UseCases.astro";
+import Cover from "@components/azure-vmware/Cover.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>VMware Azure</h1>
+  <Cover />
+  <Description />
+  <AzureSolutions />
+  <Benefits />
+  <UseCases />
+  <AzureWMware />
+  <Contact />
 </Layout>

@@ -1,0 +1,50 @@
+---
+import Card from "@components/global/card.astro";
+
+const cardConfig = [
+  {
+    icon: "data-center-extension.svg",
+    title: "Extensión del centro de datos",
+    body: "Las organizaciones que enfrentan limitaciones de capacidad del centro de datos o que buscan expandir su infraestructura sin una inversión de capital significativa pueden aprovechar AVS para extender sus entornos locales sin problemas a Azure. Esto permite una transición gradual a la nube, lo que garantiza que las aplicaciones y cargas de trabajo críticas se ejecuten sin problemas.",
+    color: "bg-primary",
+    classes: "text-white border-0",
+  },
+  {
+    icon: "cloud-migration.svg",
+    title: "Migración a la nube",
+    body: "AVS ofrece una solución ideal para empresas que desean migrar a la nube sin rediseñar sus aplicaciones. Al trasladar las cargas de trabajo de VMware a Azure, las organizaciones pueden beneficiarse de la escalabilidad, la flexibilidad y los servicios de la nube mientras mantienen la coherencia con sus operaciones existentes. Este enfoque simplifica el proceso de migración y reduce el riesgo asociado con transformaciones de TI a gran escala.",
+    color: "bg-primary",
+    classes: "text-white border-0",
+  },
+  {
+    icon: "application-modernization.svg",
+    title: "Modernización de aplicaciones",
+    body: "AVS facilita la modernización de aplicaciones al permitir la integración de servicios de Azure, como inteligencia artificial, aprendizaje automático y análisis avanzado, con entornos VMware existentes. Esto permite a las empresas innovar y mejorar sus aplicaciones sin una revisión completa, impulsando una ventaja competitiva y mejorando las experiencias de los clientes.",
+    color: "bg-primary",
+    classes: "text-white border-0",
+  },
+  {
+    icon: "application-modernization.svg",
+    title: "Disaster Recovery",
+    body: "AVS proporciona una sólida solución de recuperación ante desastres mediante la replicación de entornos locales en Azure. Esto garantiza la continuidad del negocio al permitir una rápida recuperación de aplicaciones y datos críticos durante una interrupción. Con AVS, las organizaciones pueden implementar una estrategia de recuperación ante desastres confiable y escalable que minimice el tiempo de inactividad y proteja contra la pérdida de datos.",
+    color: "bg-primary",
+    classes: "text-white border-0",
+  },
+];
+---
+
+<section id="useCases" class="py-5 bg-primary">
+  <div class="container py-3 text-center">
+    <h2 class="text-white mb-3">Casos de Usos</h2>
+
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-3 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
