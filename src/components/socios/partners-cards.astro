@@ -1,0 +1,171 @@
+---
+const cardConfig = [
+  {
+    icon: "cisco_gold_partner_logo.png",
+    iconWidth: 75,
+    title: "Cisco es líder mundial en TI, redes y ciberseguridad.",
+    href: "https://www.neweratech.com/us/partners/cisco/",
+  },
+  {
+    icon: "Microsoft-Solutions-Partner-Logo.svg",
+    iconWidth: 165,
+    title: "Microsoft es un desarrollador líder de sistemas y aplicaciones de software para computadoras personales.",
+    href: "https://www.neweratech.com/us/partners/microsoft-partnership/",
+  },
+  {
+    icon: "edge_diamond.png",
+    iconWidth: 185,
+    title: "Avaya es un líder mundial en soluciones de centro de contacto, comunicaciones unificadas y negocios en la nube.",
+    href: "https://www.neweratech.com/us/avaya-partner/",
+  },
+  {
+    icon: "Fortinet_logo-2.png",
+    iconWidth: 185,
+    title: "Fortinet ofrece soluciones de seguridad de integración de alto rendimiento para empresas globales, medianas y pequeñas empresas.",
+    href: "https://www.neweratech.com/us/partners/fortinet-partnership/",
+  },
+  {
+    icon: "HP-partner.png",
+    iconWidth: 65,
+    title: "HPE es una empresa global de plataforma como servicio del perte-to-cloud creada para transformar tu negocio.",
+  },
+  {
+    icon: "samsung.svg",
+    iconWidth: 155,
+    title:
+      "Samsung ofrece tecnologías, productos y diseños innovadores que enriquecen la vida de las personas y contribuyen a la prosperidad mediante la creación de un nuevo futuro.",
+  },
+  {
+    icon: "Christie-blue.jpg",
+    iconWidth: 185,
+    title:
+      "Christie es una empresa global de soluciones visuales, de audio y de colaboración que ofrece soluciones completas para empresas, entretenimiento e industria.",
+  },
+  {
+    icon: "Poly-Gold-Partner.png",
+    iconWidth: 200,
+    title: "Poly es líder en soluciones de video, voz y contenido.",
+  },
+  {
+    icon: "Extreme-Gold-Partner.png",
+    iconWidth: 135,
+    title: "Extreme Networks ofrece soluciones de redes empresariales orientadas al cliente.",
+  },
+  {
+    icon: "Avigilon_logo.png",
+    iconWidth: 185,
+    title: "Avigilon ofrece soluciones de vídeo de alta calidad.",
+  },
+  {
+    icon: "Axis_Communications_logo.png",
+    iconWidth: 135,
+    title:
+      "Axis es líder del sector del vídeo en red. Axis ofrece productos y servicios para videovigilancia y análisis, control de accesos y sistemas de audio.",
+  },
+  {
+    icon: "milestone-logo.png",
+    iconWidth: 200,
+    title: "Milestone ofrece software de gestión de vídeo líder en el sector.",
+  },
+  {
+    icon: "Genetec-Logo.png",
+    iconWidth: 185,
+    title:
+      "Genetec desarrolla software de plataforma abierta, hardware y servicios basados en la nube para la industria de la seguridad física y la seguridad pública.",
+  },
+  {
+    icon: "Harman_International_logo.png",
+    iconWidth: 105,
+    title:
+      "Harman es un líder mundial en tecnología de automóviles conectados, innovaciones de audio de estilo de vida, diseño y análisis, servicios en la nube y soluciones de IoT.",
+  },
+  {
+    icon: "paloalto.png",
+    iconWidth: 185,
+    title: "Palo Alto Networks ofrece soluciones que previenen con éxito a las organizaciones de los ciberataques con un enfoque automatizado.",
+  },
+  {
+    icon: "legrand-logo.png",
+    iconWidth: 185,
+    title: "Legrand ofrece productos y sistemas para instalaciones eléctricas y redes de información.",
+  },
+  {
+    icon: "crestron-logo.png",
+    iconWidth: 220,
+    title: "Crestron es un fabricante líder de sistemas avanzados de control y conmutación audiovisual.",
+  },
+  {
+    icon: "LenelS2-logo.png",
+    iconWidth: 185,
+    title: "Lenel es un proveedor mundial de soluciones de seguridad de plataforma abierta con control de acceso integrado y gestión de vídeo.",
+  },
+  {
+    icon: "Shure_Logo.png",
+    iconWidth: 185,
+    title: "Shure es un fabricante líder de micrófonos para aplicaciones en vivo, giras y estudio.",
+  },
+  {
+    icon: "zoom-logo.png",
+    iconWidth: 55,
+    title: "Zoom es el líder en comunicaciones de vídeo empresarial modernas, con una plataforma en la nube sencilla y fiable.",
+  },
+  {
+    icon: "genesys_goldpartner.png",
+    iconWidth: 185,
+    title: "Genesys es un innovador software de contact center que mejora la experiencia del cliente.",
+  },
+  {
+    icon: "Hanwha_logo.png",
+    iconWidth: 85,
+    title: "Soluciones de seguridad y vigilancia como ninguna otra.",
+  },
+  {
+    icon: "logitech_partner.jpg",
+    iconWidth: 155,
+    title: "Equipe sus espacios de reunión con equipos de colaboración de audio y video superiores.",
+  },
+  {
+    icon: "Veeam_logo.png",
+    iconWidth: 185,
+    title: "Equipe sus espacios de reunión con equipos de colaboración de audio y video superiores.",
+  },
+];
+---
+
+<section class="py-5">
+  <div class="container py-3">
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-4 mb-3 card-group">
+            <div class="card border-0 shadow-lg p-1 mb-5 rounded-5">
+              <div class="card-body text-center">
+                <img decoding="async" src={`/assets/images/${config.icon}`} width={config.iconWidth} alt="LogoName" class="img-fluid" />
+                <p class="mt-3">{config.title}</p>
+              </div>
+              {/* {config.href && (
+                <div class="mt-1">
+                  <button class="btn btn-primary">
+                    <a href={config.href} target="_blank" rel="noopener" class="text-white">
+                      Comenzar
+                    </a>
+                  </button>
+                </div>
+              )} */}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+</style>
