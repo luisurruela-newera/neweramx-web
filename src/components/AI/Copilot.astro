@@ -1,0 +1,62 @@
+---
+import Button from "@components/global/button.astro";
+import Card from "@components/global/card.astro";
+
+const cardConfig = [
+  {
+    icon: "how-sales-use-copilot.png",
+    title: "Como se usa Copilot en Ventas",
+    button: {
+      text: "Descargar ahora",
+      link: "#",
+    },
+  },
+  {
+    icon: "how-executives-use-copilot.png",
+    title: "Como usan Copilot los ejecutivos",
+    button: {
+      text: "Descargar ahora",
+      link: "#",
+    },
+  },
+  {
+    icon: "how-sales-use-copilot.png",
+    title: "Como se usa Copilot en TI",
+    button: {
+      text: "Descargar ahora",
+      link: "#",
+    },
+  },
+  {
+    icon: "how-sales-use-copilot.png",
+    title: "Como se usa Copilot en Marketing",
+    button: {
+      text: "Descargar ahora",
+      link: "#",
+    },
+  },
+];
+---
+
+<section id="copilot" class="py-5 bg-light">
+  <div class="container py-3 text-center">
+    <h2 class="text-primary mb-3">Solución Copilot para Microsoft 365</h2>
+    <p>
+      Descubra cómo Copilot para Microsoft 365 puede respaldar su negocio, impulsar la creatividad y mejorar la productividad. Explore los casos de uso a
+      continuación (de la Biblioteca de escenarios de Microsoft) y responda el cuestionario de preparación para la IA para determinar si está realmente
+      preparado para dar el siguiente paso en el viaje de la IA de su empresa.
+    </p>
+
+    <div class="row my-5">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-3 card-group mb-3">
+            <Card config={config} />
+          </div>
+        ))
+      }
+    </div>
+
+    <Button title="Determine su Copiloto para la preparación de microsoft 365" link="#" class="btn-primary" />
+  </div>
+</section>

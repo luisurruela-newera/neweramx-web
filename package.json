@@ -12,6 +12,7 @@
     "astro": "^5.5.6",
     "astro-icon": "^1.1.5",
     "bootstrap": "^5.3.3",
+    "countup.js": "^2.8.0",
     "lite-youtube-embed": "^0.3.3",
     "swiper": "^11.2.6"
   },

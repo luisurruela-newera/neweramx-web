@@ -35,6 +35,7 @@ const { icon, image, background, title, subtitle, button } = config;
         </div>
 
         {button && <Button title={button.title} link={button.link} class="btn-secondary" />}
+        <slot />
       </div>
     </div>
   </article>
