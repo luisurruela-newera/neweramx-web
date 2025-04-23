@@ -1,9 +1,13 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="cloud-services" class="py-5">
   <div class="container py-3">
     <div class="row">
       <div class="col-md-6 px-md-5">
         <div class="px-5">
-          <img src="/assets/images/Cloud_Computing.png" alt="Servicios en la nube" class="img-fluid" />
+          <img src={`${base}assets/images/Cloud_Computing.png`} alt="Servicios en la nube" class="img-fluid" />
         </div>
       </div>
       <div class="col-md-6 px-md-5 px-3 pt-5 pt-md-0 text-center text-md-start d-flex align-items-center">

@@ -1,9 +1,10 @@
 ---
 import CoverComponent from "@components/global/cover.astro";
+const base = import.meta.env.BASE_URL;
 
 const coverConfig = {
   title: "Acerca de Nosotros",
-  background: 'linear-gradient(180deg, rgba(13, 45, 106, 0.75) 0%, rgba(13, 45, 106, 0.5) 0%), url("/assets/images/about-us-banner-1920-4.jpg") !important',
+  background: `linear-gradient(180deg, rgba(13, 45, 106, 0.75) 0%, rgba(13, 45, 106, 0.5) 0%), url("${base}assets/images/about-us-banner-1920-4.jpg") !important`,
 };
 ---
 

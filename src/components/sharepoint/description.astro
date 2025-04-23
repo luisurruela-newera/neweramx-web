@@ -1,9 +1,13 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="description" class="section py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-6 text-center p-5">
         <div class="px-md-5">
-          <img src="/assets/images/SharePoint.png" alt="SharePoint" class="img-fluid" />
+          <img src={`${base}assets/images/SharePoint.png`} alt="SharePoint" class="img-fluid" />
         </div>
       </div>
 

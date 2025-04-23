@@ -1,6 +1,8 @@
 ---
 import Button from "../global/button.astro";
 import { Icon } from "astro-icon/components";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="footer" class="footer bg-light">
@@ -9,17 +11,14 @@ import { Icon } from "astro-icon/components";
       <div class="col-md-3 text-center text-md-start">
         <h4 class="text-primary title-4 mb-4 mt-5 mt-md-0">Sobre Nosotros</h4>
         <p class="mb-5 text-dark text-lead">New Era Technology helps more than 20,000 customers worldwide adapt to a rapidly changing digital world.</p>
-        <img src="/assets/images/neweratechnology_logo.svg" width="200" class="d-none d-md-block" />
+        <img src={`${base}assets/images/neweratechnology_logo.svg`} width="200" class="d-none d-md-block" />
       </div>
       <div class="col-md-3 text-center text-md-start">
         <h4 class="text-primary title-4 mb-4">Enlaces Rápidos</h4>
         <ul class="text-primary list-decoration-none">
-          <li class="mb-2"><a href="/sobre-nosotros" class="text-secondary">Sobre nosotros</a></li>
-          <!-- <li class="mb-2">Carreras</li> -->
-          <li class="mb-2"><a href="/ubicacion" class="text-secondary">Ubicación</a></li>
-          <li class="mb-2"><a href="/contacto" class="text-secondary">Contáctanos</a></li>
-          <!-- <li class="mb-2">Nuestras políticas</li> -->
-          <!-- <li class="mb-2">Explora la Era Digital</li> -->
+          <li class="mb-2"><a href={`${base}sobre-nosotros`} class="text-secondary">Sobre nosotros</a></li>
+          <li class="mb-2"><a href={`${base}ubicacion`} class="text-secondary">Ubicación</a></li>
+          <li class="mb-2"><a href={`${base}contacto`} class="text-secondary">Contáctanos</a></li>
         </ul>
       </div>
       <div class="col-md-3 text-center text-md-start">
@@ -27,12 +26,11 @@ import { Icon } from "astro-icon/components";
         <p class="mb-3 text-dark text-lead">
           Obtenga noticias de la industria, ideas comerciales y la información que necesita entregada directamente a su bandeja de entrada.
         </p>
-        <Button title="Subscríbete" link="#" />
       </div>
       <div class="col-md-3 text-center text-md-start">
         <h4 class="text-primary title-4 mb-4 mt-5 mt-md-0">Contáctanos</h4>
         <p class="text-primary">877-696-7720</p>
-        <Button title="Busca la ubicacion" link="/ubicacion" />
+        <Button title="Busca la ubicacion" link={`${base}ubicacion`} />
 
         <div class="social-links mt-5">
           <a href="https://www.facebook.com/NewEraTechnologyMexico" target="_blank" rel="noopener noreferrer" class="text-primary icon-size-lg">
@@ -47,7 +45,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="linkedin" size={38} />
           </a>
         </div>
-        <img src="/assets/images/neweratechnology_logo.svg" width="220" class="d-md-none my-5" />
+        <img src={`${base}assets/images/neweratechnology_logo.svg`} width="220" class="d-md-none my-5" />
       </div>
     </div>
   </div>

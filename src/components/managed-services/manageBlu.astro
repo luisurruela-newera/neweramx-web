@@ -1,9 +1,13 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="manageBlu">
   <article class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-6 text-center pe-5">
-          <img src="/assets/images/managed-services-diagram.svg" alt="Servicios CloudBlu" width="400" />
+          <img src={`${base}assets/images/managed-services-diagram.svg`} alt="Servicios CloudBlu" width="400" />
         </div>
         <div class="col-6">
           <h1 class="text-primary mt-5 text-thin mb-4">ManageBlu Services</h1>
