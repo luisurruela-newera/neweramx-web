@@ -96,3 +96,9 @@
         opacity: 100% !important;
     }
 }
+
+.mobile-navbar {
+    .active {
+        color: colors.$secondary-color !important;
+    }
+}
