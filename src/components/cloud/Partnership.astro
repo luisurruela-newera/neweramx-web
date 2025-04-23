@@ -1,9 +1,10 @@
 ---
 import BoxWithBackground from "@components/global/Box-with-background.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BoxWithBackground
-  background="linear-gradient(90deg, #0d2d6a 60%, rgba(41, 196, 169, 0) 80%), url('/assets/images/cloud_computing_key-1-scaled.jpeg') !important"
+  background=`linear-gradient(90deg, #0d2d6a 60%, rgba(41, 196, 169, 0) 80%), url('${base}assets/images/cloud_computing_key-1-scaled.jpeg') !important`
 >
   <h2 class="text-secondary mb-3">Asociaciones clave en computación en la nube</h2>
   <p class="text-white">

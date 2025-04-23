@@ -1,9 +1,10 @@
 ---
 import BoxWithBackground from "@components/global/Box-with-background.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BoxWithBackground
-  background="linear-gradient(87deg, #0d2d6a 43%, rgba(0, 0, 0, 0) 55%), url(https://cdn.neweratech.com/ae/wp-content/uploads/sites/10/2024/07/understand_azure_vm-2.jpg) !important"
+  background=`linear-gradient(87deg, #0d2d6a 43%, rgba(0, 0, 0, 0) 55%), url("${base}assets/images/understand_azure_vm-2.jpg") center center !important`
 >
   <h2 class="text-white mb-3">Entendiendo la <span class="text-warning">Solución Azure VMware</span></h2>
   <p class="text-white">

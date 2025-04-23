@@ -2,10 +2,12 @@
 import Button from "@components/global/button.astro";
 import CoverComponent from "@components/global/cover.astro";
 
+const base = import.meta.env.BASE_URL;
+
 const config = {
   title: "Inteligencia Artificial para tu negocio",
   subtitle: "Usa la IA generativa para superar los retos de tu negocio",
-  background: "linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url('/assets/images/newsletter-icon-1.png') !important",
+  background: `linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url('${base}assets/images/newsletter-icon-1.png') !important`,
 };
 ---
 
@@ -18,5 +20,5 @@ const config = {
     través de esta apasionante frontera y ayudarlo a integrar la IA generativa en su estrategia comercial.
   </p>
 
-  <Button title="Hablemos de IA" link="/contacto" class="btn-secondary" />
+  <Button title="Hablemos de IA" link={`${base}contacto`} class="btn-secondary" />
 </CoverComponent>
