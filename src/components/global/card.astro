@@ -1,6 +1,8 @@
 ---
 import Button from "./button.astro";
 
+const base = import.meta.env.BASE_URL;
+
 interface Props {
   config: {
     icon?: string;
@@ -26,8 +28,8 @@ const titleColor = color === "bg-primary" ? "text-white" : "text-primary";
 
 <Tag {...linkProps} class:list={["card", color, classes, { "card-link": link }]}>
   <div class="card-body p-4 p-md-5 text-center">
-    {icon ? <img src={`/assets/images/${icon}`} alt={title} width="90" /> : null}
-    {image ? <img src={`/assets/images/${image}`} alt={title} class="img-fluid image" /> : null}
+    {icon ? <img src={`${base}/assets/images/${icon}`} alt={title} width="90" /> : null}
+    {image ? <img src={`${base}/assets/images/${image}`} alt={title} class="img-fluid image" /> : null}
 
     <p class={`${titleColor} title text-large pt-4`}>{title}</p>
     {body && <p class="text-lead py-3">{body}</p>}

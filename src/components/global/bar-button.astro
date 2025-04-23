@@ -5,11 +5,12 @@ interface Props {
   link: string;
 }
 
+const base = import.meta.env.BASE_URL;
 const { icon, title, link } = Astro.props;
 ---
 
 <a href={link} class="btn btn-primary w-100 text-start btn-primary-no-hover">
-  <img src={`/assets/images/${icon}`} width="30" />
+  <img src={`${base}/assets/images/${icon}`} width="30" />
   <span class="text-uppercase text-lead ps-2 text">{title}</span>
 </a>
 

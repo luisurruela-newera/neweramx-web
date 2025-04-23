@@ -52,24 +52,19 @@ const soluciones2 = [
 
 <section class="py-5">
   <div class="container py-3">
-    <div class="row">
-      <div class="col">
-        <h2 class="text-center text-primary">Aspectos clave de las soluciones Power BI de New Era</h2>
-      </div>
-    </div>
-    <div class="row py-4">
+    <h2 class="text-center text-primary mb-5">Aspectos clave de las soluciones Power BI de New Era</h2>
+
+    <div class="row py-0">
       {
         soluciones.map((config) => (
-          <div class="col-md-4 mb-4 card-group">
+          <div class="col-md-4 mb-3 card-group">
             <Card config={config} />
           </div>
         ))
       }
-    </div>
-    <div class="row py-4">
       {
         soluciones2.map((config) => (
-          <div class="col-md-4 mb-4 card-group">
+          <div class="col-md-4 mb-3 card-group">
             <Card config={config} />
           </div>
         ))
