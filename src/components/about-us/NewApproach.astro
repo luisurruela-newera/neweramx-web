@@ -1,11 +1,13 @@
 ---
 import Card from "@components/global/card.astro";
+const base = import.meta.env.BASE_URL;
 
 const cards = [
   {
     icon: "microsoft.png",
     title: "Microsoft",
     classes: "border-0 hover-secondary",
+    link: `${base}soluciones/microsoft`,
   },
   {
     icon: "salesforce.png",
@@ -16,6 +18,7 @@ const cards = [
     icon: "quality-assurance-interactive-services.png",
     title: "Aseguramiento de Calidad",
     classes: "border-0 hover-secondary",
+    link: `${base}servicios/aseguramiento-de-la-calidad`,
   },
 ];
 ---
