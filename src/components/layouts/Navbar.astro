@@ -1,15 +1,14 @@
 ---
 const pathname = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 
 const isActiveRoute = (section: string): boolean => {
-  return pathname.startsWith(`/${section}`);
+  return pathname.startsWith(`${base}${section}`);
 };
 
 const isExactRoute = (route: string): boolean => {
-  return pathname === route;
+  return pathname === `${base}${route}`;
 };
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <div id="main-navbar" class="header-height main-navbar">
@@ -18,7 +17,7 @@ const base = import.meta.env.BASE_URL;
       <div class="container-fluid px-1 px-md-3">
         <a class="navbar-brand" href={`${base}`}>
           <img src={`${base}/assets/images/neweratechnology_logo.svg`} alt="New Era Technology | México" width="210" class="d-none d-md-block" />
-          <img src="/assets/images/neweratechnology_logo.svg" alt="New Era Technology | México" width="120" class="d-md-none" />
+          <img src={`${base}/assets/images/neweratechnology_logo.svg`} alt="New Era Technology | México" width="120" class="d-md-none" />
         </a>
         <button
           class="navbar-toggler"
@@ -35,7 +34,7 @@ const base = import.meta.env.BASE_URL;
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a
-                class={`nav-link dropdown-toggle text-primary ${isActiveRoute("soluciones") ? "active" : ""}`}
+                class={`nav-link dropdown-toggle text-primary ${isActiveRoute(`soluciones`) ? "active" : ""}`}
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -47,8 +46,8 @@ const base = import.meta.env.BASE_URL;
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li class="dropdown-item dropdown d-none d-md-block">
                   <a
-                    class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/microsoft") ? "active" : ""}`}
-                    href="/soluciones/microsoft"
+                    class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute(`soluciones/microsoft`) ? "active" : ""}`}
+                    href=`${base}soluciones/microsoft`
                     id="microsoftSubmenu"
                     role="button"
                     aria-expanded="false"
@@ -58,20 +57,23 @@ const base = import.meta.env.BASE_URL;
                   <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="microsoftSubmenu">
                     <li>
                       <a
-                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/sharepoint") ? "active" : ""}`}
-                        href="/soluciones/microsoft/sharepoint">SharePoint</a
+                        class={`
+                    dropdown-item
+                    text-primary
+                    {isExactRoute("soluciones/microsoft/sharepoint") ? "active" : ""}`}
+                        href={`${base}soluciones/microsoft/sharepoint`}>SharePoint</a
                       >
                     </li>
                     <li>
                       <a
-                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-automate") ? "active" : ""}`}
-                        href="/soluciones/microsoft/power-automate">Power Automate</a
+                        class={`dropdown-item text-primary ${isExactRoute("soluciones/microsoft/power-automate") ? "active" : ""}`}
+                        href={`${base}soluciones/microsoft/power-automate`}>Power Automate</a
                       >
                     </li>
                     <li>
                       <a
-                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/microsoft/power-bi") ? "active" : ""}`}
-                        href="/soluciones/microsoft/power-bi">Power BI</a
+                        class={`dropdown-item text-primary ${isExactRoute("soluciones/microsoft/power-bi") ? "active" : ""}`}
+                        href={`${base}soluciones/microsoft/power-bi`}>Power BI</a
                       >
                     </li>
                   </ul>
@@ -79,7 +81,7 @@ const base = import.meta.env.BASE_URL;
                 <li class="dropdown-item dropdown d-none d-md-block">
                   <a
                     class={`nav-link p-0 dropdown-toggle text-primary ${isActiveRoute("soluciones/cloud") ? "active" : ""}`}
-                    href="/soluciones/cloud"
+                    href={`${base}soluciones/cloud`}
                     id="cloudmenu"
                     role="button"
                     aria-expanded="false"
@@ -89,22 +91,22 @@ const base = import.meta.env.BASE_URL;
                   <ul class="dropdown-menu dropdown-submenu border-0" aria-labelledby="cloudmenu">
                     <li>
                       <a
-                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-devops") ? "active" : ""}`}
-                        href="/soluciones/cloud/azure-devops">Azure DevOps</a
+                        class={`dropdown-item text-primary ${isExactRoute("soluciones/cloud/azure-devops") ? "active" : ""}`}
+                        href={`${base}soluciones/cloud/azure-devops`}>Azure DevOps</a
                       >
                     </li>
                     <li>
                       <a
-                        class={`dropdown-item text-primary ${isExactRoute("/soluciones/cloud/azure-vmware") ? "active" : ""}`}
-                        href="/soluciones/cloud/azure-vmware">Soluciones deAzure VMware</a
+                        class={`dropdown-item text-primary ${isExactRoute("soluciones/cloud/azure-vmware") ? "active" : ""}`}
+                        href={`${base}soluciones/cloud/azure-vmware`}>Soluciones de Azure VMware</a
                       >
                     </li>
                   </ul>
                 </li>
                 <li>
                   <a
-                    class={`dropdown-item text-primary ${isExactRoute("/soluciones/inteligencia-artificial") ? "active" : ""}`}
-                    href="/soluciones/inteligencia-artificial">Inteligencia Artificial</a
+                    class={`dropdown-item text-primary ${isExactRoute("soluciones/inteligencia-artificial") ? "active" : ""}`}
+                    href={`${base}soluciones/inteligencia-artificial`}>Inteligencia Artificial</a
                   >
                 </li>
               </ul>
@@ -123,21 +125,26 @@ const base = import.meta.env.BASE_URL;
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
                   <a
-                    class={`dropdown-item text-primary ${isExactRoute("/servicios/servicios-administrados") ? "active" : ""}`}
-                    href="/servicios/servicios-administrados">Servicios Administrados</a
+                    class={`dropdown-item text-primary ${isExactRoute("servicios/servicios-administrados") ? "active" : ""}`}
+                    href={`${base}servicios/servicios-administrados`}>Servicios Administrados</a
                   >
                 </li>
                 <li>
                   <a
-                    class={`dropdown-item text-primary ${isExactRoute("/servicios/aseguramiento-de-la-calidad") ? "active" : ""}`}
-                    href="/servicios/aseguramiento-de-la-calidad">Aseguramiento de la calidad</a
+                    class={`dropdown-item text-primary ${isExactRoute("servicios/aseguramiento-de-la-calidad") ? "active" : ""}`}
+                    href={`${base}servicios/aseguramiento-de-la-calidad`}>Aseguramiento de la calidad</a
                   >
                 </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle text-primary"
+                class:list={[
+                  "nav-link",
+                  "dropdown-toggle",
+                  "text-primary",
+                  { active: isExactRoute("sobre-nosotros") || isExactRoute("ubicacion") || isExactRoute("socios") },
+                ]}
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -148,17 +155,17 @@ const base = import.meta.env.BASE_URL;
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                  <a class={`dropdown-item text-primary ${pathname === "/sobre-nosotros" ? "active" : ""}`} href="/sobre-nosotros">Sobre nosotros </a>
+                  <a class={`dropdown-item text-primary ${isExactRoute("sobre-nosotros") ? "active" : ""}`} href={`${base}sobre-nosotros`}>Sobre nosotros </a>
                 </li>
                 <li>
-                  <a class={`dropdown-item text-primary ${pathname === "/ubicacion" ? "active" : ""}`} href="/ubicacion">Ubicación</a>
+                  <a class={`dropdown-item text-primary ${isExactRoute("ubicacion") ? "active" : ""}`} href={`${base}ubicacion`}>Ubicación</a>
                 </li>
-                <li><a class={`dropdown-item text-primary ${pathname === "/socios" ? "active" : ""}`} href="/socios">Socios</a></li>
+                <li><a class={`dropdown-item text-primary ${isExactRoute("socios") ? "active" : ""}`} href={`${base}socios`}>Socios</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle text-primary"
+                class:list={["nav-link", "dropdown-toggle", "text-primary", { active: isExactRoute("casos-de-estudio") }]}
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -168,186 +175,187 @@ const base = import.meta.env.BASE_URL;
                 Recursos
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <!-- <li><a class={`dropdown-item text-primary ${pathname === "/blog" ? "active" : ""}`} href="#">Blog </a></li> -->
                 <li>
-                  <a class={`dropdown-item text-primary ${pathname === "/casos-de-estudio" ? "active" : ""}`} href="/casos-de-estudio">Casos de Estudio</a>
+                  <a class={`dropdown-item text-primary ${pathname === "casos-de-estudio" ? "active" : ""}`} href={`${base}casos-de-estudio`}
+                    >Casos de Estudio</a
+                  >
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="/contacto" class="nav-link text-primary">Contáctanos</a>
+              <a href={`${base}contacto`} class:list={["nav-link", "text-primary", { active: isExactRoute("contacto") }]}>Contáctanos</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  </div>
-</div>
 
-<style>
-  .main-navbar {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
+    <style>
+      .main-navbar {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
 
-  .divisor {
-    border-right: 1px solid #ddd;
-    padding-right: 1.5em;
-  }
+      .divisor {
+        border-right: 1px solid #ddd;
+        padding-right: 1.5em;
+      }
 
-  .dropdown-submenu {
-    position: absolute;
-    left: 100%;
-    top: 0;
-  }
+      .dropdown-submenu {
+        position: absolute;
+        left: 100%;
+        top: 0;
+      }
 
-  .dropdown-item.dropdown {
-    position: relative;
-  }
+      .dropdown-item.dropdown {
+        position: relative;
+      }
 
-  .dropdown-item.dropdown:hover > .dropdown-submenu {
-    display: block;
-  }
-</style>
+      .dropdown-item.dropdown:hover > .dropdown-submenu {
+        display: block;
+      }
+    </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
-    let timeoutId: any;
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+        let timeoutId: any;
 
-    const closeAllMenus = (except?: HTMLElement) => {
-      dropdowns.forEach((item) => {
-        if (item !== except) {
-          const menu = item.querySelector(".dropdown-menu");
-          const toggle = item.querySelector(".dropdown-toggle");
-          if (menu && toggle) {
-            menu.classList.remove("show");
-            toggle.setAttribute("aria-expanded", "false");
+        const closeAllMenus = (except?: HTMLElement) => {
+          dropdowns.forEach((item) => {
+            if (item !== except) {
+              const menu = item.querySelector(".dropdown-menu");
+              const toggle = item.querySelector(".dropdown-toggle");
+              if (menu && toggle) {
+                menu.classList.remove("show");
+                toggle.setAttribute("aria-expanded", "false");
+              }
+            }
+          });
+
+          // Cerrar todos los submenús excepto el actual
+          document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
+            if (submenu.parentElement !== except) {
+              submenu.classList.remove("show");
+              const toggle = submenu.parentElement?.querySelector(".dropdown-toggle");
+              if (toggle) {
+                toggle.setAttribute("aria-expanded", "false");
+              }
+            }
+          });
+        };
+
+        // Función para manejar submenús
+        const handleSubmenu = (submenuParent: Element) => {
+          const toggle = submenuParent.querySelector(".dropdown-toggle");
+          const submenu = submenuParent.querySelector(".dropdown-submenu");
+
+          if (!toggle || !submenu) return;
+
+          submenuParent.addEventListener("mouseenter", () => {
+            clearTimeout(timeoutId);
+            // Cerrar otros submenús del mismo nivel
+            const siblingSubmenus = submenuParent.parentElement?.querySelectorAll(".dropdown-submenu");
+            siblingSubmenus?.forEach((sibling) => {
+              if (sibling !== submenu) {
+                sibling.classList.remove("show");
+                const siblingToggle = sibling.parentElement?.querySelector(".dropdown-toggle");
+                if (siblingToggle) {
+                  siblingToggle.setAttribute("aria-expanded", "false");
+                }
+              }
+            });
+
+            submenu.classList.add("show");
+            toggle.setAttribute("aria-expanded", "true");
+          });
+
+          submenuParent.addEventListener("mouseleave", () => {
+            timeoutId = setTimeout(() => {
+              submenu.classList.remove("show");
+              toggle.setAttribute("aria-expanded", "false");
+            }, 200);
+          });
+
+          submenu.addEventListener("mouseenter", () => {
+            clearTimeout(timeoutId);
+          });
+
+          submenu.addEventListener("mouseleave", () => {
+            timeoutId = setTimeout(() => {
+              submenu.classList.remove("show");
+              toggle.setAttribute("aria-expanded", "false");
+            }, 200);
+          });
+        };
+
+        dropdowns.forEach((dropdown) => {
+          const showMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+            clearTimeout(timeoutId);
+            closeAllMenus(dropdown as HTMLElement);
+            menu.classList.add("show");
+            toggle.setAttribute("aria-expanded", "true");
+          };
+
+          const hideMenu = (menu: HTMLElement, toggle: HTMLElement) => {
+            timeoutId = setTimeout(() => {
+              menu.classList.remove("show");
+              toggle.setAttribute("aria-expanded", "false");
+            }, 200);
+          };
+
+          dropdown.addEventListener("mouseenter", (e) => {
+            const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+            const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+            if (!dropdownMenu || !dropdownToggle) return;
+            showMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+          });
+
+          dropdown.addEventListener("mouseleave", (e) => {
+            const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+            const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+            if (!dropdownMenu || !dropdownToggle) return;
+            hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+          });
+
+          const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+          if (dropdownMenu) {
+            dropdownMenu.addEventListener("mouseenter", () => {
+              clearTimeout(timeoutId);
+            });
+            dropdownMenu.addEventListener("mouseleave", () => {
+              const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+              if (!dropdownToggle) return;
+              hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
+            });
+
+            // Manejar todos los submenús dentro de este dropdown
+            const submenuParents = dropdownMenu.querySelectorAll(".dropdown-item.dropdown");
+            submenuParents.forEach(handleSubmenu);
           }
-        }
-      });
+        });
 
-      // Cerrar todos los submenús excepto el actual
-      document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
-        if (submenu.parentElement !== except) {
-          submenu.classList.remove("show");
-          const toggle = submenu.parentElement?.querySelector(".dropdown-toggle");
-          if (toggle) {
-            toggle.setAttribute("aria-expanded", "false");
-          }
-        }
-      });
-    };
+        // Posicionar la navbar
+        const mainNavbar = document.getElementById("main-navbar");
 
-    // Función para manejar submenús
-    const handleSubmenu = (submenuParent: Element) => {
-      const toggle = submenuParent.querySelector(".dropdown-toggle");
-      const submenu = submenuParent.querySelector(".dropdown-submenu");
+        window.addEventListener("scroll", () => {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      if (!toggle || !submenu) return;
-
-      submenuParent.addEventListener("mouseenter", () => {
-        clearTimeout(timeoutId);
-        // Cerrar otros submenús del mismo nivel
-        const siblingSubmenus = submenuParent.parentElement?.querySelectorAll(".dropdown-submenu");
-        siblingSubmenus?.forEach((sibling) => {
-          if (sibling !== submenu) {
-            sibling.classList.remove("show");
-            const siblingToggle = sibling.parentElement?.querySelector(".dropdown-toggle");
-            if (siblingToggle) {
-              siblingToggle.setAttribute("aria-expanded", "false");
+          if (mainNavbar) {
+            if (scrollTop >= 60) {
+              mainNavbar.style.position = "fixed";
+            } else {
+              mainNavbar.style.position = "relative";
             }
           }
         });
-
-        submenu.classList.add("show");
-        toggle.setAttribute("aria-expanded", "true");
       });
-
-      submenuParent.addEventListener("mouseleave", () => {
-        timeoutId = setTimeout(() => {
-          submenu.classList.remove("show");
-          toggle.setAttribute("aria-expanded", "false");
-        }, 200);
-      });
-
-      submenu.addEventListener("mouseenter", () => {
-        clearTimeout(timeoutId);
-      });
-
-      submenu.addEventListener("mouseleave", () => {
-        timeoutId = setTimeout(() => {
-          submenu.classList.remove("show");
-          toggle.setAttribute("aria-expanded", "false");
-        }, 200);
-      });
-    };
-
-    dropdowns.forEach((dropdown) => {
-      const showMenu = (menu: HTMLElement, toggle: HTMLElement) => {
-        clearTimeout(timeoutId);
-        closeAllMenus(dropdown as HTMLElement);
-        menu.classList.add("show");
-        toggle.setAttribute("aria-expanded", "true");
-      };
-
-      const hideMenu = (menu: HTMLElement, toggle: HTMLElement) => {
-        timeoutId = setTimeout(() => {
-          menu.classList.remove("show");
-          toggle.setAttribute("aria-expanded", "false");
-        }, 200);
-      };
-
-      dropdown.addEventListener("mouseenter", (e) => {
-        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
-        if (!dropdownMenu || !dropdownToggle) return;
-        showMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
-      });
-
-      dropdown.addEventListener("mouseleave", (e) => {
-        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
-        if (!dropdownMenu || !dropdownToggle) return;
-        hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
-      });
-
-      const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-      if (dropdownMenu) {
-        dropdownMenu.addEventListener("mouseenter", () => {
-          clearTimeout(timeoutId);
-        });
-        dropdownMenu.addEventListener("mouseleave", () => {
-          const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
-          if (!dropdownToggle) return;
-          hideMenu(dropdownMenu as HTMLElement, dropdownToggle as HTMLElement);
-        });
-
-        // Manejar todos los submenús dentro de este dropdown
-        const submenuParents = dropdownMenu.querySelectorAll(".dropdown-item.dropdown");
-        submenuParents.forEach(handleSubmenu);
-      }
-    });
-
-    // Posicionar la navbar
-    const mainNavbar = document.getElementById("main-navbar");
-
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (mainNavbar) {
-        if (scrollTop >= 60) {
-          mainNavbar.style.position = "fixed";
-        } else {
-          mainNavbar.style.position = "relative";
-        }
-      }
-    });
-  });
-</script>
+    </script>
+  </div>
+</div>
