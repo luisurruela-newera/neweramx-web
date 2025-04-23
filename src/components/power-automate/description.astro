@@ -1,9 +1,13 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="description" class="py-3py-md-5">
   <div class="container py-3">
     <div class="row pt-4">
       <div class="col-md-6 text-center pe-md-5">
         <div class="px-3px-md-5 text-center">
-          <img src="/assets/images/Power-Automate.png" alt="SharePoint" class="img-fluid px-5" />
+          <img src={`${base}assets/images/Power-Automate.png`} alt="SharePoint" class="img-fluid px-5" />
         </div>
       </div>
       <div class="col-md-6 py-5 py-md-0 text-center text-md-start">
@@ -28,4 +32,4 @@
       </div>
     </div>
   </div>
-</section>
+</section>; ---

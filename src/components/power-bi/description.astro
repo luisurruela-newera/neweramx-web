@@ -1,9 +1,13 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="description" class="section py-5">
   <div class="container py-3">
     <div class="row">
       <div class="col-md-6 px-5 d-flex align-items-center">
         <div class="px-md-5 px-0">
-          <img src="/assets/images/PowerBI.png" alt="SharePoint" class="img-fluid" />
+          <img src={`${base}assets/images/PowerBI.png`} alt="SharePoint" class="img-fluid" />
         </div>
       </div>
       <div class="col-md-6 px-3 pt-5 pt-md-0 text-center text-md-start">
@@ -21,7 +25,8 @@
           profundizar en los datos estructurados y no estructurados y descubrir información oculta crucial para las operaciones empresariales. Si bien el
           análisis de datos simple con Power BI no requiere conocimientos técnicos, los requisitos complejos necesitan un socio tecnológico confiable, y ahí es
           donde entra en juego New Era Technology.
-        </p><p>
+        </p>
+        <p>
           New Era, un socio de soluciones de Microsoft, ofrece soluciones integrales de Power BI para ayudar a las empresas con información inteligente e
           intuitiva de varias fuentes de datos y aplicaciones. Nuestras soluciones le brindan el impulso adecuado para optimizar los procesos operativos,
           expandir sus operaciones y elaborar una estrategia para una hoja de ruta para el futuro.
@@ -29,4 +34,4 @@
       </div>
     </div>
   </div>
-</section>
+</section>; ---

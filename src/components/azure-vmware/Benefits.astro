@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="benefits" class="py-5 bg-light">
   <div class="container py-3 text-center">
     <h2 class="mb-5 text-primary">Características y beneficios clave</h2>
@@ -58,7 +62,7 @@
       <div class="col-9 col-md-8">
         <div class="tab-content p-4" id="nav-tabContent">
           <div class="tab-pane fade show active text-center" id="list-integracion" role="tabpanel" aria-labelledby="list-integracion-list">
-            <img src="/assets/images/seamless-integration.svg" alt="Integración Perfecta" width="100" class="mb-4" />
+            <img src={`${base}assets/images/seamless-integration.svg`} alt="Integración Perfecta" width="100" class="mb-4" />
             <h4 class="mb-3">Integración Perfecta</h4>
             <p>
               AVS permite una integración fluida de los entornos VMware con Azure, minimizando la interrupción de las operaciones existentes. Las empresas
@@ -68,7 +72,7 @@
             </p>
           </div>
           <div class="tab-pane fade text-center" id="list-escalabilidad" role="tabpanel" aria-labelledby="list-escalabilidad-list">
-            <img src="/assets/images/scalability-flexibility.svg" alt="Escalabilidad y Flexibilidad" width="100" class="mb-4" />
+            <img src={`${base}assets/images/scalability-flexibility.svg`} alt="Escalabilidad y Flexibilidad" width="100" class="mb-4" />
             <h4 class="mb-3">Escalabilidad y Flexibilidad</h4>
             <p>
               Una de las ventajas importantes de AVS es su escalabilidad. Los centros de datos globales de Azure permiten a las organizaciones escalar sus
@@ -79,7 +83,7 @@
           </div>
           <div class="tab-pane fade text-center" id="list-backup" role="tabpanel" aria-labelledby="list-backup-list">
             <img
-              src="/assets/images/enhanced-disaster-recovery-and-backup.svg"
+              src={`${base}assets/images/enhanced-disaster-recovery-and-backup.svg`}
               alt="Recuperación Mejorada y Copia de Seguridad ante desastres"
               width="100"
               class="mb-4"
@@ -93,7 +97,7 @@
             </p>
           </div>
           <div class="tab-pane fade text-center" id="list-rentabilidad" role="tabpanel" aria-labelledby="list-rentabilidad-list">
-            <img src="/assets/images/cost-efficiency.svg" alt="Rentabilidad" width="100" class="mb-4" />
+            <img src={`${base}assets/images/cost-efficiency.svg`} alt="Rentabilidad" width="100" class="mb-4" />
             <h4 class="mb-3">Rentabilidad</h4>
             <p>
               Otro beneficio convincente de AVS es su naturaleza rentable. La adopción de un modelo de pago por uso permite a las empresas alinear sus gastos
@@ -102,7 +106,7 @@
             </p>
           </div>
           <div class="tab-pane fade text-center" id="list-seguridad" role="tabpanel" aria-labelledby="list-seguridad-list">
-            <img src="/assets/images/security-and-compliance.svg" alt="Seguridad y Cumplimiento" width="100" class="mb-4" />
+            <img src={`${base}assets/images/security-and-compliance.svg`} alt="Seguridad y Cumplimiento" width="100" class="mb-4" />
             <h4 class="mb-3">Seguridad y Cumplimiento</h4>
             <p>
               La seguridad y el cumplimiento son las principales prioridades para cualquier organización que maneje datos confidenciales. AVS amplía las
@@ -113,7 +117,7 @@
             </p>
           </div>
           <div class="tab-pane fade text-center" id="list-gestion" role="tabpanel" aria-labelledby="list-gestion-list">
-            <img src="/assets/images/simplified-management.svg" alt="Gestión Simplificada" width="100" class="mb-4" />
+            <img src={`${base}assets/images/simplified-management.svg`} alt="Gestión Simplificada" width="100" class="mb-4" />
             <h4 class="mb-3">Gestión Simplificada</h4>
             <p>
               AVS simplifica la gestión de entornos híbridos al integrarse con las herramientas de gestión de Azure, como Azure Monitor, Azure Security Center y
