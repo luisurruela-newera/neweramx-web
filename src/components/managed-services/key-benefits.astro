@@ -1,0 +1,68 @@
+---
+const beneficios = [
+  {
+    icon: "unified-services.png",
+    title: "Servicios unificados",
+    body: "Administre todo el conjunto de dispositivos de comunicación y espacio de trabajo y servicios de usuario.",
+  },
+  {
+    icon: "enhance-smac-capabilities.png",
+    title: "Mejore las capacidades de SMAC",
+    body: "Cambie de manera efectiva a la próxima generación de espacios de trabajo habilitados para SMAC (Social, Mobile, Analytics y Cloud).",
+  },
+  {
+    icon: "track-and-maintain.png",
+    title: "Seguimiento y mantenimiento",
+    body: "Implemente un entorno empresarial visible, controlado, medible y eficiente.",
+  },
+  {
+    icon: "empower-users.png",
+    title: "Empoderar a los usuarios",
+    body: "Cree un entorno personalizado, colaborativo, seguro y ágil para los usuarios.",
+  },
+  {
+    icon: "service-automation.png",
+    title: "Automatización de servicios",
+    body: "Automatice los servicios para mejorar la experiencia del usuario final, el rendimiento constante y la entrega de aplicaciones.",
+  },
+  {
+    icon: "benefit-realization.png",
+    title: "Realización de beneficios",
+    body: "Optimice el retorno de la inversión y acelere el tiempo de comercialización con operaciones comerciales eficientes.",
+  },
+];
+---
+
+<section class="py-5 bg-primary">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center text-white">Beneficios clave de nuestros servicios de gestión de escritorio y mesa de servicio</h2>
+      </div>
+    </div>
+    <div class="row py-5">
+      {
+        beneficios.map((config) => (
+          <div class="col-md-4 mb-4 card-group">
+            <div class="et_pb_blurb_content">
+              <div class="mb-4">
+                <img src={`/assets/images/${config.icon}`} alt={config.title} width="90" />
+              </div>
+              <div class="container text-white text-left">
+                <h4>{config.title}</h4>
+                <p class="mt-3">{config.body}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .image {
+    height: 150px;
+    object-fit: contain;
+  }
+</style>
