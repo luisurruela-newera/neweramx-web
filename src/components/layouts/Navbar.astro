@@ -33,7 +33,7 @@ const isExactRoute = (route: string): boolean => {
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a
-                class={`nav-link dropdown-toggle text-primary ${isActiveRoute(`soluciones`) ? "active" : ""}`}
+                class:list={["nav-link", "dropdown-toggle", "text-primary", { active: isActiveRoute("soluciones") }]}
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
@@ -59,7 +59,7 @@ const isExactRoute = (route: string): boolean => {
                         class={`
                     dropdown-item
                     text-primary
-                    {isExactRoute("soluciones/microsoft/sharepoint") ? "active" : ""}`}
+                    ${isExactRoute("soluciones/microsoft/sharepoint") ? "active" : ""}`}
                         href={`${base}soluciones/microsoft/sharepoint`}>SharePoint</a
                       >
                     </li>

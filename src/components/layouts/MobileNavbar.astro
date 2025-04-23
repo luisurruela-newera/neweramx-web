@@ -2,6 +2,10 @@
 const pathname = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
+const isActiveRoute = (section: string): boolean => {
+  return pathname.startsWith(`${base}${section}`);
+};
+
 const isExactRoute = (route: string): boolean => {
   return pathname === `${base}${route}`;
 };
@@ -11,7 +15,7 @@ const isExactRoute = (route: string): boolean => {
   <div class="container-md container-fluid px-0 px-md-3">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-1 px-md-3">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href={`${base}`}>
           <img src={`${base}assets/images/neweratechnology_logo.svg`} alt="New Era Technology | México" width="120" class="d-md-none" />
         </a>
         <button
@@ -29,7 +33,7 @@ const isExactRoute = (route: string): boolean => {
           <ul class="navbar-nav ms-auto">
             <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Soluciones</li>
             <li class="py-2 ps-3 pe-2 d-block d-md-none text-extra-small text-dark text-uppercase">
-              <a href={`${base}soluciones/microsoft`} class="text-muted">Microsoft</a>
+              <a href={`${base}soluciones/microsoft`} class={`text-muted ${isActiveRoute(`soluciones`) ? "active" : ""}`}>Microsoft</a>
             </li>
             <li class="ps-4 py-2">
               <a
@@ -50,7 +54,7 @@ const isExactRoute = (route: string): boolean => {
               >
             </li>
             <li class="py-2 ps-3 pe-2 d-block d-md-none text-extra-small text-dark text-uppercase">
-              <a href={`${base}soluciones/cloud`} class="text-muted">Cloud</a>
+              <a href={`${base}soluciones/cloud`} class={`text-muted ${isActiveRoute(`soluciones`) ? "active" : ""}`}>Cloud</a>
             </li>
             <li class="ps-4 py-2">
               <a
@@ -99,13 +103,9 @@ const isExactRoute = (route: string): boolean => {
                 >Casos de Estudio</a
               >
             </li>
-            <li
-              class:list={["bg-light", "p-2", "d-block", "d-md-none", "text-extra-small", "text-dark", "text-uppercase", { active: isExactRoute("contacto") }]}
-            >
-              Contáctanos
-            </li>
+            <li class="bg-light p-2 d-block d-md-none text-extra-small text-dark text-uppercase">Contacto</li>
             <li class="p-2">
-              <a href={`${base}contacto`} class="dropdown-item text-primary">Contáctanos</a>
+              <a href={`${base}contacto`} class:list={["dropdown-item", "text-primary", { active: isExactRoute("contacto") }]}>Contáctanos</a>
             </li>
           </ul>
         </div>
