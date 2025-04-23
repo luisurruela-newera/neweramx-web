@@ -1,5 +1,8 @@
 TODO.json
 
+# build output
+dist/
+
 # generated types
 .astro/
 
