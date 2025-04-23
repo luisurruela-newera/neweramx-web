@@ -64,8 +64,10 @@ const isGridView = config.useGrid || false;
 </script>
 
 <script define:vars={{ config: config, sliderId, isGridView }} type="module">
-  import Swiper from "assets/swiper/swiper-bundle.mjs";
-  import { Navigation, Pagination, Grid } from "assets/swiper/swiper-bundle.mjs";
+  const base = import.meta.env.BASE_URL;
+  import Swiper from `${base}assets/swiper/swiper-bundle.mjs`;
+  import { Navigation, Pagination, Grid } from `${base}assets/swiper/swiper-bundle.mjs`;
+
 
   document.addEventListener("DOMContentLoaded", () => {
     const modules = [Navigation, Pagination, Grid];
