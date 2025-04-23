@@ -1,6 +1,8 @@
 ---
 import CoverSlider from "@components/global/CoverSlider.astro";
 
+const base = import.meta.env.BASE_URL;
+
 const sliderConfig = {
   slidesPerView: 1,
   height: 620,
@@ -9,7 +11,7 @@ const sliderConfig = {
     {
       title: "Estás listo para aceptar el cambio?",
       description: "Descubre como y por qué con nuestro último video",
-      background: "/assets/images/2_Microsoft-Technology-Solutions-scaled.jpg",
+      background: `${base}/assets/images/2_Microsoft-Technology-Solutions-scaled.jpg`,
       overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
       button: {
         text: "Ver video ahora",
@@ -20,7 +22,7 @@ const sliderConfig = {
     {
       title: "Haz tu incursión en la nube con Azure",
       description: "Somos un grupo de élite de socios con profunda experiencia en Microsoft Azure, y están certificados como Microsoft Solutions Partner",
-      background: "/assets/images/Ms_Badges.jpg",
+      background: `${base}/assets/images/Ms_Badges.jpg`,
       overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
       button: {
         text: "Saber más",
@@ -31,7 +33,7 @@ const sliderConfig = {
     {
       title: "Prepárate para el futuro",
       description: "Soluciones de tecnología de Microsoft personalizadas para todas las necesidades de tu empresa.",
-      background: "/assets/images/final-branding-video-banner.png",
+      background: `${base}/assets/images/final-branding-video-banner.png`,
       overlayBackground: "linear-gradient(to right, #002c6a, rgba(0, 44, 106, 0) 80%);",
       button: {
         text: "Conoce los Servicios Microsoft",

@@ -2,6 +2,8 @@
 import Card from "../global/card.astro";
 import Title from "../global/title.astro";
 
+const base = import.meta.env.BASE_URL;
+
 const CardConfig = [
   {
     icon: "microsoft.png",
@@ -10,7 +12,7 @@ const CardConfig = [
     color: "",
     button: {
       text: "Saber más",
-      link: "/soluciones/microsoft",
+      link: `${base}soluciones/microsoft`,
     },
   },
   {
@@ -20,7 +22,7 @@ const CardConfig = [
     color: "",
     button: {
       text: "Saber más",
-      link: "/soluciones/cloud",
+      link: `${base}soluciones/cloud`,
     },
   },
 ];
