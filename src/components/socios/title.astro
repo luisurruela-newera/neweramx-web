@@ -1,23 +1,12 @@
-<section id="cover">
-    <article class= "cover">
-      <div class="container content d-flex align-items-center px-3">
-        <div class="mb-4">
-          <h1 class="text-white text-super-large border-start border-5 border-secondary ps-3 mb-4">Socios</h1>
-          <p class="text-white text-large">Nuestros socios son, sin excepción, líderes en sus campos y trabajan en estrecha colaboración con nosotros para garantizar que nuestros clientes obtengan resultados excelentes de manera constante.</p>
-        </div>
-      </div>
-    </article>
-  </section>
+---
+import CoverComponent from "@components/global/cover.astro";
 
-  <style>
-    .cover {
-        background-color: #0D2D6A !important;
-    }
-  
-    .content {
-      height: 380px;
-      margin-right: 100px;
-      width: 100%;
-    }
-  </style>
-  
+const config = {
+  title: "Socios",
+  subtitle:
+    "Nuestros socios son, sin excepción, líderes en sus campos y trabajan en estrecha colaboración con nosotros para garantizar que nuestros clientes obtengan resultados excelentes de manera constante.",
+  background: "#0D2D6A !important",
+};
+---
+
+<CoverComponent config={config} />

@@ -1,9 +1,10 @@
 ---
 import CoverComponent from "@components/global/cover.astro";
+const base = import.meta.env.BASE_URL;
 
 const config = {
   title: "Ubicación de Oficinas",
-  background: 'linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("/assets/images/iStock-615398376-1.jpg") !important',
+  background: `linear-gradient(180deg, rgba(13, 45, 106, 0.7) 0%, rgba(13, 45, 106, 0.7) 100%), url("${base}assets/images/iStock-615398376-1.jpg") !important`,
 };
 ---
 
