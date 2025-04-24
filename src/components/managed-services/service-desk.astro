@@ -1,32 +1,73 @@
 ---
-import {Icon} from "astro-icon/components";
+import { Icon } from "astro-icon/components";
 ---
+
 <section class="py-5">
-  <div class="container">
+  <div class="container py-3">
+    <h2 class="text-center text-primary mb-5">Gestión de Mesa de servicio</h2>
+
     <div class="row">
-      <div class="col">
-        <h2 class="text-center text-primary">Gestión de Mesa de servicio</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <h3 class="text-primary">Nuestra oferta de Mesa de Servicio Integral incluye:</h3>
+      <div class="col-md-6 p-5">
+        <h3 class="text-primary text-medium mb-3">Nuestra oferta de Mesa de Servicio Integral incluye:</h3>
         <ul class="list-with-check list-decoration-none">
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Sistema operativo de escritorio, aplicación de Office, VPN de cliente y soporte de red.</li>
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Detección y corrección de virus, malware y spyware.</li>
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Estrategia integral de identificación y mitigación de riesgos.</li>
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Parche de escritorio y actualización de seguridad, Active Directory y mantenimiento de cuentas de MS Exchange.</li>
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Administrar los perfiles de usuario para los servicios de escritorio remoto.</li>
-          <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Servicios de TI gestionados para conexiones de escritorio remoto.</li>
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Sistema operativo de escritorio, aplicación de Office, VPN de cliente y soporte de red.</div>
+          </li>
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Detección y corrección de virus, malware y spyware.</div>
+          </li>
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Estrategia integral de identificación y mitigación de riesgos.</div>
+          </li>
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Parche de escritorio y actualización de seguridad, Active Directory y mantenimiento de cuentas de MS Exchange.</div>
+          </li>
+
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Administrar los perfiles de usuario para los servicios de escritorio remoto.</div>
+          </li>
+          <li class="py-2 d-flex">
+            <div>
+              <Icon name="check" size={18} class="text-primary" />
+            </div>
+            <div class="ps-2">Servicios de TI gestionados para conexiones de escritorio remoto.</div>
+          </li>
         </ul>
       </div>
-      <div class="col bg-light">
-        <h3 class="text-primary text-strong">Característica Sobresaliente de nuestra Gestión de Mesa de Servicio:</h3>
+      <div class="col-md-6 bg-light p-5">
+        <h3 class="text-primary text-strong text-medium mb-3">Característica Sobresaliente de nuestra Gestión de Mesa de Servicio:</h3>
         <ul class="list-with-check list-decoration-none">
-            <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Un modelo de servicio compartido</li>
-            <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Automatización y optimización</li>
-            <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Procesos basados en ITIL</li>
-            <li class="py-2"><Icon name="check" size={15} class="text-primary me-3" />Implementación personalizada de herramientas</li>
+          <li class="py-2 d-flex">
+            <Icon name="check" size={18} class="text-primary" />
+            <div class="ps-2">Un modelo de servicio compartido</div>
+          </li>
+          <li class="py-2 d-flex">
+            <Icon name="check" size={18} class="text-primary" />
+            <div class="ps-2">Automatización y optimización</div>
+          </li>
+          <li class="py-2 d-flex">
+            <Icon name="check" size={18} class="text-primary" />
+            <div class="ps-2">Procesos basados en ITIL</div>
+          </li>
+          <li class="py-2 d-flex">
+            <Icon name="check" size={18} class="text-primary" />
+            <div class="ps-2">Implementación personalizada de herramientas</div>
+          </li>
         </ul>
       </div>
     </div>

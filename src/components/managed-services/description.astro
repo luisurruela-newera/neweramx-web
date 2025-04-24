@@ -1,23 +1,29 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section id="description" class="section py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-center p-5">
-          <div class="px-md-5">
-            <img src="/assets/images/Managed-Services-for-Desktop-Management.png" alt="SharePoint" class="img-fluid" />
-          </div>
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-6 text-center p-5">
+        <div class="px-md-5">
+          <img src={`${base}assets/images/Managed-Services-for-Desktop-Management.png`} alt="Servicios Administrados" class="img-fluid" />
         </div>
-  
-        <div class="col-md-6 px-3 px-md-0 text-center text-md-start py-md-5">
+      </div>
+
+      <div class="col-md-6 px-3 px-md-0 text-center text-md-start py-md-5 d-flex align-items-center">
+        <div>
           <p>
-            La gestión de su infraestructura técnica puede ser un reto, especialmente con un modelo de dotación de personal de TI reducido. 
-            La falta de una gestión de la infraestructura eficiente y ágil puede alterar las operaciones empresariales, la productividad y el valor de la marca. 
-            New Era Technology ofrece servicios gestionados y soluciones para el usuario final que se adaptan perfectamente a sus necesidades.
+            La gestión de su infraestructura técnica puede ser un reto, especialmente con un modelo de dotación de personal de TI reducido. La falta de una
+            gestión de la infraestructura eficiente y ágil puede alterar las operaciones empresariales, la productividad y el valor de la marca. New Era
+            Technology ofrece servicios gestionados y soluciones para el usuario final que se adaptan perfectamente a sus necesidades.
           </p>
           <p>
-            Se beneficia de paquetes flexibles, soporte 24/7, un equipo de recursos dedicado y diversos modelos de servicio que garantizan la movilidad, la accesibilidad y la seguridad.
+            Se beneficia de paquetes flexibles, soporte 24/7, un equipo de recursos dedicado y diversos modelos de servicio que garantizan la movilidad, la
+            accesibilidad y la seguridad.
           </p>
         </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

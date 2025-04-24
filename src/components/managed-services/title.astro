@@ -1,13 +1,13 @@
 ---
 import Cover from "@components/global/cover.astro";
+const base = import.meta.env.BASE_URL;
 
 const coverConfig = {
   title: "Servicios gestionados para la gestión de escritorios",
-  background:
-    'url("/assets/images/MSDM_bg.jpg") !important',
+  background: `url("${base}assets/images/MSDM_bg.jpg") !important`,
   button: {
     title: "Agenda una consulta",
-    link: "#contact",
+    link: `${base}contacto`,
   },
 };
 ---
