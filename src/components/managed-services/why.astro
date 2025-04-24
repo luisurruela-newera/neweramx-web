@@ -1,16 +1,23 @@
-<section class="cover py-5">
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section
+  class="cover py-5"
+  style={`background: url("${base}assets/images/why-choose-new-era.jpg") top center no-repeat,
+      linear-gradient(90deg, rgba(43, 135, 218, 0.05) 0%, #00256b 57%) !important;`}
+>
   <div class="container py-3">
     <div class="row">
       <div class="col-lg-6"></div>
-      <div class="col-lg-6">
-            <h2 class="text-secondary">¿Por qué elegir a New Era Technology?</h2>
-            <p class="text-white">
-                New Era Technology, un socio de soluciones de Microsoft y SAP, tiene una vasta experiencia en el suministro de soluciones de software personalizadas y ofertas de servicios administrados
-                en México. 
-                Nuestro profundo conocimiento del dominio y años de experiencia en todo
-                Las diversas verticales de la industria y los requisitos comerciales nos convierten en un socio tecnológico perfecto para sus requisitos de servicio administrado.
-              <a href="/contacto">Contáctanos</a>  para obtener más información, y estaremos encantados de ayudarle.
+      <div class="col-lg-6 text-center text-md-start">
+        <h2 class="text-secondary mb-4">¿Por qué elegir a New Era Technology?</h2>
+        <p class="text-white">
+          New Era Technology, un socio de soluciones de Microsoft y SAP, tiene una vasta experiencia en el suministro de soluciones de software personalizadas y
+          ofertas de servicios administrados en México. Nuestro profundo conocimiento del dominio y años de experiencia en todo Las diversas verticales de la
+          industria y los requisitos comerciales nos convierten en un socio tecnológico perfecto para sus requisitos de servicio administrado.
         </p>
+        <p class="text-white"><a href={`${base}contacto`}>Contáctanos</a> para obtener más información, y estaremos encantados de ayudarle.</p>
       </div>
     </div>
   </div>
@@ -19,7 +26,11 @@
 <style>
   .cover {
     background-blend-mode: multiply;
-    background-image: url(https://cdn.neweratech.com/ae/wp-content/uploads/sites/10/2023/12/why-choose-new-era.jpg),
-      linear-gradient(90deg, rgba(43, 135, 218, 0.05) 0%, #00256b 57%) !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .cover {
+      background: #181818 !important;
+    }
   }
 </style>
