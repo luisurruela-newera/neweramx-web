@@ -11,24 +11,24 @@ const cardConfig = [
     icon: "desktop-management.png",
     title: "Administración de escritorios",
     classes: "border-secondary-1",
-  }
+  },
 ];
 ---
+
 <section class="py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2 class="text-center text-primary">Nuestros servicios gestionados y soluciones para el usuario final satisfacen los siguientes requisitos.</h2>
-      </div>
+  <div class="container py-3">
+    <div class="col-8 mx-auto">
+      <h2 class="text-center text-primary mb-5">Nuestros servicios gestionados y soluciones para el usuario final satisfacen los siguientes requisitos.</h2>
     </div>
+
     <div class="row py-2 px-3">
-        {
-          cardConfig.map((config) => (
-            <div class="col-md-6 mb-4 card-group">
-              <Card config={config} />
-            </div>
-          ))
-        }
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-6 mb-4 card-group">
+            <Card config={config} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

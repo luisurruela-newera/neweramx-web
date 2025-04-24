@@ -1,29 +1,55 @@
 ---
-import {Icon} from "astro-icon/components";
+import { Icon } from "astro-icon/components";
+const base = import.meta.env.BASE_URL;
 ---
-<section class="cover py-5">
-  <div class="container py-3">
-    <div class="row">
-      <div class="col text-white">
-        <h2 class="py-3">Las capacidades clave de la mesa de servicio incluyen:</h2>
-        <ul class="list-with-check text-white list-decoration-none">
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Soporte multilingüe 24/7/365 para garantizar la disponibilidad en cualquier momento</li>
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Soporte L1 de aplicaciones personalizadas, comerciales y listas para usar</li>
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Actualización del entorno informático en toda la empresa (Windows, UNIX, SQL DBA)</li>
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Supervisión y gestión de la infraestructura de TI</li>
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Gestión de incidentes de seguridad 24/7/365 a través del monitoreo continuo de actividades y eventos</li>
-          <li class="mb-3 ps-2"><Icon name="check" size={15} class="text-white me-3" />Mayor accesibilidad a través de un único punto de contacto para la comunicación y el intercambio de información</li>
-        </ul>
-      </div>
-    </div>
+
+<section class="cover py-5" style={`background-image: url("${base}assets/images/key-service-desk-capabilities.jpg") !important;`}>
+  <div class="container px-5 px-md-0">
+    <h2 class="py-3 mb-3 text-white text-medium">Las capacidades clave de la mesa de servicio incluyen:</h2>
+    <ul class="list-with-check text-white list-decoration-none">
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Soporte multilingüe 24/7/365 para garantizar la disponibilidad en cualquier momento</div>
+      </li>
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Soporte L1 de aplicaciones personalizadas, comerciales y listas para usar</div>
+      </li>
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Actualización del entorno informático en toda la empresa (Windows, UNIX, SQL DBA)</div>
+      </li>
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Supervisión y gestión de la infraestructura de TI</div>
+      </li>
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Gestión de incidentes de seguridad 24/7/365 a través del monitoreo continuo de actividades y eventos</div>
+      </li>
+      <li class="mb-3 ps-2 d-flex">
+        <div>
+          <Icon name="check" size={18} class="text-white me-2" />
+        </div>
+        <div>Mayor accesibilidad a través de un único punto de contacto para la comunicación y el intercambio de información</div>
+      </li>
+    </ul>
   </div>
 </section>
 
 <style>
-    .cover {
-        background-blend-mode: multiply;
-        background-image: url("/assets/images/key-service-desk-capabilities.jpg") !important;
-        background-color: #0D2D6A !important;
-    }
-  </style>
-  
+  .cover {
+    background-blend-mode: multiply;
+    background-color: #0d2d6a !important;
+  }
+</style>

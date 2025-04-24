@@ -92,7 +92,7 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
 
 <script define:vars={{ config: config, sliderId }} type="module">
   /* import Swiper from "/node_modules/swiper/swiper-bundle.mjs"; */
-  import Swiper from "../../../node_modules/swiper/swiper-bundle.mjs";
+  import Swiper from "./node_modules/swiper/swiper-bundle.mjs";
 
   document.addEventListener("DOMContentLoaded", () => {
     new Swiper(`#${sliderId}`, {
