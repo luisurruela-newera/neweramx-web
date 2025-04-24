@@ -1,9 +1,4 @@
 ---
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/grid";
-
 interface Props {
   config: {
     background?: string;
@@ -28,207 +23,137 @@ interface ISlider {
 }
 
 const { config } = Astro.props;
+const sliderId = `coverSlider-${Math.random().toString(36).substring(2, 9)}`;
 const sliderHeight = config.height || 420;
 const mobileHeight = config.mobileHeight || 50;
-const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class="swiper-container" style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px;`} id={sliderId}>
-  <div class="swiper-wrapper">
+<div id={sliderId} class="carousel slide" data-bs-ride="carousel" style={`max-width: ${config.width || "100%"}; margin: auto;`}>
+  {
+    config.items.length > 1 && (
+      <div class="carousel-indicators">
+        {config.items.map((_, index) => (
+          <button
+            type="button"
+            data-bs-target={`#${sliderId}`}
+            data-bs-slide-to={index}
+            class={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    )
+  }
+
+  <div class="carousel-inner">
     {
-      config.items.map((slide: ISlider) => (
-        <div
-          class={`swiper-slide ${config.background ? config.background : "bg-white"}`}
-          style={`background: ${slide.background ? `url(${slide.background})` : "transparent"}`}
-        >
-          {slide.overlayBackground && <div class="overlay" style={`--overlay-background: ${slide.overlayBackground}`} />}
+      config.items.map((slide, index) => {
+        return (
           <div
-            class="content-container container d-flex align-items-center px-4 px-md-0"
-            style={`height: var(--slide-height); @media (max-width: 767px) { height: var(--mobile-height); }`}
+            class={`carousel-item ${index === 0 ? "active" : ""} ${config.background ? config.background : "bg-white"}`}
+            style={`background: ${slide.background ? `url(${slide.background}) top center no-repeat; background-size: cover;` : "transparent"}`}
           >
-            <div class="slide-content">
-              {slide.image && <img src={`/assets/images/${slide.image}`} alt={slide.title} />}
-              {(slide.title || slide.description || slide.button) && (
-                <div class="text-content">
-                  {slide.title && (
-                    <div class="p-1 border-start border-4 ps-2 ps-md-5 border-secondary mb-4">
-                      <h2 class="text-bold text-super-large text-white">{slide.title}</h2>
-                    </div>
-                  )}
-                  {slide.description && <p class="text-white">{slide.description}</p>}
-                  {slide.button && (
-                    <a href={slide.button.url} class={`btn ${slide.button.classes}`}>
-                      {slide.button.text}
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
+            {slide.overlayBackground && <div class="overlay" style={`--overlay-background: ${slide.overlayBackground}`} />}
+            {(slide.title || slide.description || slide.button) && (
+              <div class="carousel-caption text-center">
+                {slide.title && <h5 class="display-5 fw-bold">{slide.title}</h5>}
+                {slide.description && <p class="lead fs-5">{slide.description}</p>}
+                {slide.button && (
+                  <a
+                    href={slide.button.url}
+                    class={`btn ${slide.button.classes || "btn-primary"} mt-3`}
+                    role="button"
+                    target={slide.button.url.startsWith("http") ? "_blank" : "_self"}
+                    rel={slide.button.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {slide.button.text}
+                  </a>
+                )}
+              </div>
+            )}
           </div>
-        </div>
-      ))
+        );
+      })
     }
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+
+  {
+    config.items.length > 1 && (
+      <div>
+        <button class="carousel-control-prev" type="button" data-bs-target={`#${sliderId}`} data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true" />
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target={`#${sliderId}`} data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true" />
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    )
+  }
 </div>
 
-<script>
-  function updateSlideHeights() {
-    const slides = document.querySelectorAll(".swiper-slide");
-    slides.forEach((slide) => {
-      if (slide instanceof HTMLElement) {
-        const height = window.innerWidth <= 767 ? slide.getAttribute("data-mobile-height") : slide.getAttribute("data-height");
-        slide.style.setProperty("--slide-height", `${height}px`);
-        slide.style.setProperty("--slide-mobile-height", `${slide.getAttribute("data-mobile-height")}px`);
-      }
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", updateSlideHeights);
-  window.addEventListener("resize", updateSlideHeights);
-</script>
-
-<script define:vars={{ config: config, sliderId }} type="module">
-  /* import Swiper from "/node_modules/swiper/swiper-bundle.mjs"; */
-  import Swiper from "./node_modules/swiper/swiper-bundle.mjs";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    new Swiper(`#${sliderId}`, {
-      navigation: {
-        nextEl: `#${sliderId} .swiper-button-next`,
-        prevEl: `#${sliderId} .swiper-button-prev`,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        type: "bullets",
-      },
-      loop: true,
-      autoplay: true,
-      delay: 3000,
-      disableOnInteraction: true,
-    });
-  });
-</script>
-
-<style lang="scss">
-  @use "../../styles/global/_config.scss" as *;
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    top: 55%;
-    transform: translateY(-55%);
-    color: #fff;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  .swiper-container {
+<style define:vars={{ sliderHeight: `${sliderHeight}px`, mobileHeight: `${mobileHeight}px` }}>
+  .carousel,
+  .carousel-item {
+    min-height: var(--mobileHeight);
     position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .carousel,
+    .carousel-item {
+      min-height: var(--sliderHeight);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .carousel-caption {
+      bottom: 20% !important;
+
+      h5 {
+        font-size: 24px;
+      }
+
+      p,
+      a {
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: var(--slide-height) !important;
-    overflow: hidden;
-
-    @media (max-width: 767px) {
-      height: var(--mobile-height) !important;
-    }
-
-    .swiper-pagination {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      width: auto;
-    }
-
-    .content-container {
-      height: var(--slide-height) !important;
-
-      @media (max-width: 767px) {
-        height: var(--mobile-height) !important;
-      }
-    }
+    height: 100%;
+    z-index: 1;
+    background: var(--overlay-background);
+    pointer-events: none;
   }
 
-  :global(.swiper-pagination-bullet) {
-    width: 12px;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.4) !important;
-    opacity: 1 !important;
-    margin: 0 5px;
+  .carousel-item {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
-  :global(.swiper-pagination-bullet-active) {
-    background: var(--secondary-color) !important;
-    opacity: 1 !important;
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 25%;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
   }
 
-  .swiper-slide {
-    height: var(--slide-height) !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    display: flex;
-    align-items: center;
-
-    @media (max-width: 767px) {
-      height: var(--mobile-height) !important;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      background: var(--overlay-background);
-      pointer-events: none;
-    }
-
-    .content-container {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      z-index: 2;
-      position: relative;
-
-      @media (max-width: 767px) {
-        align-items: center;
-        justify-content: center;
-      }
-
-      .slide-content {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-
-        @media (max-width: 767px) {
-          text-align: center;
-          align-items: center;
-        }
-
-        .text-content {
-          @media (max-width: 767px) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            h2,
-            p {
-              text-align: center;
-            }
-          }
-        }
-      }
-    }
+  .carousel-caption h5,
+  .carousel-caption p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
 </style>
