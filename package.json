@@ -1,7 +1,7 @@
 {
   "name": "neweramx-web",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,8 +13,7 @@
     "astro-icon": "^1.1.5",
     "bootstrap": "^5.3.3",
     "countup.js": "^2.8.0",
-    "lite-youtube-embed": "^0.3.3",
-    "swiper": "^11.2.6"
+    "lite-youtube-embed": "^0.3.3"
   },
   "devDependencies": {
     "sass": "^1.86.0"
