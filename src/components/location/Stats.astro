@@ -8,17 +8,17 @@ const base = import.meta.env.BASE_URL;
       <div class="col-md-4 d-flex align-items-center justify-content-center">
         <div class="ps-md-5 text-center text-md-start">
           <div class="py-4">
-            <p class="text-primary text-bold text-giant">20,000+</p>
+            <p id="countup-1" data-countup-end="20000" data-countup-suffix="+" class="text-primary text-bold text-giant">20,000+</p>
             <p class="text-muted text-bold text-large mt-4">Clientes valiosos</p>
           </div>
 
           <div class="py-4">
-            <p class="text-primary text-bold text-giant">80+</p>
+            <p id="countup-2" data-countup-end="80" data-countup-suffix="+" class="text-primary text-bold text-giant">80+</p>
             <p class="text-muted text-bold text-large mt-4">Oficinas en el mundo</p>
           </div>
 
           <div class="py-4">
-            <p class="text-primary text-bold text-giant">4,500+</p>
+            <p id="countup-3" data-countup-end="4500" data-countup-suffix="+" class="text-primary text-bold text-giant">4,500+</p>
             <p class="text-muted text-bold text-large mt-4">Empleados</p>
           </div>
         </div>
@@ -29,3 +29,49 @@ const base = import.meta.env.BASE_URL;
     </div>
   </div>
 </div>
+
+<script>
+  import { CountUp } from "countup.js";
+
+  function initCountUp(targetId: any) {
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) {
+      console.error(`Element with ID ${targetId} not found.`);
+      return null;
+    }
+
+    const endVal = parseFloat(targetElement.getAttribute("data-countup-end") ?? "");
+    const decimals = parseInt(targetElement.getAttribute("data-countup-decimals") || "0", 10);
+    const duration = 2;
+    const suffix = targetElement.getAttribute("data-countup-suffix") || (targetId !== "countup-3" ? "%" : "");
+    const prefix = targetElement.getAttribute("data-countup-prefix") || "";
+
+    const options = {
+      decimalPlaces: decimals,
+      duration: duration,
+      suffix: suffix,
+      prefix: prefix,
+      useEasing: true,
+      useGrouping: false,
+      enableScrollSpy: true,
+      scrollSpyDelay: 100,
+      scrollSpyOnce: true,
+    };
+
+    const countUpAnim = new CountUp(targetElement, endVal, options);
+
+    if (!countUpAnim.error) {
+      return countUpAnim;
+    } else {
+      console.error(`CountUp error for ${targetId}:`, countUpAnim.error);
+      targetElement.textContent = `${prefix}${endVal.toFixed(decimals)}${suffix}`;
+      return null;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initCountUp("countup-1");
+    initCountUp("countup-2");
+    initCountUp("countup-3");
+  });
+</script>
