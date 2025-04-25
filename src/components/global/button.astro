@@ -3,9 +3,10 @@ interface Props {
   title: string;
   link: string;
   class?: string;
+  target?: string;
 }
 
-const { title, link, class: className } = Astro.props;
+const { title, link, class: className, target = "_self" } = Astro.props;
 ---
 
-<a href={link} class={`btn ${className ? className : "btn-primary"} btn-lg text-uppercase text-small text-lead`}>{title}</a>
+<a href={link} class={`btn ${className ? className : "btn-primary"} btn-lg text-uppercase text-small text-lead`} target={target}>{title}</a>
