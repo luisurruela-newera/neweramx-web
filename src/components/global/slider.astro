@@ -1,15 +1,7 @@
 ---
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/grid";
-
-const base = import.meta.env.BASE_URL;
-
 interface Props {
   config: {
-    slidesPerView: number;
-    useGrid?: boolean;
+    itemsPerView?: number;
     height?: number;
     mobileHeight?: number;
     width?: string;
@@ -19,165 +11,210 @@ interface Props {
 
 interface ISlider {
   image?: string;
+  alt?: string;
+  url?: string;
 }
 
+const base = import.meta.env.BASE_URL;
 const { config } = Astro.props;
+const sliderId = `coverSlider-${Math.random().toString(36).substring(2, 9)}`;
 const sliderHeight = config.height || 420;
-const mobileHeight = config.mobileHeight || 50;
-const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
-const isGridView = config.useGrid || false;
+
+const itemsPerView = config.itemsPerView ?? 5;
+const groupedItems: ISlider[][] = [];
+const mobileGroupedItems: ISlider[][] = [];
+for (let i = 0; i < config.items.length; i += itemsPerView) {
+  groupedItems.push(config.items.slice(i, i + itemsPerView));
+  mobileGroupedItems.push(config.items.slice(i, i + 2));
+}
 ---
 
-<div class="swiper" style={`--slide-height: ${sliderHeight}px; --mobile-height: ${mobileHeight}px; --slide-width: ${config.width};`} id={sliderId}>
-  <div class="swiper-wrapper">
+<div id={sliderId} class="carousel slide d-none d-md-block" data-bs-ride="carousel" style={`max-width: ${config.width || "100%"}; margin: auto;`}>
+  {
+    groupedItems.length > 1 && (
+      <div class="carousel-indicators">
+        {groupedItems.map((_, index) => (
+          <button
+            type="button"
+            data-bs-target={`#${sliderId}`}
+            data-bs-slide-to={index}
+            class={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    )
+  }
+
+  <div class="carousel-inner">
     {
-      config.items.map((slide: ISlider) => (
-        <div class="swiper-slide">
-          <div class="content-container p-5 p-md-0">
-            <div class="slide-content d-flex align-items-center justify-content-center gap-2">
-              {slide.image && <img src={`${base}/assets/images/${slide.image}`} class="img-fluid" />}
-            </div>
+      groupedItems.map((group, index) => (
+        <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+          <div class="d-flex justify-content-around align-items-center h-100 logos-container">
+            {group.map((logo) => (
+              <div class="logo-item text-center">
+                {logo.url ? (
+                  <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                    <img src={`${base}assets/images/${logo.image}`} alt={logo.alt || "Logo"} class="img-fluid" />
+                  </a>
+                ) : (
+                  <img src={`${base}assets/images/${logo.image}`} alt={logo.alt || "Logo"} class="img-fluid" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       ))
     }
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+
+  {
+    config.items.length > 1 && (
+      <div>
+        <button class="carousel-control-prev" type="button" data-bs-target={`#${sliderId}`} data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true" />
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target={`#${sliderId}`} data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true" />
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    )
+  }
 </div>
 
-<script>
-  function updateSlideHeights() {
-    const slides = document.querySelectorAll(".swiper-slide");
-    slides.forEach((slide) => {
-      if (slide instanceof HTMLElement) {
-        const height = window.innerWidth <= 767 ? slide.getAttribute("data-mobile-height") : slide.getAttribute("data-height");
-        slide.style.setProperty("--slide-height", `${height}px`);
-        slide.style.setProperty("--slide-mobile-height", `${slide.getAttribute("data-mobile-height")}px`);
-      }
-    });
+<div id={sliderId} class="carousel slide d-md-none" data-bs-ride="carousel" style={`max-width: ${config.width || "100%"}; margin: auto;`}>
+  {
+    mobileGroupedItems.length > 1 && (
+      <div class="carousel-indicators">
+        {mobileGroupedItems.map((_, index) => (
+          <button
+            type="button"
+            data-bs-target={`#${sliderId}`}
+            data-bs-slide-to={index}
+            class={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    )
   }
 
-  document.addEventListener("DOMContentLoaded", updateSlideHeights);
-  window.addEventListener("resize", updateSlideHeights);
-</script>
+  <div class="logo-list-mobile">
+    {
+      mobileGroupedItems.map((group, index) => (
+        <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+          <div class="d-flex justify-content-around align-items-center h-100 logos-container">
+            {group.map((logo) => (
+              <div class="logo-item text-center">
+                {logo.url ? (
+                  <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                    <img src={`${base}assets/images/${logo.image}`} alt={logo.alt || "Logo"} class="img-fluid" />
+                  </a>
+                ) : (
+                  <img src={`${base}assets/images/${logo.image}`} alt={logo.alt || "Logo"} class="img-fluid" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
 
-<script define:vars={{ config: config, sliderId, isGridView }} type="module">
-  /* import Swiper from "./node_modules/swiper";
-  import { Navigation, Pagination, Grid } from "./node_modules/swiper/modules"; */
-
-  import Swiper from "./node_modules/swiper/swiper-bundle.mjs";
-  import { Navigation, Pagination, Grid } from "./node_modules/swiper/modules";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const modules = [Navigation, Pagination, Grid];
-
-    new Swiper(`#${sliderId}`, {
-      modules,
-      slidesPerView: 1,
-      spaceBetween: 20,
-      grid: {
-        rows: 4,
-        fill: "row",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: config.slidesPerView,
-          spaceBetween: 30,
-          grid: {
-            rows: 1,
-          },
-        },
-      },
-    });
-  });
-</script>
-
-<style lang="scss">
+<style
+  define:vars={{
+    sliderHeight: `${sliderHeight}px`,
+    itemsPerView: itemsPerView,
+  }}
+  lang="scss"
+>
   @use "../../styles/global/_config.scss" as *;
 
-  .swiper {
-    width: 100%;
-    max-width: var(--slide-width);
-    height: var(--slide-height);
-    padding: 20px 40px;
-    position: relative;
-    margin-bottom: 40px;
+  .logo-carousel .carousel-item {
+    min-height: var(--sliderHeight);
+    padding: 1rem 0;
+  }
 
-    @media (max-width: 767px) {
-      height: calc(var(--mobile-height) * 4);
-      padding: 10px 0;
-    }
+  .carousel-indicators {
+    margin-bottom: -3rem;
+  }
 
-    :global(.swiper-pagination) {
-      position: absolute;
-      bottom: -30px;
-      left: 0;
-      width: 100%;
-    }
-
-    :global(.swiper-pagination-bullet) {
-      width: 10px !important;
-      height: 10px !important;
-      background: rgb(0, 0, 0) !important;
-      opacity: 1 !important;
-      margin: 0 4px !important;
-
-      @media (max-width: 767px) {
-        background: rgb(255, 255, 255) !important;
-      }
-    }
-
-    :global(.swiper-pagination-bullet-active) {
-      background: $secondary-color !important;
-      opacity: 1 !important;
+  @media screen and (max-width: 768px) {
+    .carousel-indicators {
+      margin-bottom: -0.7rem;
     }
   }
 
-  .swiper-slide {
-    height: var(--slide-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width: 767px) {
-      height: var(--mobile-height);
-    }
-
-    .content-container {
-      width: 100%;
-      padding: 10px;
-
-      .slide-content {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-          max-width: 90%;
-          height: auto;
-          object-fit: contain;
-        }
-      }
-    }
+  .carousel-indicators button {
+    background-color: $secondary-color !important;
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: $secondary-color;
+  .carousel {
+    min-width: 100%;
+    min-height: var(--sliderHeight);
+  }
 
-    @media (max-width: 767px) {
-      display: none;
+  .logos-container {
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .logo-item {
+    flex: 1;
+  }
+
+  .logo-item img {
+    max-height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .logo-item a:hover img,
+  .logo-item img:hover {
+    opacity: 1;
+  }
+
+  .logo-carousel .carousel-control-prev-icon,
+  .logo-carousel .carousel-control-next-icon {
+    filter: invert(1) grayscale(100);
+    background-color: rgba(128, 128, 128, 0.5) !important;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .logo-carousel .carousel-control-prev {
+    left: -0.5rem;
+  }
+  .logo-carousel .carousel-control-next {
+    right: -0.5rem;
+  }
+
+  .logo-list-mobile {
+    width: 100%; // O un max-width si prefieres
+    margin: 0 auto;
+    padding: 1rem; // Espacio alrededor de la lista
+  }
+
+  .logo-list-item {
+    margin-bottom: 1.5rem; // Espacio entre logos verticales
+    &:last-child {
+      margin-bottom: 0; // Sin margen inferior en el último
+    }
+
+    img {
+      max-height: 60px; // Altura máxima para logos en la lista vertical
+      max-width: 80%; // Ancho máximo para evitar que sean demasiado grandes
+      object-fit: contain;
+      margin: 0 auto; // Centrar la imagen si es más pequeña que el contenedor
+      display: block; // Asegura que el margen auto funcione
     }
   }
 </style>
