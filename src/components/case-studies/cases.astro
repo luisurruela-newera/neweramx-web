@@ -1,0 +1,63 @@
+---
+const base = import.meta.env.BASE_URL;
+const cases = [
+    {
+       id: 1,
+       img: 'neweratechnology_logo.svg',
+       title: 'Azure Data Lake',
+       link: 'AzureDataLake.pdf'
+    },
+    {
+        id: 2,
+        img: 'neweratechnology_logo.svg',
+        title: 'Ciencia De Datos',
+        link: 'CienciaDeDatos.pdf'
+    },
+    {
+        id: 3,
+       img: 'neweratechnology_logo.svg',
+       title: 'Gestion de Servicios TI',
+       link: 'GestionServiciosTI.pdf'
+    },
+    {
+        id: 4,
+       img: 'neweratechnology_logo.svg',
+       title: 'Implementacion Power BI',
+       link: 'ImplementacionPowerBi.pdf'
+    },
+    {
+        id: 5,
+       img: 'neweratechnology_logo.svg',
+       title: 'Nivel de Servicio',
+       link: 'NivelDeServicio.pdf'
+    }
+];
+---
+
+<section id="content-area" class="py-5">
+  <div class="container py-3">
+    <div class="row mx-auto py-4">
+      {
+        cases.map((config) => (
+          <div class="col-md-4 card-group mb-3">
+            <img src={`${base}assets/images/${config.img}`} alt={config.title} class="img-fluid px-1"/>
+            <div class="blog-content">
+              <div class="blog-copy">
+                <span class="text on-light">
+                    <h5 class="entry-title blog-title">
+                      <a href={`${base}assets/resources/${config.link}`} target="_blank" rel="noopener noreferrer">
+                        {config.title}
+                      </a>
+                    </h5>
+                    <div class="solution-excerpt">
+                      <a href={`${base}assets/resources/${config.link}`} class="btn btn-primary" target="_blank" rel="noopener noreferrer">View</a>
+                    </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
