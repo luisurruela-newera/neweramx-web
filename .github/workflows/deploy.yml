@@ -1,3 +1,5 @@
+# .github/workflows/deploy.yml
+
 name: Deploy to GitHub Pages and FTP
 
 on:
@@ -34,8 +36,11 @@ jobs:
       - name: Build your site
         # Asegúrate que 'base' esté configurado en astro.config.mjs
         run: npm run build # O 'yarn build' o 'pnpm build'
-      - name: Upload artifact
+        id: build-output # Asignamos un ID al paso de build
+
+      - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3 # Actualizado a v3
+        if: always() # Siempre se ejecuta para el deploy de Pages
         with:
           # Sube todo el directorio dist
           path: ./dist
@@ -67,7 +72,7 @@ jobs:
           ftp_host: ${{ secrets.FTP_SERVER }}
           ftp_username: ${{ secrets.FTP_USERNAME }}
           ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: "dist"
-          dist_target_dir: "/" # ¡Directorio raíz!
+          local_source_dir: "dist" # ¡Directorio local a subir!
+          dist_target_dir: "/" # Directorio remoto raíz
           delete: "true"
           exclude: "'^logs/' '^README.md'"
