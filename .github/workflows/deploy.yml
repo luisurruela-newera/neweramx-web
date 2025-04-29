@@ -72,5 +72,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/ # El directorio local que contiene los archivos a subir (con la barra al final)
-          # remote-dir: ${{ secrets.FTP_REMOTE_DIR }} # Descomenta y configura si necesitas un directorio remoto específico
+          local-dir: ./dist/
+          server-dir: /neweratech-mx/
