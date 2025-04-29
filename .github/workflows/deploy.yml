@@ -60,6 +60,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist # Asegúrate que coincida con el path que quieres subir
+
       - name: FTP Deploy
         uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
         with:
