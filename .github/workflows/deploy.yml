@@ -55,24 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # Actualizado a v4
-
-  deploy-ftp:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./dist # Asegúrate que coincida con el path que quieres subir
-
-      - name: FTP Deploy
-        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
-        with:
-          ftp_host: ${{ secrets.FTP_SERVER }}
-          ftp_username: ${{ secrets.FTP_USERNAME }}
-          ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: "dist" # ¡Directorio local a subir!
-          dist_target_dir: "/" # Directorio remoto raíz
-          delete: "true"
-          exclude: "'^logs/' '^README.md'"
