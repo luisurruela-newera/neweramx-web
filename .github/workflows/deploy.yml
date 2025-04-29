@@ -1,6 +1,6 @@
 # .github/workflows/deploy.yml
 
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages and FTP
 
 on:
   # Se ejecuta en pushes dirigidos a la rama `main` (o `master` si usas esa)
@@ -36,8 +36,11 @@ jobs:
       - name: Build your site
         # Asegúrate que 'base' esté configurado en astro.config.mjs
         run: npm run build # O 'yarn build' o 'pnpm build'
-      - name: Upload artifact
+        id: build-output # Asignamos un ID al paso de build
+
+      - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3 # Actualizado a v3
+        if: always() # Siempre se ejecuta para el deploy de Pages
         with:
           # Sube todo el directorio dist
           path: ./dist
@@ -57,22 +60,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          # El nombre por defecto del artefacto subido por upload-pages-artifact es 'github-pages'
-          # Si cambiaste el nombre en el job de build, ajústalo aquí.
-          name: github-pages
-          # Descarga los archivos en el directorio actual '.'
-          path: ./dist # Asegúrate que coincida con el path que quieres subir
-
       - name: FTP Deploy
         uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
         with:
           ftp_host: ${{ secrets.FTP_SERVER }}
           ftp_username: ${{ secrets.FTP_USERNAME }}
           ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: "dist"
-          dist_target_dir: "./"
+          local_source_dir: "dist" # ¡Directorio local a subir!
+          dist_target_dir: "/" # Directorio remoto raíz
           delete: "true"
           exclude: "'^logs/' '^README.md'"
