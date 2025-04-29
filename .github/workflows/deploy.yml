@@ -52,3 +52,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # Actualizado a v4
+
+  deploy-ftp:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          # El nombre por defecto del artefacto subido por upload-pages-artifact es 'github-pages'
+          # Si cambiaste el nombre en el job de build, ajústalo aquí.
+          name: github-pages
+          # Descarga los archivos en el directorio actual '.'
+          path: ./dist # Asegúrate que coincida con el path que quieres subir
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/ # El directorio local que contiene los archivos a subir (con la barra al final)
+          # remote-dir: ${{ secrets.FTP_REMOTE_DIR }} # Descomenta y configura si necesitas un directorio remoto específico
