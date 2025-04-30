@@ -22,7 +22,7 @@ export const cardConfig = [
   },
   {
     icon: "flexibility.png",
-    title: "Felxibilidad",
+    title: "Flexibilidad",
     body: "En comparación con un mayor TCO en el uso de infraestructura local, la computación en la nube funciona con suscripciones escalables de pago por uso. Esto elimina múltiples costos de licencia con una única suscripción para todas sus necesidades comerciales.",
     color: "bg-light",
     classes: "border-0",
