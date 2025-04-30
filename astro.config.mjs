@@ -4,8 +4,8 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://luisurruela-newera.github.io",
-  base: "/neweramx-web/",
+  site: "http://aptudemxdev.com",
+  base: "/neweratech-mx/",
   image: {
     domains: ["assets/images/*.svg"],
   },
