@@ -8,7 +8,7 @@ export const cardConfig = [
   },
   {
     icon: "security.png",
-    title: "Securidad",
+    title: "Seguridad",
     body: "Las plataformas en la nube como Azure ofrecen seguridad integral para sus datos y aplicaciones, con capacidades integradas que le brindan una postura de seguridad sólida. Usted se beneficiará de una mayor seguridad en comparación con las implementaciones locales heredadas, vulnerables a incidentes de seguridad que pueden comprometer sus operaciones comerciales.",
     color: "bg-light",
     classes: "border-0",
