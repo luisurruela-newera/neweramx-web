@@ -1,57 +1,29 @@
-# .github/workflows/deploy.yml
-
-name: Deploy to GitHub Pages and FTP
+name: Deploy to GitHub Pages
 
 on:
-  # Se ejecuta en pushes dirigidos a la rama `main` (o `master` si usas esa)
   push:
-    branches: [ master ] # Cambia a 'master' si esa es tu rama principal
-  # Permite ejecutar este workflow manualmente desde la pestaña Actions en GitHub
+    branches: [ master ]
   workflow_dispatch:
-
-# Permisos necesarios para que la acción pueda escribir en la rama gh-pages
+  
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-# Permite un despliegue concurrente
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4 # Actualizado a v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4 # Actualizado a v4
+        uses: actions/checkout@v3
+      - name: Install, build, and upload your site output
+        uses: radenpioneer/astro-ftp-deploy@v0.1.0
         with:
-          node-version: '18' # O la versión de Node que uses
-          cache: 'npm' # O 'yarn' o 'pnpm'
-      - name: Install dependencies
-        run: npm install # O 'yarn install' o 'pnpm install'
-      - name: Build your site
-        # Asegúrate que 'base' esté configurado en astro.config.mjs
-        run: npm run build # O 'yarn build' o 'pnpm build'
-        id: build-output # Asignamos un ID al paso de build
-
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3 # Actualizado a v3
-        if: always() # Siempre se ejecuta para el deploy de Pages
-        with:
-          # Sube todo el directorio dist
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 # Actualizado a v4
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          directory: ${{ secrets.FTP_REMOTE_DIR }}
+          # protocol: ftp # The protocol to use on your FTP server. (optional)
+          # port: "21" # The port of your FTP server. (optional)
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
+          # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+          # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
