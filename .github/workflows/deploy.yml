@@ -2,7 +2,7 @@ name: Deploy Astro Site via FTP
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: ⚙️ Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: "lts/*"
 
       - name: 📦 Install dependencies
         run: npm install # O yarn install, pnpm install
@@ -31,5 +31,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
           protocol: ftps # O ftp si tu servidor no soporta FTPS
