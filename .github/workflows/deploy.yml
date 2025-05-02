@@ -32,5 +32,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: '/'
           local-dir: ./dist/
-          log-level: debug
+          log-level: verbose
           protocol: ftps # O ftp si tu servidor no soporta FTPS
