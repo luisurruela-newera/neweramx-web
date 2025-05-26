@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components";
+const elements = [
+  { title: "Ciencias biológicas" },
+  { title: "CDMO" },
+  { title: "Alimentos y Bebidas" },
+  { title: "Industria química y petroquimica" },
+  { title: "Petróleo y gas" },
+  { title: "Agroquímica" },
+  { title: "Bienes de consume" },
+  { title: "Laboratorios de ensayo por contrato" },
+  { title: "Laboratorios clínicos" },
+  { title: "Salud publica" },
+  { title: "Criminalística" },
+  { title: "Ciencias ambientales" },
+];
+---
+
+<section id="whoweserve" class="py-5 bg-light">
+  <div class="container py-3 text-center px-5">
+    <h2 class="text-primary mb-5">Who we serve?</h2>
+    <div class="row px-4">
+      {
+        elements.map((element) => (
+          <div class="col-md-4 col-group mb-3 text-start">
+            <Icon name="check" size={20} class="text-primary me-2" />
+            {element.title}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

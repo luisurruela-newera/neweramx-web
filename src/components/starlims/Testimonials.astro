@@ -1,0 +1,42 @@
+---
+import quoteImage from "src/assets/images/quote.webp";
+const cardConfig = [
+  {
+    text: "Queremos que nuestros investigadores se enfoquen en el análisis, la toma de decisiones y el avance de los proyectos, en lugar de procesar manualmente los datos. STARLIMS nos ayuda a conectar muchas piezas clave entre el laboratorio y los procesos de I+D.",
+    name: "Christopher Dehen",
+    role: "PhD, Manager de Ciencia de Datos e Información, DuPont",
+  },
+  {
+    text: "Buscábamos un sistema que eliminara la necesidad de transcripción manual y papel, ahorrando tiempo al personal, permitiendo la carga automática de resultados, la generación de reportes en línea, una mejor programación y una reducción del tiempo de respuesta.",
+    name: "Tawatpong Supikamolsenei",
+    role: "Gerente de Control de Calidad, Carabao Dang Brand Factory",
+  },
+  {
+    text: "STARLIMS aportó eficiencia a través de flujos de trabajo estandarizados, gestión de muestras de QC, estabilidad y microbiología, reportes personalizados e integración con instrumentos y sistemas empresariales.",
+    name: "David Hipperson",
+    role: "Gerente de Ingeniería de Calidad, Douglas Pharmaceuticals",
+  },
+];
+---
+
+<section id="testimonials" class="py-5 bg-light">
+  <div class="container py-3 text-center text-md-start">
+    <h2 class="text-primary mb-5 text-center">Testimonios de Clientes</h2>
+    <div class="row">
+      {
+        cardConfig.map((config) => (
+          <div class="col-md-4 mb-3 card-group">
+            <div class="card py-3 border-0">
+              <div class="card-body text-center">
+                <img src={quoteImage.src} alt="Quote" class="mb-3" style="width: 50px; height: 50px;" />
+                <p class="card-text">{config.text}</p>
+                <h5 class="card-title text-primary">{config.name}</h5>
+                <p class="card-subtitle mb-2 text-secondary">{config.role}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
